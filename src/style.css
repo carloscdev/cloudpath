@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Smooth theme transitions scoped only to color-related properties */
+  html,
+  html body,
+  html header,
+  html main,
+  html footer,
+  html section,
+  html div,
+  html p,
+  html h1,
+  html h2,
+  html h3,
+  html h4,
+  html span,
+  html a,
+  html button,
+  html svg,
+  html path,
+  html circle,
+  html rect {
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow, opacity;
+    transition-duration: 350ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
