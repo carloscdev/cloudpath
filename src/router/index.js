@@ -8,6 +8,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
+    },
+    {
+      path: '/course/aws-cloud-practitioner',
+      name: 'aws-cloud-practitioner',
+      component: () => import('../views/CourseView.vue')
     }
   ],
   scrollBehavior(to, from, savedPosition) {

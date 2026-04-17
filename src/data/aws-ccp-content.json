@@ -1,0 +1,628 @@
+{
+  "id": "aws-cloud-practitioner",
+  "title": "AWS Cloud Practitioner",
+  "titleFull": "AWS Certified Cloud Practitioner",
+  "badge": "CLF-C02",
+  "color": "#FF9900",
+  "domains": [
+    {
+      "id": "domain-1",
+      "number": 1,
+      "title": "Conceptos de la nube",
+      "titleEn": "Cloud Concepts",
+      "weight": 24,
+      "description": "Fundamentos de la nube de AWS, modelos de despliegue y la infraestructura global.",
+      "topics": [
+        {
+          "id": "d1-t1",
+          "title": "Beneficios de AWS Cloud",
+          "icon": "cloud",
+          "sections": [
+            {
+              "heading": "Ventajas principales",
+              "points": [
+                "**Alta disponibilidad:** Los servicios están diseñados para estar disponibles continuamente, incluso ante fallos parciales.",
+                "**Elasticidad:** Escala automáticamente hacia arriba o abajo según la demanda sin sobreaprovisionamiento.",
+                "**Agilidad:** Aprovisiona recursos en minutos en lugar de semanas. Experimenta con rapidez y bajo costo.",
+                "**Durabilidad:** AWS garantiza alta durabilidad de datos (S3 ofrece 99.999999999 % = 11 nueves).",
+                "**Alcance global:** Despliega tu aplicación en múltiples regiones del mundo con unos pocos clics.",
+                "**Economías de escala:** AWS compra infraestructura en grandes volúmenes y transfiere el ahorro a sus clientes. Tú pagas precios más bajos que si compraras por tu cuenta.",
+                "**Capex → Opex:** Eliminas los gastos de capital (comprar servidores) y los conviertes en gastos operativos predecibles (pagar por uso)."
+              ]
+            },
+            {
+              "heading": "Modelo de precios",
+              "points": [
+                "**Pay-as-you-go:** Solo pagas por lo que usas, cuando lo usas. Sin compromiso mínimo.",
+                "**Pay less when you reserve:** Reservar capacidad (Reserved Instances) puede ahorrar hasta un 75 % vs. On-Demand.",
+                "**Pay less with more:** Algunos servicios (como S3) ofrecen precios escalonados: cuanto más usas, menos pagas por unidad."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Las 6 ventajas de la nube: cambio de capex a opex, economías de escala, eliminar adivinación de capacidad, agilidad, no gestionar centros de datos, alcance global en minutos.",
+            "Elasticidad ≠ Escalabilidad: escalabilidad es la capacidad de crecer; elasticidad es crecer Y reducirse automáticamente.",
+            "AWS cobra por compute (tiempo), almacenamiento (GB) y transferencia de datos (GB saliente)."
+          ]
+        },
+        {
+          "id": "d1-t2",
+          "title": "Modelos de despliegue en la nube",
+          "icon": "server",
+          "sections": [
+            {
+              "heading": "Tipos de nube",
+              "points": [
+                "**Nube pública (Public Cloud):** Toda la infraestructura es propiedad del proveedor (AWS). Recursos compartidos con otros clientes pero aislados lógicamente. Ejemplo: ejecutar servidores en EC2.",
+                "**Nube privada (Private Cloud / On-Premises):** Infraestructura exclusiva de una organización, gestionada internamente en su propio centro de datos.",
+                "**Nube híbrida (Hybrid Cloud):** Combinación de nube pública y privada, conectadas entre sí. Permite mover cargas entre entornos. Ejemplo: AWS Direct Connect + servidores locales.",
+                "**Multi-nube (Multi-Cloud):** Uso simultáneo de dos o más proveedores de nube pública (AWS + Azure, etc.)."
+              ]
+            },
+            {
+              "heading": "Modelos de servicio",
+              "points": [
+                "**IaaS (Infrastructure as a Service):** El proveedor gestiona hardware, redes y virtualización. El cliente gestiona OS, middleware y apps. Ejemplo: EC2.",
+                "**PaaS (Platform as a Service):** El proveedor gestiona todo excepto la aplicación y los datos. Ejemplo: Elastic Beanstalk, RDS.",
+                "**SaaS (Software as a Service):** El proveedor gestiona todo, el cliente solo usa el software. Ejemplo: Gmail, Salesforce, AWS WorkMail."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Nube pública = AWS gestiona hardware. Nube privada = tú gestionas hardware.",
+            "Híbrida es la más común en empresas grandes que migran gradualmente.",
+            "IaaS te da más control; SaaS te da menos control pero menos responsabilidad."
+          ]
+        },
+        {
+          "id": "d1-t3",
+          "title": "Infraestructura global de AWS",
+          "icon": "globe",
+          "sections": [
+            {
+              "heading": "Componentes de la infraestructura",
+              "points": [
+                "**Regiones (Regions):** Áreas geográficas separadas físicamente. Cada región tiene 2+ Zonas de Disponibilidad. Al elegir una región considera: latencia, cumplimiento legal, disponibilidad de servicios y precio.",
+                "**Zonas de Disponibilidad (AZs):** Uno o más centros de datos físicamente separados dentro de una región, conectados con fibra de baja latencia. Permiten alta disponibilidad y tolerancia a fallos.",
+                "**Edge Locations / Puntos de Presencia:** Ubicaciones donde CloudFront almacena contenido en caché cerca del usuario. Hay muchas más Edge Locations que Regiones.",
+                "**Local Zones:** Extienden una región de AWS acercando compute, storage y bases de datos a ciudades específicas. Reduce la latencia.",
+                "**AWS Wavelength:** Despliega aplicaciones en el borde de redes 5G para latencia ultra-baja en dispositivos móviles.",
+                "**AWS Outposts:** Racks de servidores AWS instalados en tu propio centro de datos. Ofrece servicios AWS on-premises."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Una Región ≥ 2 AZs. Una AZ ≥ 1 centro de datos.",
+            "Diseña para alta disponibilidad desplegando en múltiples AZs dentro de una región.",
+            "Edge Locations > Regiones en número. Existen ~450+ edge locations vs ~35 regiones.",
+            "AWS tiene regiones en: EEUU, Europa, Asia Pacífico, Sudamérica, Oriente Medio y África."
+          ]
+        },
+        {
+          "id": "d1-t4",
+          "title": "AWS Well-Architected Framework",
+          "icon": "layers",
+          "sections": [
+            {
+              "heading": "Los 6 pilares",
+              "points": [
+                "**1. Excelencia Operacional:** Ejecutar y monitorear sistemas. Mejorar procesos continuamente. Clave: IaC, documentar operaciones, anticipar fallos.",
+                "**2. Seguridad:** Proteger información, sistemas y activos. Clave: IAM, encriptación, trazabilidad, proteger en tránsito y en reposo.",
+                "**3. Confiabilidad:** Recuperarse de interrupciones. Escalar para satisfacer demanda. Clave: backups, múltiples AZs, auto scaling.",
+                "**4. Eficiencia del Rendimiento:** Usar recursos eficientemente. Clave: elegir el tipo de recurso correcto, monitorear rendimiento, serverless.",
+                "**5. Optimización de Costos:** Evitar gastos innecesarios. Clave: right-sizing, Free Tier, Spot Instances, Reserved Instances.",
+                "**6. Sostenibilidad:** Minimizar impacto ambiental. Clave: maximizar utilización, servicios administrados, regiones con energía renovable."
+              ]
+            },
+            {
+              "heading": "AWS Well-Architected Tool",
+              "points": [
+                "Herramienta gratuita en la consola de AWS que evalúa tu arquitectura contra los 6 pilares.",
+                "Genera un informe con riesgos identificados y recomendaciones de mejora.",
+                "Usa 'lentes' especializadas para industrias como SaaS, IoT, Machine Learning."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Los 6 pilares: Excelencia Operacional, Seguridad, Confiabilidad, Eficiencia del Rendimiento, Optimización de Costos, Sostenibilidad.",
+            "El framework NO es un servicio, es un conjunto de mejores prácticas y documentación.",
+            "AWS Well-Architected Tool es un servicio real en la consola para evaluar tu arquitectura."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "domain-2",
+      "number": 2,
+      "title": "Seguridad y cumplimiento",
+      "titleEn": "Security & Compliance",
+      "weight": 30,
+      "description": "El dominio más importante del examen. Cubre el modelo de responsabilidad compartida, IAM y los servicios de seguridad clave.",
+      "topics": [
+        {
+          "id": "d2-t1",
+          "title": "Modelo de Responsabilidad Compartida",
+          "icon": "shield",
+          "sections": [
+            {
+              "heading": "¿Qué es?",
+              "points": [
+                "Divide las responsabilidades de seguridad entre AWS y el cliente. Es fundamental entender quién es responsable de qué."
+              ]
+            },
+            {
+              "heading": "Responsabilidad de AWS — 'Seguridad DE la nube'",
+              "points": [
+                "Hardware físico (servidores, switches, routers)",
+                "Instalaciones físicas y centros de datos",
+                "Software de virtualización (hipervisor)",
+                "Infraestructura de red global",
+                "Mantenimiento y parcheo del hardware"
+              ]
+            },
+            {
+              "heading": "Responsabilidad del Cliente — 'Seguridad EN la nube'",
+              "points": [
+                "Datos del cliente (encriptación, clasificación)",
+                "Gestión de identidades y accesos (IAM, usuarios, contraseñas)",
+                "Configuración del sistema operativo y parcheo en EC2",
+                "Configuración de red (Security Groups, NACLs, firewall)",
+                "Aplicaciones desplegadas por el cliente",
+                "Side-server y client-side encryption"
+              ]
+            },
+            {
+              "heading": "Casos según tipo de servicio",
+              "points": [
+                "**IaaS (EC2):** El cliente es responsable del OS, middleware y la app.",
+                "**PaaS (RDS):** AWS gestiona el OS y la DB engine. El cliente gestiona los datos y configuración de la DB.",
+                "**SaaS (S3):** AWS gestiona todo excepto el cifrado del lado del cliente y las políticas de acceso."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "AWS = 'OF the cloud' (infraestructura física). Cliente = 'IN the cloud' (datos y configuración).",
+            "En EC2: el cliente parchea el OS. En RDS: AWS parchea la base de datos.",
+            "El cifrado siempre es responsabilidad compartida: AWS ofrece las herramientas, el cliente decide si usarlas."
+          ]
+        },
+        {
+          "id": "d2-t2",
+          "title": "IAM — Identity and Access Management",
+          "icon": "key",
+          "sections": [
+            {
+              "heading": "Componentes de IAM",
+              "points": [
+                "**Usuarios (Users):** Representan a personas o aplicaciones. Tienen credenciales permanentes (usuario/contraseña o Access Keys).",
+                "**Grupos (Groups):** Colecciones de usuarios. Las políticas asignadas al grupo se aplican a todos sus usuarios. Un usuario puede pertenecer a múltiples grupos.",
+                "**Roles (Roles):** Identidades con permisos temporales asignables a servicios de AWS, usuarios federados o usuarios de otras cuentas. No tienen credenciales permanentes.",
+                "**Políticas (Policies):** Documentos JSON que definen permisos. Se adjuntan a usuarios, grupos o roles.",
+                "**Políticas basadas en identidad:** Se adjuntan al principal (usuario/grupo/rol).",
+                "**Políticas basadas en recursos:** Se adjuntan al recurso (S3 bucket policy, etc.)."
+              ]
+            },
+            {
+              "heading": "Mejores prácticas de IAM",
+              "points": [
+                "**No uses la cuenta root** para operaciones diarias. Crea usuarios IAM para cada persona.",
+                "Habilita **MFA (autenticación multifactor)** en la cuenta root y usuarios privilegiados.",
+                "Aplica el **principio de mínimo privilegio**: otorga solo los permisos estrictamente necesarios.",
+                "Usa **roles IAM** para que los servicios de AWS accedan a otros recursos (ejemplo: EC2 accediendo a S3).",
+                "Rota las **Access Keys** regularmente y elimina las no utilizadas.",
+                "Usa **AWS Organizations** para gestionar permisos entre múltiples cuentas con SCPs."
+              ]
+            },
+            {
+              "heading": "Herramientas de acceso",
+              "points": [
+                "**AWS Management Console:** Interfaz web, acceso con usuario/contraseña + MFA.",
+                "**AWS CLI:** Línea de comandos, usa Access Key ID + Secret Access Key.",
+                "**AWS SDK:** Programático (Python, Java, Node, etc.), usa Access Keys o roles."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "IAM es global, no es específico de ninguna región.",
+            "Roles > Access Keys para aplicaciones. Nunca embeds Access Keys en código.",
+            "Una política DENY siempre sobrepasa una política ALLOW.",
+            "Por defecto, todo está DENEGADO en IAM. Solo se permite lo que se especifica explícitamente."
+          ]
+        },
+        {
+          "id": "d2-t3",
+          "title": "Servicios de seguridad clave",
+          "icon": "lock",
+          "sections": [
+            {
+              "heading": "Protección ante amenazas",
+              "points": [
+                "**AWS Shield Standard:** Protección automática y gratuita contra ataques DDoS comunes para todos los clientes de AWS.",
+                "**AWS Shield Advanced:** Protección adicional pagada contra ataques DDoS sofisticados. Incluye soporte DDoS Response Team (DRT) y protección de costos.",
+                "**AWS WAF (Web Application Firewall):** Filtra tráfico web malicioso usando reglas (bloquea SQLi, XSS, IPs específicas). Integrado con CloudFront, ALB y API Gateway.",
+                "**Amazon GuardDuty:** Servicio de detección de amenazas que analiza logs de CloudTrail, VPC Flow Logs y DNS. Usa ML para encontrar comportamientos anómalos.",
+                "**Amazon Macie:** Descubre y protege datos sensibles (PII, tarjetas de crédito) en buckets de S3 usando ML.",
+                "**Amazon Inspector:** Escanea vulnerabilidades en instancias EC2 y funciones Lambda. Evalúa contra benchmarks de seguridad (CVE, CIS)."
+              ]
+            },
+            {
+              "heading": "Gestión de claves y secretos",
+              "points": [
+                "**AWS KMS (Key Management Service):** Crea y gestiona claves de cifrado. Se integra con casi todos los servicios AWS. Las claves KMS nunca salen de AWS.",
+                "**AWS Secrets Manager:** Almacena, rota automáticamente y gestiona secretos (contraseñas de DB, API keys). Más robusto que Parameter Store para secretos.",
+                "**AWS Certificate Manager (ACM):** Provisiona y renueva automáticamente certificados SSL/TLS para HTTPS."
+              ]
+            },
+            {
+              "heading": "Auditoría y monitoreo de seguridad",
+              "points": [
+                "**AWS CloudTrail:** Registra TODAS las llamadas a la API de AWS. Quién hizo qué, desde dónde y cuándo. Esencial para auditoría y forense.",
+                "**AWS Config:** Registra el historial de configuración de tus recursos AWS. Detecta cambios no autorizados y evalúa cumplimiento contra reglas definidas.",
+                "**AWS Security Hub:** Panel centralizado para ver alertas de seguridad de GuardDuty, Inspector, Macie, etc. en un solo lugar."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Shield Standard = gratis automático. Shield Advanced = pagado, para ataques sofisticados.",
+            "GuardDuty = detecta amenazas (analiza logs). Inspector = detecta vulnerabilidades (escanea EC2/Lambda).",
+            "CloudTrail = registro de acciones de API. CloudWatch = monitoreo de métricas y logs de aplicaciones.",
+            "KMS maneja las claves. Secrets Manager maneja las credenciales/secretos."
+          ]
+        },
+        {
+          "id": "d2-t4",
+          "title": "Cumplimiento y gobernanza",
+          "icon": "check-circle",
+          "sections": [
+            {
+              "heading": "AWS Artifact",
+              "points": [
+                "Portal de autoservicio para descargar informes de cumplimiento y acuerdos de AWS.",
+                "Proporciona acceso a reportes SOC 1/2/3, PCI DSS, ISO 27001, HIPAA BAA, entre otros.",
+                "Dos secciones: **Artifact Reports** (documentos de auditoría) y **Artifact Agreements** (acuerdos como BAA para HIPAA)."
+              ]
+            },
+            {
+              "heading": "Programas de cumplimiento",
+              "points": [
+                "**HIPAA:** Health Insurance Portability and Accountability Act — datos de salud en EE.UU.",
+                "**PCI DSS:** Payment Card Industry — procesamiento seguro de tarjetas de crédito.",
+                "**SOC 1/2/3:** Service Organization Controls — informes de auditoría de controles internos.",
+                "**ISO 27001:** Estándar de seguridad de la información.",
+                "**GDPR:** General Data Protection Regulation — protección de datos en la UE."
+              ]
+            },
+            {
+              "heading": "Gobernanza multi-cuenta",
+              "points": [
+                "**AWS Organizations:** Gestiona múltiples cuentas de AWS desde una cuenta raíz. Permite consolidar facturación y aplicar políticas de control de servicio (SCPs).",
+                "**Service Control Policies (SCPs):** Políticas que limitan qué servicios/acciones pueden usar las cuentas miembro de la organización.",
+                "**AWS Control Tower:** Configura y gobierna un entorno multi-cuenta de AWS seguro con mejores prácticas automáticas.",
+                "**AWS IAM Identity Center (SSO):** Acceso centralizado con Single Sign-On a múltiples cuentas y aplicaciones."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "AWS Artifact = repositorio de documentos de cumplimiento. NO es un servicio de monitoreo.",
+            "AWS Organizations permite facturación consolidada: un solo pago para todas las cuentas hijas.",
+            "SCPs se aplican a cuentas/OUs completas, no a usuarios individuales."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "domain-3",
+      "number": 3,
+      "title": "Tecnología y servicios en la nube",
+      "titleEn": "Cloud Technology & Services",
+      "weight": 34,
+      "description": "El dominio más amplio. Cubre los servicios principales de AWS en compute, storage, bases de datos, redes e IA/ML.",
+      "topics": [
+        {
+          "id": "d3-t1",
+          "title": "Servicios de Cómputo",
+          "icon": "cpu",
+          "sections": [
+            {
+              "heading": "Amazon EC2 — Elastic Compute Cloud",
+              "points": [
+                "Máquinas virtuales en la nube. Tú eliges el SO, la CPU, la RAM y el almacenamiento.",
+                "**Tipos de instancias:** General Purpose (t, m), Compute Optimized (c), Memory Optimized (r, x), Storage Optimized (i, d), Accelerated Computing (p, g — GPUs).",
+                "**Opciones de precios:** On-Demand (pago por hora, sin compromiso), Reserved (1 o 3 años, hasta 72% descuento), Spot (usa capacidad sobrante, hasta 90% descuento, puede interrumpirse), Savings Plans (compromiso de gasto flexible), Dedicated Host (servidor físico exclusivo).",
+                "**EC2 Auto Scaling:** Escala el número de instancias automáticamente según la demanda. Usa Launch Templates y políticas de scaling.",
+                "**Elastic Load Balancer (ELB):** Distribuye tráfico entre instancias. Tipos: ALB (HTTP/HTTPS, Layer 7), NLB (TCP/UDP, Layer 4, ultra-alta performance), GLB (para appliances de red)."
+              ]
+            },
+            {
+              "heading": "Cómputo serverless",
+              "points": [
+                "**AWS Lambda:** Ejecuta código sin gestionar servidores. Paga solo por el tiempo de ejecución (por milisegundo). Soporta Python, Node.js, Java, Go, etc. Ideal para tareas event-driven y cortas (máx 15 min).",
+                "**AWS Fargate:** Ejecuta contenedores Docker o Kubernetes sin gestionar el servidor subyacente. Paga por los recursos del contenedor.",
+                "**AWS Elastic Beanstalk:** PaaS para desplegar aplicaciones web. Solo subes tu código y AWS gestiona la infraestructura (EC2, ALB, Auto Scaling, RDS). Sigue teniendo acceso a los recursos subyacentes."
+              ]
+            },
+            {
+              "heading": "Contenedores",
+              "points": [
+                "**Amazon ECS (Elastic Container Service):** Orquestación de contenedores Docker en AWS. Puede usar instancias EC2 o Fargate.",
+                "**Amazon EKS (Elastic Kubernetes Service):** Kubernetes gestionado en AWS. AWS gestiona el plano de control.",
+                "**Amazon ECR (Elastic Container Registry):** Registro privado de imágenes Docker (como Docker Hub pero en AWS)."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "On-Demand = flexible, sin compromiso. Reserved = largo plazo, máximo ahorro. Spot = más barato, puede interrumpirse.",
+            "Lambda = serverless, event-driven, corto plazo. EC2 = servidores regulares con control total.",
+            "Elastic Beanstalk = PaaS fácil de usar. No elimina la infraestructura, la abstrae.",
+            "ECS/EKS = contenedores Docker/Kubernetes. Fargate = los ejecuta sin gestionar EC2."
+          ]
+        },
+        {
+          "id": "d3-t2",
+          "title": "Servicios de Almacenamiento",
+          "icon": "database",
+          "sections": [
+            {
+              "heading": "Amazon S3 — Simple Storage Service",
+              "points": [
+                "**Almacenamiento de objetos** (no bloques ni archivos). Ideal para archivos, imágenes, backups, datasets.",
+                "Durabilidad de **99.999999999 % (11 nueves)**. Altamente disponible y redundante.",
+                "Los objetos se guardan en **buckets** (contenedores con nombre único global).",
+                "**Clases de almacenamiento:** S3 Standard (acceso frecuente), S3 Standard-IA (acceso infrecuente, más barato), S3 One Zone-IA (1 sola AZ, más barato), S3 Glacier Instant Retrieval (archivado, ms), S3 Glacier Flexible Retrieval (minutos–horas), S3 Glacier Deep Archive (horas, más barato de todos), S3 Intelligent-Tiering (mueve objetos automáticamente entre niveles según uso).",
+                "**S3 Lifecycle Policies:** Mueve objetos entre clases automáticamente según edad.",
+                "**S3 Versioning:** Guarda múltiples versiones de un objeto. Protege contra borrado accidental.",
+                "**S3 Transfer Acceleration:** Sube datos más rápido usando Edge Locations de CloudFront."
+              ]
+            },
+            {
+              "heading": "Otros servicios de almacenamiento",
+              "points": [
+                "**Amazon EBS (Elastic Block Store):** Almacenamiento de bloques para EC2. Actúa como un disco duro virtual. Solo puede conectarse a una instancia a la vez (salvo Multi-Attach). Persiste independientemente de la instancia.",
+                "**Amazon EFS (Elastic File System):** Sistema de archivos compartido (NFS) que puede montarse en múltiples instancias EC2 simultáneamente. Crece automáticamente.",
+                "**Amazon FSx:** Sistemas de archivos de alto rendimiento gestionados: FSx for Windows File Server, FSx for Lustre (HPC).",
+                "**AWS Storage Gateway:** Híbrido. Conecta tu almacenamiento on-premises con AWS. Tipos: File Gateway, Volume Gateway, Tape Gateway.",
+                "**AWS Snow Family:** Dispositivos físicos para migrar datos masivos a AWS cuando la red es demasiado lenta. Snowcone (8TB), Snowball Edge (80TB), Snowmobile (100PB).",
+                "**AWS Backup:** Centraliza y automatiza backups de múltiples servicios AWS (EC2, RDS, S3, EFS, DynamoDB, etc.)."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "S3 = objetos. EBS = bloques (disco para EC2). EFS = archivos compartidos entre múltiples instancias.",
+            "Glacier = archivado a largo plazo, recuperación lenta y económica.",
+            "S3 Intelligent-Tiering = mueve datos automáticamente. Úsalo cuando el patrón de acceso es impredecible.",
+            "Snow Family = migración física masiva de datos cuando la red no es viable."
+          ]
+        },
+        {
+          "id": "d3-t3",
+          "title": "Bases de Datos",
+          "icon": "table",
+          "sections": [
+            {
+              "heading": "Bases de datos relacionales (SQL)",
+              "points": [
+                "**Amazon RDS (Relational Database Service):** Base de datos relacional gestionada. Soporta MySQL, PostgreSQL, MariaDB, Oracle, SQL Server y Amazon Aurora. AWS gestiona backups, parches y alta disponibilidad.",
+                "**Amazon Aurora:** Motor de DB relacional propio de AWS, compatible con MySQL y PostgreSQL. Hasta 5x más rápido que MySQL, 3x más que PostgreSQL. Replica 6 copias de datos en 3 AZs automáticamente.",
+                "**Amazon Redshift:** Data warehouse para análisis de grandes volúmenes de datos. Petabytes de datos, consultas SQL analíticas. No es para transacciones OLTP."
+              ]
+            },
+            {
+              "heading": "Bases de datos NoSQL",
+              "points": [
+                "**Amazon DynamoDB:** Base de datos NoSQL serverless de clave-valor y documentos. Escala a millones de solicitudes por segundo. Latencia en milisegundos de un solo dígito. Global Tables para replicación multi-región.",
+                "**Amazon ElastiCache:** Caché en memoria totalmente gestionado. Usa Redis o Memcached. Reduce latencia de bases de datos.",
+                "**Amazon Neptune:** Base de datos de grafos, para datos altamente conectados (redes sociales, detección de fraude).",
+                "**Amazon DocumentDB:** Compatible con MongoDB para datos en formato documento JSON.",
+                "**Amazon Keyspaces:** Compatible con Apache Cassandra para datos de alta escritura."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "RDS = relacional, SQL, gestionado por AWS (parches automáticos). DynamoDB = NoSQL, serverless, extremadamente escalable.",
+            "Aurora = relacional de alto rendimiento y disponibilidad. Más caro pero más rápido y confiable.",
+            "Redshift = análisis y BI, no para transacciones diarias.",
+            "ElastiCache = caché, reduce carga en la base de datos principal."
+          ]
+        },
+        {
+          "id": "d3-t4",
+          "title": "Redes",
+          "icon": "network",
+          "sections": [
+            {
+              "heading": "Amazon VPC — Virtual Private Cloud",
+              "points": [
+                "Red virtual privada aislada lógicamente dentro de AWS. Tú controlas el espacio de IPs, subnets, rutas y gateways.",
+                "**Subnets:** Divisiones de la VPC. Públicas (acceso a internet) y privadas (sin acceso directo).",
+                "**Internet Gateway (IGW):** Permite que recursos en subnets públicas accedan a internet.",
+                "**NAT Gateway:** Permite que instancias en subnets privadas inicien conexiones hacia internet (sin recibir conexiones entrantes).",
+                "**Security Groups:** Firewall a nivel de instancia, con estado (stateful). Solo reglas de ALLOW. Si permites entrada, la salida se permite automáticamente.",
+                "**Network ACLs (NACLs):** Firewall a nivel de subnet, sin estado (stateless). Tiene reglas de ALLOW y DENY. Debes configurar reglas de entrada Y salida por separado.",
+                "**VPC Peering:** Conecta dos VPCs privadamente. No hay encriptación de tránsito pero es tráfico privado de AWS. No transitivo.",
+                "**VPC Endpoints:** Conecta tu VPC a servicios AWS (S3, DynamoDB) sin usar internet. Gateway Endpoint (S3/DynamoDB) e Interface Endpoint (otros servicios)."
+              ]
+            },
+            {
+              "heading": "Conectividad y distribución de contenido",
+              "points": [
+                "**Amazon Route 53:** Servicio de DNS de AWS. Registra dominios, traduce nombres a IPs. Soporta routing: Simple, Failover, Geolocation, Latency-based, Weighted.",
+                "**Amazon CloudFront:** CDN (Content Delivery Network). Distribuye contenido estático y dinámico desde Edge Locations cercanas al usuario. Reduce latencia.",
+                "**AWS Direct Connect:** Conexión física dedicada entre tu centro de datos y AWS. Mayor ancho de banda, menor latencia, más consistente que internet.",
+                "**AWS VPN (Site-to-Site):** Conexión cifrada sobre internet entre tu red on-premises y tu VPC. Más económico que Direct Connect.",
+                "**AWS Transit Gateway:** Hub central para conectar múltiples VPCs y redes on-premises entre sí, en lugar de múltiples peerings."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Security Groups = stateful (recuerda la conexión). NACLs = stateless (configura entrada Y salida).",
+            "Direct Connect = conexión física, dedicada, costosa. VPN = cifrado sobre internet, más económico.",
+            "CloudFront usa Edge Locations. Route 53 es DNS managed.",
+            "NAT Gateway = salida a internet para subnets privadas. Internet Gateway = para subnets públicas."
+          ]
+        },
+        {
+          "id": "d3-t5",
+          "title": "IA/ML, Analytics y Servicios adicionales",
+          "icon": "sparkles",
+          "sections": [
+            {
+              "heading": "Inteligencia Artificial y Machine Learning",
+              "points": [
+                "**Amazon SageMaker:** Plataforma completa para construir, entrenar y desplegar modelos de ML. Para data scientists.",
+                "**Amazon Rekognition:** Análisis de imágenes y videos: reconocimiento facial, detección de objetos, texto en imágenes, contenido inapropiado.",
+                "**Amazon Comprehend:** Procesamiento de lenguaje natural (NLP). Extrae entidades, sentimiento, temas y PII de textos.",
+                "**Amazon Translate:** Traducción automática de texto entre idiomas.",
+                "**Amazon Lex:** Construye chatbots y asistentes de voz conversacionales (el motor detrás de Alexa).",
+                "**Amazon Polly:** Convierte texto en voz realista (text-to-speech).",
+                "**Amazon Textract:** Extrae texto, tablas y datos de documentos escaneados (PDF, imágenes).",
+                "**Amazon Transcribe:** Convierte audio a texto (speech-to-text). Soporta múltiples idiomas.",
+                "**Amazon Forecast:** Predicciones de series de tiempo usando ML.",
+                "**Amazon Kendra:** Búsqueda de documentos potenciada por ML, semantica, dentro de repositorios corporativos.",
+                "**Amazon Bedrock:** Accede a modelos de lenguaje grande (LLMs) de terceros (Anthropic, Stability AI, etc.) y Amazon Titan via API. Plataforma de IA Generativa de AWS."
+              ]
+            },
+            {
+              "heading": "Analytics y datos",
+              "points": [
+                "**Amazon Kinesis:** Procesamiento de datos de streaming en tiempo real. Kinesis Data Streams, Firehose (load a S3/Redshift), Analytics, Video Streams.",
+                "**Amazon Athena:** Consultas SQL directamente sobre datos en S3. Serverless, paga por datos escaneados.",
+                "**AWS Glue:** Servicio ETL serverless. Descubre, prepara y transforma datos para analytics.",
+                "**Amazon QuickSight:** BI (Business Intelligence) visual serverless. Crea dashboards y gráficos interactivos.",
+                "**Amazon EMR (Elastic MapReduce):** Procesa grandes datasets con frameworks como Hadoop, Spark."
+              ]
+            },
+            {
+              "heading": "Herramientas de gestión y monitoreo",
+              "points": [
+                "**Amazon CloudWatch:** Monitoreo de métricas, dashboards, alarmas y logs. El servicio central de observabilidad de AWS.",
+                "**AWS CloudTrail:** Auditoría de todas las acciones API. '¿Quién borró ese bucket S3?'",
+                "**AWS Trusted Advisor:** Revisa tu entorno AWS y da recomendaciones en 5 categorías: Optimización de costos, Performance, Seguridad, Tolerancia a fallos, Límites de servicio.",
+                "**AWS Systems Manager:** Gestión operacional de instancias EC2 y on-premises. Session Manager (acceso SSH sin abrir puertos), Patch Manager, Parameter Store.",
+                "**AWS Health Dashboard:** Muestra el estado actual de los servicios AWS y eventos que afectan tu cuenta.",
+                "**AWS Personal Health Dashboard:** Eventos específicos que impactan TU entorno y recursos.",
+                "**AWS Compute Optimizer:** Recomienda el tipo y tamaño óptimo de EC2, Lambda y ECS basado en el uso histórico."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Rekognition = imágenes/video. Comprehend = texto/NLP. Lex = chatbots. Polly = text-to-speech. Textract = documentos.",
+            "Athena = SQL sobre S3, serverless. Glue = ETL, preparar datos. Kinesis = streaming en tiempo real.",
+            "Trusted Advisor = recomendaciones en 5 categorías. Basic y Developer solo tienen 7 checks. Business/Enterprise tienen todos.",
+            "CloudWatch = métricas y logs de tus recursos. CloudTrail = registro de acciones de API de usuarios."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "domain-4",
+      "number": 4,
+      "title": "Facturación, precios y soporte",
+      "titleEn": "Billing, Pricing & Support",
+      "weight": 12,
+      "description": "Modelos de precios, herramientas de gestión de costos y los planes de soporte de AWS.",
+      "topics": [
+        {
+          "id": "d4-t1",
+          "title": "Modelos de precios de AWS",
+          "icon": "dollar",
+          "sections": [
+            {
+              "heading": "Opciones de precios para EC2",
+              "points": [
+                "**On-Demand:** Paga por hora o por segundo. Sin compromiso. Máxima flexibilidad. Ideal para cargas impredecibles.",
+                "**Reserved Instances (RI):** Compromiso de 1 o 3 años. Descuento de hasta 72 %. Tipos: Standard (no se puede cambiar), Convertible (puedes cambiar tipo de instancia), Scheduled.",
+                "**Spot Instances:** Usa capacidad sobrante de AWS. Hasta 90 % de descuento. AWS puede interrumpirte con 2 min de aviso. Ideal para cargas tolerantes a interrupciones (batch, ML).",
+                "**Savings Plans:** Compromiso de gasto por hora ($x/hora) por 1 o 3 años. Más flexible que RI. Aplica a EC2, Lambda y Fargate. Compute Savings Plans (más flexible) y EC2 Instance Savings Plans.",
+                "**Dedicated Hosts:** Servidor físico exclusivo para ti. Más caro. Útil para licencias BYOL (Bring Your Own License) de Oracle, SQL Server, etc."
+              ]
+            },
+            {
+              "heading": "AWS Free Tier",
+              "points": [
+                "**Always Free:** Servicios siempre gratuitos con límites. Ejemplo: Lambda (1M de solicitudes/mes), DynamoDB (25 GB), CloudWatch (10 métricas personalizadas).",
+                "**12 Months Free:** Gratuito durante 12 meses desde que creas tu cuenta. Ejemplo: EC2 t2.micro (750 hrs/mes), S3 (5 GB), RDS (750 hrs).",
+                "**Trials:** Pruebas cortas de servicios específicos. Ejemplo: Amazon Inspector (90 días), Amazon Macie (30 días)."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Spot = más económico, puede interrumpirse. Reserved = compromiso largo, gran descuento. On-Demand = flexible sin descuento.",
+            "Savings Plans es más flexible que Reserved Instances y aplica a múltiples servicios.",
+            "El Free Tier de 12 meses comienza desde la creación de la cuenta, no desde la activación.",
+            "Transferencia de datos ENTRANTE a AWS es gratuita. La SALIENTE tiene costo."
+          ]
+        },
+        {
+          "id": "d4-t2",
+          "title": "Herramientas de gestión de costos",
+          "icon": "chart",
+          "sections": [
+            {
+              "heading": "Herramientas de visibilidad",
+              "points": [
+                "**AWS Cost Explorer:** Visualiza, entiende y gestiona tus costos históricos y futuros. Genera gráficos por servicio, región, cuenta o etiqueta. Puede hacer forecast a 12 meses.",
+                "**AWS Billing Dashboard:** Vista general de tus cargos del mes actual, del mes anterior y previsiones.",
+                "**AWS Cost and Usage Reports (CUR):** El reporte más detallado disponible. Exporta datos de costos de uso a S3 para análisis con Athena o QuickSight.",
+                "**AWS Cost Allocation Tags:** Etiqueta tus recursos para rastrear costos por proyecto, equipo o entorno en Cost Explorer."
+              ]
+            },
+            {
+              "heading": "Herramientas de control",
+              "points": [
+                "**AWS Budgets:** Configura alertas cuando tus costos o uso superen (o se prevea superar) un umbral. Envía notificaciones por email o SNS.",
+                "**AWS Pricing Calculator:** Estima el costo de tu arquitectura AWS antes de desplegarla. Disponible en calculator.aws.",
+                "**AWS Marketplace:** Catálogo de software de terceros optimizado para AWS. Permite comprar, desplegar y pagar software por el mismo canal de facturación de AWS."
+              ]
+            },
+            {
+              "heading": "Optimización de costos con Organizations",
+              "points": [
+                "**Facturación consolidada:** AWS Organizations permite pagar todas las cuentas hijas desde la cuenta raíz. Beneficio de agregación de uso para descuentos por volumen.",
+                "**Reserved Instance / Savings Plans sharing:** Las RIs y Savings Plans se comparten automáticamente entre cuentas de la organización si no están en uso."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "AWS Budgets = alertas proactivas de costo. Cost Explorer = análisis retroactivo.",
+            "CUR (Cost and Usage Report) es el reporte más granular para análisis detallado.",
+            "Facturación consolidada = un solo pago + descuentos de volumen agregados.",
+            "AWS Pricing Calculator = estimar costos ANTES de desplegar. No es un servicio en la consola de AWS."
+          ]
+        },
+        {
+          "id": "d4-t3",
+          "title": "Planes de soporte de AWS",
+          "icon": "headset",
+          "sections": [
+            {
+              "heading": "Los 5 planes de soporte",
+              "points": [
+                "**Basic (Gratuito):** Incluido para todas las cuentas. Acceso a documentación, whitepapers, foros de la comunidad, AWS Health Dashboard y 7 checks de Trusted Advisor.",
+                "**Developer ($29/mes o 3% del uso mensual):** Soporte técnico por email en horario laboral. Tiempo de respuesta: < 24h general, < 12h sistema afectado. 1 contacto primario.",
+                "**Business ($100/mes o 10%/7%/5% del uso):** Soporte 24/7 por chat, email y teléfono. Tiempo de respuesta: < 1h para sistema de producción caído. Todos los checks de Trusted Advisor. AWS Health API.",
+                "**Enterprise On-Ramp ($5,500/mes):** Acceso a pool de Technical Account Managers (TAMs). Tiempo de respuesta: < 30 min para sistema crítico. Revisiones de Well-Architected.",
+                "**Enterprise ($15,000/mes):** TAM dedicado. Tiempo de respuesta: < 15 min para sistema crítico de negocio. Proactive Services, Infrastructure Event Management."
+              ]
+            },
+            {
+              "heading": "Recursos de soporte adicionales",
+              "points": [
+                "**AWS Trusted Advisor:** Disponible en todos los planes. Business/Enterprise tienen acceso a todos los checks.",
+                "**AWS IQ:** Conecta con expertos certificados de AWS para ayuda contratada en proyectos específicos.",
+                "**AWS re:Post:** Foro de preguntas y respuestas de la comunidad AWS (reemplazó a los foros oficiales).",
+                "**AWS Professional Services:** Equipo interno de AWS que trabaja con clientes para acelerar la adopción en la nube.",
+                "**AWS Partner Network (APN):** Red de socios certificados (consultoras, integradores) para proyectos de implementación."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Basic = gratis. Developer = email. Business = chat+teléfono 24/7. Enterprise On-Ramp = TAM pool. Enterprise = TAM dedicado.",
+            "Solo Business y superiores tienen soporte telefónico 24/7 y SLA de < 1 hora.",
+            "Trusted Advisor completo (todos los checks) solo disponible en Business, Enterprise On-Ramp y Enterprise.",
+            "La diferencia clave entre Enterprise On-Ramp y Enterprise es el TAM: pool vs. dedicado."
+          ]
+        }
+      ]
+    }
+  ]
+}

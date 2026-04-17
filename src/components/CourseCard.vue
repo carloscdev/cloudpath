@@ -7,6 +7,7 @@
         : 'bg-white dark:bg-neutral-900 border-neutral-100 dark:border-neutral-800/40 opacity-60',
     ]"
     style="transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 400ms cubic-bezier(0.4, 0, 0.2, 1), border-color 300ms ease;"
+    @click="goToCourse"
   >
     <!-- Top accent bar -->
     <div
@@ -124,14 +125,22 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
 import { useI18n } from '../composables/useI18n.js'
 
 const { t, currentLang } = useI18n()
+const router = useRouter()
 
-defineProps({
+const props = defineProps({
   course: {
     type: Object,
     required: true
   }
 })
+
+const goToCourse = () => {
+  if (props.course.available) {
+    router.push(`/course/${props.course.slug}`)
+  }
+}
 </script>
