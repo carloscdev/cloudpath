@@ -325,6 +325,20 @@ function next() {
 }
 
 function restart() {
+  // Re-shuffle options for current active questions on restart
+  activeQuestions.value = activeQuestions.value.map(q => {
+    // Get the actual text of the correct answer before reshuffling
+    const correctText = q.options[q.correct]
+    const shuffledOptions = shuffle([...q.options])
+    const newCorrectIndex = shuffledOptions.indexOf(correctText)
+    
+    return {
+      ...q,
+      options: shuffledOptions,
+      correct: newCorrectIndex
+    }
+  })
+
   state.value = 'active'
   currentIndex.value = 0
   selectedAnswer.value = null
