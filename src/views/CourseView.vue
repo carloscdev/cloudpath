@@ -82,37 +82,40 @@
           </div>
         </div>
 
-        <!-- Domain tabs -->
-        <div class="flex gap-0 mt-8 overflow-x-auto -mb-px scrollbar-hide">
-          <button v-for="domain in courseContent.domains" :key="domain.id" @click="activeDomain = domain.id"
-            class="flex items-center gap-2 px-4 py-3 text-sm font-medium whitespace-nowrap border-b-2 shrink-0 transition-all duration-300"
+        <!-- Domain tabs navigation -->
+        <div 
+          ref="scrollContainer"
+          class="flex overflow-x-auto items-center gap-0 mt-8 border-b border-neutral-100 dark:border-neutral-800 custom-scrollbar cursor-grab active:cursor-grabbing select-none outline-none [-webkit-tap-highlight-color:transparent]"
+          @mousedown="startDragging" 
+          @mouseleave="stopDragging" 
+          @mouseup="stopDragging" 
+          @mousemove="moveDragging"
+        >
+          <button 
+            v-for="domain in courseContent.domains" 
+            :key="domain.id" 
+            @click="handleTabClick(domain.id)"
+            class="relative flex items-center gap-3 px-5 py-5 text-sm font-medium transition-all duration-300 shrink-0 pointer-events-auto outline-none focus:outline-none"
             :class="activeDomain === domain.id
-              ? 'border-neutral-900 dark:border-white text-neutral-900 dark:text-white'
-              : 'border-transparent text-neutral-400 dark:text-neutral-50 hover:text-neutral-600 dark:hover:text-neutral-400 hover:border-neutral-200 dark:hover:border-neutral-700'"
-            :style="activeDomain === domain.id ? `border-color: ${courseInfo.color}` : ''">
-            <span class="w-5 h-5 rounded flex items-center justify-center text-xs font-bold"
-              :style="activeDomain === domain.id ? `background-color: ${courseInfo.color}20; color: ${courseInfo.color}` : 'background-color: #f5f5f5; color: #737373;'">
+              ? 'text-neutral-900 dark:text-white'
+              : 'text-neutral-400 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300'"
+          >
+            <span class="w-5 h-5 rounded-md flex items-center justify-center text-[10px] font-bold transition-all duration-300"
+              :style="activeDomain === domain.id 
+                ? `background-color: ${courseInfo.color}; color: white; transform: scale(1.1);` 
+                : ''"
+              :class="activeDomain !== domain.id ? 'bg-neutral-100 dark:bg-neutral-900 text-neutral-400 dark:text-neutral-600' : ''"
+            >
               {{ domain.number }}
             </span>
-            {{ domain.title }}
-            <span class="hidden sm:inline-block text-xs px-1.5 py-0.5 rounded font-medium ml-1"
-              :style="activeDomain === domain.id ? `background-color: ${courseInfo.color}15; color: ${courseInfo.color}` : 'background-color: #f5f5f5; color: #737373;'">
-              {{ domain.weight }}%
-            </span>
-          </button>
-          <!-- Exam tab -->
-          <button @click="activeDomain = 'exam'"
-            class="flex items-center gap-2 px-4 py-3 text-sm font-medium whitespace-nowrap border-b-2 shrink-0"
-            :class="activeDomain === 'exam'
-              ? 'border-neutral-900 dark:border-white text-neutral-900 dark:text-white'
-              : 'border-transparent text-neutral-400 dark:text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-400 hover:border-neutral-200 dark:hover:border-neutral-700'"
-            :style="activeDomain === 'exam' ? `border-color: ${courseInfo.color}` : ''">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M7 2a5 5 0 1 0 0 10A5 5 0 0 0 7 2Zm0 0v2m0 6v2M2 7H0m14 0h-2M3.5 3.5 2 2m10 10-1.5-1.5M3.5 10.5 2 12M12 2l-1.5 1.5"
-                stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-            </svg>
-            Examen
+            <span class="whitespace-nowrap">{{ domain.title }}</span>
+            
+            <!-- Underline indicator for active tab -->
+            <div 
+              v-if="activeDomain === domain.id" 
+              class="absolute bottom-0 left-0 right-0 h-0.5 z-10 mx-2 rounded-t-full"
+              :style="{ backgroundColor: courseInfo.color }">
+            </div>
           </button>
         </div>
       </div>
@@ -184,29 +187,30 @@
 
       <!-- Bottom navigation between domains -->
       <div v-if="activeDomain !== 'exam'"
-        class="flex justify-between items-center mt-12 pt-8 border-t border-neutral-100 dark:border-neutral-800">
+        class="flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-4 mt-12 pt-8 border-t border-neutral-100 dark:border-neutral-800">
         <button v-if="prevDomain" @click="activeDomain = prevDomain.id"
-          class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-900 active:scale-95 transition-all">
+          class="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl text-sm font-medium border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-900 active:scale-95 transition-all">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
             <path d="M10.5 6.5h-8M5 3 1.5 6.5 5 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
-          {{ prevDomain.title }}
+          <span class="truncate">{{ prevDomain.title }}</span>
         </button>
-        <span v-else></span>
+        <span v-else class="hidden sm:block"></span>
+
         <button v-if="nextDomain" @click="activeDomain = nextDomain.id"
-          class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:bg-neutral-700 dark:hover:bg-neutral-100 active:scale-95 transition-all">
-          {{ nextDomain.title }}
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+          class="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl text-sm font-medium bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:bg-neutral-700 dark:hover:bg-neutral-100 active:scale-95 transition-all">
+          <span class="truncate text-center">Sig: {{ nextDomain.title }}</span>
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" class="shrink-0">
             <path d="M2.5 6.5h8M8 3l3.5 3.5L8 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
         </button>
         <button v-else @click="activeDomain = 'exam'"
-          class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-white hover:opacity-90 active:scale-95 transition-all"
+          class="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl text-sm font-medium text-white hover:opacity-90 active:scale-95 transition-all"
           :style="{ backgroundColor: courseInfo.color }">
-          Ir al examen
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+          Finalizar y dar examen
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" class="shrink-0">
             <path d="M2.5 6.5h8M8 3l3.5 3.5L8 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
@@ -245,6 +249,38 @@ const courseInfo = ref(null)
 const courseContent = ref(null)
 const examData = ref(null)
 const activeDomain = ref('')
+const scrollContainer = ref(null)
+
+// Drag to scroll logic
+let isDown = false
+let isDragging = false
+let startX
+let scrollLeft
+
+function startDragging(e) {
+  isDown = true
+  isDragging = false
+  startX = e.pageX - scrollContainer.value.offsetLeft
+  scrollLeft = scrollContainer.value.scrollLeft
+}
+
+function stopDragging() {
+  isDown = false
+}
+
+function moveDragging(e) {
+  if (!isDown) return
+  e.preventDefault()
+  const x = e.pageX - scrollContainer.value.offsetLeft
+  const walk = (x - startX) * 1.5 
+  if (Math.abs(walk) > 5) isDragging = true
+  scrollContainer.value.scrollLeft = scrollLeft - walk
+}
+
+function handleTabClick(domainId) {
+  if (isDragging) return
+  activeDomain.value = domainId
+}
 
 async function loadCourse() {
   loading.value = true
@@ -313,12 +349,35 @@ const courseStats = computed(() => [
   transform: translateY(-4px);
 }
 
-.scrollbar-hide::-webkit-scrollbar {
+.custom-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
-.scrollbar-hide {
+.custom-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@media (min-width: 1024px) {
+  .custom-scrollbar::-webkit-scrollbar {
+    display: block;
+    height: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #e5e5e5;
+    border-radius: 10px;
+  }
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #262626;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #d4d4d4;
+  }
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #404040;
+  }
 }
 </style>
