@@ -1,5 +1,5 @@
 {
-  "totalQuestions": 30,
+  "totalQuestions": 60,
   "questionsPerExam": 10,
   "questions": [
     {
@@ -421,6 +421,276 @@
       ],
       "correct": 1,
       "explanation": "Defender for Cloud centraliza la gestión de seguridad y proporciona protección avanzada contra ataques en Azure."
+    },
+    {
+      "id": "az-q31",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué opción de almacenamiento de Azure es la mejor para montar unidades de red compartidas accesibles vía SMB?",
+      "options": ["Azure Blob Storage", "Azure Files", "Azure Disk Storage", "Azure Queue Storage"],
+      "correct": 1,
+      "explanation": "Azure Files ofrece recursos compartidos de archivos totalmente administrados en la nube a los que se puede acceder mediante el protocolo estándar SMB."
+    },
+    {
+      "id": "az-q32",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿En qué modelo de servicio es el cliente responsable de gestionar el middleware y el sistema operativo?",
+      "options": ["IaaS", "PaaS", "SaaS", "Serverless"],
+      "correct": 0,
+      "explanation": "En IaaS (Infraestructura como Servicio), el cliente es responsable de gestionar el sistema operativo, el middleware y los datos."
+    },
+    {
+      "id": "az-q33",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Qué herramienta permite automatizar el despliegue de un entorno de Azure completo con políticas y recursos predefinidos?",
+      "options": ["Azure Policy", "Azure Blueprints", "Azure Advisor", "Azure Monitor"],
+      "correct": 1,
+      "explanation": "Azure Blueprints permite a los arquitectos definir un conjunto repetible de recursos de Azure que implementa y cumple los estándares de la organización."
+    },
+    {
+      "id": "az-q34",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué tipo de base de datos es Azure Cosmos DB?",
+      "options": ["Solo Relacional", "No relacional (NoSQL) distribuida globalmente", "Solo para archivos de texto", "Solo para almacenamiento de claves/valores"],
+      "correct": 1,
+      "explanation": "Azure Cosmos DB es una base de datos NoSQL multimodelo y distribuida globalmente."
+    },
+    {
+      "id": "az-q35",
+      "domain": 3,
+      "domainName": "Identidad y seguridad",
+      "question": "¿Qué servicio proporciona un túnel cifrado desde un ordenador individual a una VNet de Azure?",
+      "options": ["Site-to-Site VPN", "Point-to-Site VPN", "ExpressRoute", "VNet Peering"],
+      "correct": 1,
+      "explanation": "Una conexión VPN de punto a sitio (Point-to-Site) permite crear una conexión segura a su red virtual desde un equipo cliente individual."
+    },
+    {
+      "id": "az-q36",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Cuál es la principal ventaja de la 'Economía de Escala' en la nube?",
+      "options": ["Mayor control físico", "Menores costes debido a la compra masiva de hardware por el proveedor", "Personalización total del hardware", "Menor latencia de red"],
+      "correct": 1,
+      "explanation": "La economía de escala permite a los grandes proveedores de la nube reducir los costes unitarios y pasar esos ahorros a los clientes."
+    },
+    {
+      "id": "az-q37",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Para qué se utiliza Azure Content Delivery Network (CDN)?",
+      "options": ["Hospedar bases de datos", "Entregar contenido web de alta banda ancha a los usuarios mediante caché en puntos estratégicos", "Ejecutar scripts serverless", "Proteger contra ataques DDoS"],
+      "correct": 1,
+      "explanation": "Azure CDN almacena contenido web estático en ubicaciones estratégicas para ofrecer el máximo rendimiento a los usuarios."
+    },
+    {
+      "id": "az-q38",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Qué nivel de soporte de Azure incluye formación técnica de arquitectura?",
+      "options": ["Developer", "Standard", "Professional Direct", "Basic"],
+      "correct": 2,
+      "explanation": "Professional Direct es el primer nivel de pago que ofrece orientación técnica y arquitectónica consultiva."
+    },
+    {
+      "id": "az-q39",
+      "domain": 3,
+      "domainName": "Identidad y seguridad",
+      "question": "¿Qué servicio de Azure protege específicamente contra ataques de denegación de servicio (DDoS)?",
+      "options": ["Azure Firewall", "Azure DDoS Protection", "Network Security Groups", "Azure Sentinel"],
+      "correct": 1,
+      "explanation": "Azure DDoS Protection ayuda a proteger tus recursos de Azure contra ataques DDoS para garantizar la disponibilidad."
+    },
+    {
+      "id": "az-q40",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Cómo se llama el servicio de Azure que permite orquestar flujos de trabajo (workflows) sin escribir código?",
+      "options": ["Azure Functions", "Azure Logic Apps", "Azure Event Grid", "Azure Service Bus"],
+      "correct": 1,
+      "explanation": "Azure Logic Apps es una plataforma PaaS para automatizar flujos de trabajo e integraciones empresariales."
+    },
+    {
+      "id": "az-q41",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿En el modelo SaaS, de qué es responsable el cliente?",
+      "options": ["Mantenimiento del hardware", "Actualizaciones de software", "Configuración de la aplicación y datos", "Seguridad de la red"],
+      "correct": 2,
+      "explanation": "En Software as a Service (SaaS), el cliente solo es responsable de configurar su uso del software y de sus propios datos."
+    },
+    {
+      "id": "az-q42",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Cuál es la jerarquía correcta de organización en Azure?",
+      "options": ["Recursos -> Grupos de recursos -> Suscripciones -> Grupos de administración", "Suscripciones -> Recursos -> Grupos de recursos", "Grupos de administración -> Recursos -> Suscripciones", "Grupos de recursos -> Recursos -> Suscripciones"],
+      "correct": 0,
+      "explanation": "La jerarquía es: Grupos de administración > Suscripciones > Grupos de recursos > Recursos."
+    },
+    {
+      "id": "az-q43",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué servicio se usa para almacenar secretos como claves API y certificados de forma segura?",
+      "options": ["Azure Storage", "Azure Key Vault", "Azure Information Protection", "Microsoft Entra ID"],
+      "correct": 1,
+      "explanation": "Azure Key Vault centraliza el almacenamiento de secretos de aplicaciones para controlar su acceso."
+    },
+    {
+      "id": "az-q44",
+      "domain": 3,
+      "domainName": "Identidad y seguridad",
+      "question": "¿Qué herramienta permite detectar y responder a amenazas de seguridad en todo el entorno (SIEM/SOAR)?",
+      "options": ["Microsoft Sentinel", "Azure Firewall", "Microsoft Defender", "Azure Bastion"],
+      "correct": 0,
+      "explanation": "Microsoft Sentinel es una solución de gestión de eventos e información de seguridad (SIEM) nativa de la nube."
+    },
+    {
+      "id": "az-q45",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Cuál es la herramienta de línea de comandos integrada en el portal de Azure?",
+      "options": ["Azure CLI local", "Azure PowerShell local", "Azure Cloud Shell", "Azure SDK"],
+      "correct": 2,
+      "explanation": "Azure Cloud Shell es un terminal interactivo, autenticado y accesible mediante el explorador para administrar recursos de Azure."
+    },
+    {
+      "id": "az-q46",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué nivel de almacenamiento de Blob Storage es más costoso de leer pero tiene el menor coste de almacenamiento?",
+      "options": ["Hot", "Cool", "Archive", "Premium"],
+      "correct": 2,
+      "explanation": "El nivel Archive está optimizado para datos que raramente se acceden y pueden tolerar latencias de recuperación de varias horas."
+    },
+    {
+      "id": "az-q47",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Qué es la 'Nube Híbrida'?",
+      "options": ["Usar dos nubes públicas", "Usar una nube privada y una pública juntas", "Usar solo centros de datos locales", "Usar solo servicios SaaS"],
+      "correct": 1,
+      "explanation": "La nube híbrida combina infraestructura local (nube privada) con nubes públicas."
+    },
+    {
+      "id": "az-q48",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué servicio permite ejecutar contenedores Docker en Azure sin gestionar servidores?",
+      "options": ["Azure Virtual Machines", "Azure Container Instances", "Azure App Service", "Azure Batch"],
+      "correct": 1,
+      "explanation": "Azure Container Instances (ACI) es la forma más rápida y sencilla de ejecutar un contenedor en Azure."
+    },
+    {
+      "id": "az-q49",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Qué herramienta se usa para crear plantillas de infraestructura como código (IaC) nativas de Azure?",
+      "options": ["Terraform", "Ansible", "Azure Resource Manager (ARM) Templates", "Chef"],
+      "correct": 2,
+      "explanation": "Las plantillas ARM son archivos JSON que definen la infraestructura y configuración de su proyecto."
+    },
+    {
+      "id": "az-q50",
+      "domain": 3,
+      "domainName": "Identidad y seguridad",
+      "question": "¿Qué servicio de Azure permite el acceso RDP/SSH seguro a VMs sin usar IPs públicas?",
+      "options": ["Azure VPN", "Azure Bastion", "Azure Firewall", "Azure Front Door"],
+      "correct": 1,
+      "explanation": "Azure Bastion proporciona conectividad RDP y SSH segura y fluida a sus máquinas virtuales directamente en Azure Portal a través de SSL."
+    },
+    {
+      "id": "az-q51",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Qué es la 'Escalabilidad Vertical' (Scaling Up)?",
+      "options": ["Añadir más instancias", "Aumentar la potencia (CPU/RAM) de una instancia existente", "Distribuir carga entre regiones", "Eliminar recursos obsoletos"],
+      "correct": 1,
+      "explanation": "Escalar verticalmente significa aumentar la capacidad de un recurso existente, como cambiar a un tamaño de VM más potente."
+    },
+    {
+      "id": "az-q52",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué servicio de Azure se encarga de equilibrar la carga a nivel de red (Capa 4)?",
+      "options": ["Application Gateway", "Azure Load Balancer", "Azure Front Door", "Azure Traffic Manager"],
+      "correct": 1,
+      "explanation": "Azure Load Balancer opera en la capa 4 (TCP/UDP) para distribuir tráfico interno o externo."
+    },
+    {
+      "id": "az-q53",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Dónde se publican los informes de cumplimiento de Microsoft y auditorías externas?",
+      "options": ["Azure Portal", "Service Trust Portal", "Azure Advisor", "Microsoft Defender"],
+      "correct": 1,
+      "explanation": "El Service Trust Portal proporciona información detallada y recursos sobre el cumplimiento de Microsoft con los estándares de seguridad."
+    },
+    {
+      "id": "az-q54",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué servicio se usa para enviar notificaciones push a millones de dispositivos?",
+      "options": ["Azure Event Grid", "Azure Notification Hubs", "Azure Service Bus", "Azure Relay"],
+      "correct": 1,
+      "explanation": "Azure Notification Hubs es un motor de notificaciones push móviles escalable y multiplataforma."
+    },
+    {
+      "id": "az-q55",
+      "domain": 3,
+      "domainName": "Identidad y seguridad",
+      "question": "¿Qué componente controla el tráfico entrante y saliente a nivel de subred mediante reglas?",
+      "options": ["Azure Firewall", "Network Security Groups (NSG)", "Azure Bastion", "Azure Identity Protection"],
+      "correct": 1,
+      "explanation": "Los NSG contienen una lista de reglas de seguridad que permiten o deniegan el tráfico de red de entrada o salida."
+    },
+    {
+      "id": "az-q56",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Qué herramienta permite rastrear el uso de recursos y configurar alertas cuando se superan presupuestos?",
+      "options": ["Calculadora de precios", "Azure Cost Management", "Azure Monitor", "Azure Policy"],
+      "correct": 1,
+      "explanation": "Cost Management permite monitorear y controlar el gasto en Azure de forma proactiva."
+    },
+    {
+      "id": "az-q57",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué servicio PaaS permite el desarrollo y despliegue de modelos de Machine Learning?",
+      "options": ["Azure AI Search", "Azure Machine Learning", "Azure Cognitive Services", "Azure Bot Service"],
+      "correct": 1,
+      "explanation": "Azure Machine Learning es un servicio en la nube para acelerar y gestionar el ciclo de vida de los proyectos de aprendizaje automático."
+    },
+    {
+      "id": "az-q58",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Cuál es la principal característica del modelo 'Serverless'?",
+      "options": ["No hay servidores físicos involucrados", "El cliente debe gestionar el escalado", "Pago por ejecución y cero gestión de infraestructura", "Solo funciona para bases de datos"],
+      "correct": 2,
+      "explanation": "La informática sin servidor abstrae los servidores, escala automáticamente y se factura solo por el tiempo de ejecución."
+    },
+    {
+      "id": "az-q59",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Qué tipo de suscripción de Azure es ideal para estudiantes con créditos gratuitos?",
+      "options": ["Enterprise Agreement", "Pay-As-You-Go", "Azure for Students", "Free Account standard"],
+      "correct": 2,
+      "explanation": "Azure for Students ofrece créditos gratuitos anuales y acceso a servicios gratuitos seleccionados sin necesidad de tarjeta de crédito."
+    },
+    {
+      "id": "az-q60",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué servicio centraliza la gestión de múltiples suscripciones de Azure?",
+      "options": ["Resource Groups", "Management Groups", "Azure Policy", "Azure Blueprints"],
+      "correct": 1,
+      "explanation": "Los grupos de administración proporcionan un ámbito de gobernanza por encima de las suscripciones."
     }
   ]
 }

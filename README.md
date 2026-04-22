@@ -1,4 +1,4 @@
-# ☁️ CloudPath — Certifícate en la nube, gratis.
+# ☁️ CloudPath — Guías de repaso y simulacros para certificaciones cloud.
 
 [![Vite](https://img.shields.io/badge/Vite-B73BFE?style=flat&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
 [![Vue 3](https://img.shields.io/badge/Vue.js-35495E?style=flat&logo=vuedotjs&logoColor=4FC08D)](https://vuejs.org/)
