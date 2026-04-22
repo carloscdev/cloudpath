@@ -7,7 +7,7 @@
 
 **CloudPath** es una plataforma de código abierto diseñada para ayudar a estudiantes y profesionales a dominar los conceptos clave de las certificaciones cloud más importantes. Sin registros, sin muros de pago, 100% gratuito.
 
-![Preview de la App](https://via.placeholder.com/1200x600/0ea5e9/ffffff?text=CloudPath+Interface+Preview)
+![Preview de la App](https://i.postimg.cc/nzrMctC3/cloudpath.jpg)
 
 ## ✨ Características Principales
 
