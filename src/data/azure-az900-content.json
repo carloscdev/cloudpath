@@ -1,0 +1,299 @@
+{
+  "id": "az-900",
+  "title": "Microsoft Azure Fundamentals",
+  "badge": "AZ-900",
+  "domains": [
+    {
+      "id": "d1",
+      "number": 1,
+      "title": "Conceptos de la nube",
+      "weight": "25-30",
+      "description": "Conceptos básicos, modelos de servicio y ventajas de la nube.",
+      "topics": [
+        {
+          "id": "d1-t1",
+          "title": "Computación en la nube",
+          "icon": "cloud",
+          "sections": [
+            {
+              "heading": "Definición",
+              "points": [
+                "**Computación en la nube**: Entrega de servicios informáticos (servidores, almacenamiento, bases de datos) a través de Internet.",
+                "**Modelo de responsabilidad compartida**: Divide las tareas de seguridad entre el proveedor de la nube y el cliente.",
+                "En **SaaS**, el cliente solo es responsable de los datos; en **IaaS**, el cliente gestiona el sistema operativo hacia arriba."
+              ]
+            },
+            {
+              "heading": "Modelos de nube",
+              "points": [
+                "**Pública**: Recursos propiedad de terceros proveedores que se comparten entre múltiples organizaciones.",
+                "**Privada**: Recursos utilizados exclusivamente por una única organización.",
+                "**Híbrida**: Combina nubes públicas y privadas, permitiendo que los datos y aplicaciones se compartan entre ellas."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "El modelo basado en el consumo (OpEx) significa pagar solo por lo que se usa.",
+            "La computación sin servidor permite ejecutar código sin gestionar servidores."
+          ]
+        },
+        {
+          "id": "d1-t2",
+          "title": "Ventajas de la nube",
+          "icon": "sparkles",
+          "sections": [
+            {
+              "heading": "Beneficios clave",
+              "points": [
+                "**Alta disponibilidad**: Garantiza que los servicios estén accesibles el mayor tiempo posible (SLA).",
+                "**Escalabilidad**: Capacidad de aumentar o disminuir recursos (Vertical vs Horizontal).",
+                "**Confiabilidad**: Capacidad de recuperarse de fallos y seguir funcionando.",
+                "**Previsibilidad**: Rendimiento y costes constantes y predecibles."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Escalabilidad horizontal: Añadir más instancias.",
+            "Escalabilidad vertical: Añadir más potencia (CPU/RAM) a una instancia existente."
+          ]
+        },
+        {
+          "id": "d1-t3",
+          "title": "Tipos de servicio (IaaS, PaaS, SaaS)",
+          "icon": "layers",
+          "sections": [
+            {
+              "heading": "Modelos de servicio",
+              "points": [
+                "**IaaS (Infraestructura)**: Alquiler de servidores físicos/virtuales (ej. Azure VMs). Tú gestionas el SO.",
+                "**PaaS (Plataforma)**: Entorno para desarrollar y desplegar apps sin gestionar infraestructura (ej. Azure App Service).",
+                "**SaaS (Software)**: Software listo para usar alojado por el proveedor (ej. Office 365, Salesforce)."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "IaaS ofrece el máximo control.",
+            "SaaS ofrece la mínima gestión."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "number": 2,
+      "title": "Arquitectura y servicios de Azure",
+      "weight": "35-40",
+      "description": "Estructura global de Azure y sus servicios principales de cómputo, red y almacenamiento.",
+      "topics": [
+        {
+          "id": "d2-t1",
+          "title": "Componentes arquitectónicos",
+          "icon": "globe",
+          "sections": [
+            {
+              "heading": "Estructura Global",
+              "points": [
+                "**Regiones**: Ubicaciones geográficas que contienen centros de datos (ej. East US).",
+                "**Zonas de disponibilidad**: Centros de datos físicamente separados dentro de una región.",
+                "**Regiones soberanas**: Regiones aisladas para cumplimiento específico (ej. Azure Government)."
+              ]
+            },
+            {
+              "heading": "Jerarquía de gestión",
+              "points": [
+                "**Recursos**: Instancias de servicios (VMs, DBs).",
+                "**Grupos de recursos**: Contenedores lógicos para agrupar recursos relacionados.",
+                "**Suscripciones**: Unidad de facturación y límites.",
+                "**Grupos de administración**: Jerarquía superior para gestionar múltiples suscripciones."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Un recurso solo puede pertenecer a un Grupo de Recursos.",
+            "Las suscripciones permiten separar facturación y políticas."
+          ]
+        },
+        {
+          "id": "d2-t2",
+          "title": "Cómputo y Redes",
+          "icon": "cpu",
+          "sections": [
+            {
+              "heading": "Servicios de Cómputo",
+              "points": [
+                "**Azure VMs**: Máquinas virtuales IaaS con control total.",
+                "**Azure App Service**: PaaS para aplicaciones web y APIs.",
+                "**Azure Functions**: Cómputo sin servidor (Serverless) basado en eventos.",
+                "**Azure Virtual Desktop**: Escritorio remoto en la nube."
+              ]
+            },
+            {
+              "heading": "Redes virtuales",
+              "points": [
+                "**Virtual Network (VNet)**: Red privada aislada en Azure.",
+                "**VPN Gateway**: Conexión segura entre redes locales y VNets vía Internet.",
+                "**ExpressRoute**: Conexión privada dedicada (no usa Internet).",
+                "**Azure DNS**: Servicio de hospedaje de dominios."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "El emparejamiento (peering) permite conectar dos VNets.",
+            "Los puntos de conexión privados permiten acceso seguro a servicios Azure."
+          ]
+        },
+        {
+          "id": "d2-t3",
+          "title": "Servicios de Almacenamiento",
+          "icon": "database",
+          "sections": [
+            {
+              "heading": "Tipos de Almacenamiento",
+              "points": [
+                "**Azure Blob Storage**: Almacenamiento de objetos masivo (imágenes, videos, logs).",
+                "**Azure Files**: Recurso compartido de archivos (SMB/NFS).",
+                "**Azure Disk Storage**: Discos persistentes para VMs."
+              ]
+            },
+            {
+              "heading": "Migración y Herramientas",
+              "points": [
+                "**AzCopy**: Utilidad de línea de comandos para copiar datos.",
+                "**Azure Storage Explorer**: GUI para gestionar almacenamiento.",
+                "**Azure Migrate**: Centro para migrar servidores y bases de datos a Azure.",
+                "**Azure Data Box**: Dispositivo físico para mover grandes cantidades de datos."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Niveles de almacenamiento: Hot (frecuente), Cool (infrecuente), Archive (raro/barato).",
+            "Opciones de redundancia: LRS (local), GRS (geográfica), ZRS (zonas)."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3",
+      "number": 3,
+      "title": "Identidad, acceso y seguridad",
+      "weight": "20-25",
+      "description": "Gestión de usuarios, autenticación y modelos de seguridad en Azure.",
+      "topics": [
+        {
+          "id": "d3-t1",
+          "title": "Servicios de Identidad",
+          "icon": "shield",
+          "sections": [
+            {
+              "heading": "Microsoft Entra ID",
+              "points": [
+                "**Microsoft Entra ID (antes Azure AD)**: Servicio de gestión de identidades y accesos basado en la nube.",
+                "**SSO (Single Sign-On)**: Inicia sesión una vez para acceder a múltiples apps.",
+                "**MFA (Multifactor Authentication)**: Requiere dos o más elementos para verificar identidad.",
+                "**RBAC (Role-Based Access Control)**: Gestión técnica de permisos mediante roles (Lector, Colaborador)."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "RBAC funciona bajo el principio de privilegio mínimo.",
+            "El acceso condicional permite denegar o permitir accesos basándose en señales (ubicación, dispositivo)."
+          ]
+        },
+        {
+          "id": "d3-t2",
+          "title": "Modelos de Seguridad",
+          "icon": "lock",
+          "sections": [
+            {
+              "heading": "Defensa en profundidad",
+              "points": [
+                "**Zero Trust (Confianza cero)**: Modelo que nunca confía y siempre verifica cada solicitud.",
+                "**Defensa en profundidad**: Estrategia de múltiples niveles para proteger datos (Físico -> Red -> Host -> Datos).",
+                "**Microsoft Defender for Cloud**: Gestión de seguridad y protección contra amenazas."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Confianza cero asume que hay brechas de seguridad.",
+            "La seguridad física es el nivel más externo de la defensa en profundidad."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d4",
+      "number": 4,
+      "title": "Administración y gobernanza",
+      "weight": "30-35",
+      "description": "Gestión de costes, políticas y herramientas de monitorización.",
+      "topics": [
+        {
+          "id": "d4-t1",
+          "title": "Gestión de Costos",
+          "icon": "dollar",
+          "sections": [
+            {
+              "heading": "Control de Gastos",
+              "points": [
+                "**Calculadora de precios**: Estima costes antes de crear recursos.",
+                "**Azure Cost Management**: Monitoriza y controla el gasto actual.",
+                "**Etiquetas (Tags)**: Metadatos para organizar y rastrear costes de departamentos.",
+                "**Bloqueos de recursos**: Evitan el borrado accidental (CanNotDelete) o modificación (ReadOnly)."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Los bloqueos se heredan de padres a hijos.",
+            "TCO Calculator ayuda a comparar costes locales vs nube."
+          ]
+        },
+        {
+          "id": "d4-t2",
+          "title": "Gobernanza y Cumplimiento",
+          "icon": "check-circle",
+          "sections": [
+            {
+              "heading": "Herramientas de Control",
+              "points": [
+                "**Azure Policy**: Aplica reglas específicas sobre tus recursos (ej. forzar etiquetas).",
+                "**Microsoft Purview**: Gobierno de datos y cumplimiento en toda la organización.",
+                "**Azure Arc**: Extiende la gestión de Azure a infraestructuras híbridas y multi-cloud."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Azure Policy puede bloquear o auditar recursos que no cumplen.",
+            "Purview ayuda a descubrir y clasificar datos sensibles."
+          ]
+        },
+        {
+          "id": "d4-t3",
+          "title": "Herramientas de Gestión",
+          "icon": "table",
+          "sections": [
+            {
+              "heading": "Interfaz y CLI",
+              "points": [
+                "**Azure Portal**: Consola web gráfica.",
+                "**Azure Cloud Shell**: Terminal en navegador con Bash o PowerShell.",
+                "**Plantillas ARM / Bicep**: Infraestructura como código (IaC) para despliegues repetibles."
+              ]
+            },
+            {
+              "heading": "Supervisión",
+              "points": [
+                "**Azure Advisor**: Recomendaciones personalizadas sobre coste, seguridad y rendimiento.",
+                "**Azure Service Health**: Estado de los servicios globales de Azure.",
+                "**Azure Monitor**: Colección de telemetría, Log Analytics y Alertas."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Advisor es gratuito y ofrece 'mejores prácticas'.",
+            "Monitor permite crear alertas automáticas ante fallos."
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -27,24 +27,6 @@
 
       <!-- Nav actions -->
       <div class="flex items-center gap-2">
-        <!-- Lang toggle -->
-        <button
-          @click="toggleLang"
-          class="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg active:scale-95"
-          style="transition: color 200ms ease, background-color 200ms ease, transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1);"
-          :title="currentLang === 'es' ? 'Switch to English' : 'Cambiar a Español'"
-        >
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"/>
-            <path d="M8 1C8 1 5.5 4 5.5 8C5.5 12 8 15 8 15" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-            <path d="M8 1C8 1 10.5 4 10.5 8C10.5 12 8 15 8 15" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-            <path d="M1.5 8H14.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-            <path d="M2 5.5H14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-            <path d="M2 10.5H14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          </svg>
-          <span>{{ currentLang === 'es' ? 'EN' : 'ES' }}</span>
-        </button>
-
         <!-- Theme toggle -->
         <button
           @click="toggleTheme"
@@ -79,7 +61,7 @@ import { useTheme } from '../composables/useTheme.js'
 import { useI18n } from '../composables/useI18n.js'
 
 const { isDark, toggleTheme } = useTheme()
-const { t, currentLang, toggleLang } = useI18n()
+const { t } = useI18n()
 
 const scrolled = ref(false)
 

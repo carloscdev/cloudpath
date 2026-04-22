@@ -1,6 +1,6 @@
 {
   "examName": "AWS Cloud Practitioner — Simulador de Examen",
-  "totalQuestions": 40,
+  "totalQuestions": 60,
   "questionsPerExam": 10,
   "passingScore": 70,
   "questions": [
@@ -563,6 +563,286 @@
       ],
       "correct": 1,
       "explanation": "AWS Snowball Edge es un dispositivo físico de migración de datos del servicio AWS Snow Family. Para 80 TB, Snowball Edge es la solución adecuada: AWS envía el dispositivo, copias los datos localmente y lo devuelves para que AWS los cargue en S3."
+    },
+    {
+      "id": 41,
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Cuál es la principal ventaja de la 'agilidad' en la nube?",
+      "options": [
+        "Reducción de costos de hardware",
+        "Velocidad para reducir el tiempo necesario para poner recursos a disposición de los desarrolladores",
+        "Capacidad de almacenar datos en múltiples regiones",
+        "Mejora de la seguridad física"
+      ],
+      "correct": 1,
+      "explanation": "La agilidad permite a las empresas experimentar y lanzar aplicaciones más rápido al reducir el tiempo de aprovisionamiento de recursos de semanas a minutos."
+    },
+    {
+      "id": 42,
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Qué concepto describe el despliegue de recursos de AWS en múltiples Zonas de Disponibilidad para evitar puntos únicos de fallo?",
+      "options": [
+        "Escalabilidad",
+        "Elasticidad",
+        "Alta disponibilidad",
+        "Economías de escala"
+      ],
+      "correct": 2,
+      "explanation": "La alta disponibilidad se logra distribuyendo recursos en múltiples AZs, asegurando que si una falla, los recursos en las otras sigan operando."
+    },
+    {
+      "id": 43,
+      "domain": 2,
+      "domainName": "Seguridad y cumplimiento",
+      "question": "¿Cuál es la herramienta recomendada para generar contraseñas seguras y rotarlas automáticamente para bases de datos RDS?",
+      "options": [
+        "AWS IAM",
+        "AWS Secrets Manager",
+        "AWS KMS",
+        "AWS Certificate Manager"
+      ],
+      "correct": 1,
+      "explanation": "AWS Secrets Manager ayuda a proteger secretos (contraseñas, llaves API) y permite la rotación automática de estos para servicios como RDS."
+    },
+    {
+      "id": 44,
+      "domain": 2,
+      "domainName": "Seguridad y cumplimiento",
+      "question": "¿Qué servicio proporciona una vista centralizada de las alertas de seguridad y el estado de cumplimiento en todas tus cuentas de AWS?",
+      "options": [
+        "AWS Security Hub",
+        "Amazon Macie",
+        "AWS Artifact",
+        "Amazon GuardDuty"
+      ],
+      "correct": 0,
+      "explanation": "AWS Security Hub aggrega hallazgos de seguridad de múltiples servicios de AWS y partners para dar una visión unificada de la postura de seguridad."
+    },
+    {
+      "id": 45,
+      "domain": 3,
+      "domainName": "Tecnología y servicios",
+      "question": "¿Qué servicio de AWS es una base de datos de documentos NoSQL completamente gestionada y compatible con MongoDB?",
+      "options": [
+        "Amazon DynamoDB",
+        "Amazon DocumentDB",
+        "Amazon Neptune",
+        "Amazon Aurora"
+      ],
+      "correct": 1,
+      "explanation": "Amazon DocumentDB es un servicio de base de datos de documentos rápido, escalable y altamente disponible que admite cargas de trabajo de MongoDB."
+    },
+    {
+      "id": 46,
+      "domain": 3,
+      "domainName": "Tecnología y servicios",
+      "question": "¿Qué funcionalidad de Amazon VPC permite conectar tu red privada de AWS con internet de forma controlada para que las instancias en subnets privadas descarguen actualizaciones?",
+      "options": [
+        "Internet Gateway",
+        "NAT Gateway",
+        "VPC Peering",
+        "Direct Connect"
+      ],
+      "correct": 1,
+      "explanation": "Un NAT Gateway permite que las instancias en subnets privadas se conecten a internet (salida) pero evita que internet inicie conexiones con ellas (entrada)."
+    },
+    {
+      "id": 47,
+      "domain": 3,
+      "domainName": "Tecnología y servicios",
+      "question": "¿Cuál es el propósito de Amazon Route 53 Health Checks?",
+      "options": [
+        "Analizar el rendimiento de las bases de datos",
+        "Monitorear la salud de tus endpoints y redirigir tráfico si uno falla",
+        "Verificar el cumplimiento de seguridad de los dominios",
+        "Escanear virus en los servidores web"
+      ],
+      "correct": 1,
+      "explanation": "Los Health Checks de Route 53 monitorean la salud de aplicaciones. Si un recurso se vuelve inactivo, Route 53 puede dejar de dirigir tráfico hacia él automáticamente."
+    },
+    {
+      "id": 48,
+      "domain": 3,
+      "domainName": "Tecnología y servicios",
+      "question": "¿Qué servicio de AWS se usa para desacoplar aplicaciones mediante el envío, almacenamiento y recepción de mensajes entre componentes de software?",
+      "options": [
+        "Amazon SNS",
+        "Amazon SQS",
+        "Amazon SES",
+        "AWS Step Functions"
+      ],
+      "correct": 1,
+      "explanation": "Amazon SQS (Simple Queue Service) es un servicio de colas de mensajes que permite desacoplar y escalar microservicios y sistemas distribuidos."
+    },
+    {
+      "id": 49,
+      "domain": 3,
+      "domainName": "Tecnología y servicios",
+      "question": "¿Qué servicio proporciona un catálogo de servicios preaprobados que los usuarios finales pueden desplegar por sí mismos?",
+      "options": [
+        "AWS Service Catalog",
+        "AWS Marketplace",
+        "AWS Config",
+        "AWS OpsWorks"
+      ],
+      "correct": 0,
+      "explanation": "AWS Service Catalog permite a las organizaciones crear y administrar catálogos de servicios de TI aprobados para su uso en AWS."
+    },
+    {
+      "id": 50,
+      "domain": 4,
+      "domainName": "Facturación y soporte",
+      "question": "¿Qué herramienta permite visualizar y analizar tus patrones de costo y uso de AWS a lo largo del tiempo?",
+      "options": [
+        "AWS Budgets",
+        "AWS Cost Explorer",
+        "AWS Trusted Advisor",
+        "AWS Artifact"
+      ],
+      "correct": 1,
+      "explanation": "AWS Cost Explorer tiene una interfaz gráfica que permite visualizar, entender y gestionar tus costos y uso de AWS mediante reportes detallados."
+    },
+    {
+      "id": 51,
+      "domain": 4,
+      "domainName": "Facturación y soporte",
+      "question": "¿Cuál es el tiempo de respuesta garantizado para casos de 'Producción fuera de servicio' (Production System Down) en el plan de soporte Business?",
+      "options": [
+        "Menos de 15 minutos",
+        "Menos de 1 hora",
+        "Menos de 4 horas",
+        "Menos de 24 horas"
+      ],
+      "correct": 1,
+      "explanation": "El plan de soporte Business ofrece una respuesta en menos de 1 hora para casos donde un sistema de producción está caído."
+    },
+    {
+      "id": 52,
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Qué significa que la infraestructura de AWS sea 'tolerante a fallos'?",
+      "options": [
+        "Que nunca fallará",
+        "Que puede seguir funcionando correctamente incluso si algunos componentes fallan",
+        "Que se repara automáticamente sin intervención humana siempre",
+        "Que es resistente a desastres naturales únicamente"
+      ],
+      "correct": 1,
+      "explanation": "La tolerancia a fallos es la capacidad de un sistema para seguir operando sin interrupción ante la falla de uno o más de sus componentes."
+    },
+    {
+      "id": 53,
+      "domain": 2,
+      "domainName": "Seguridad y cumplimiento",
+      "question": "¿Qué servicio se utiliza para gestionar y controlar llaves criptográficas utilizadas para cifrar datos en AWS?",
+      "options": [
+        "AWS CloudHSM",
+        "AWS KMS",
+        "AWS Shield",
+        "Amazon Inspector"
+      ],
+      "correct": 1,
+      "explanation": "AWS KMS (Key Management Service) facilita la creación y el control de llaves criptográficas para cifrar tus datos en los servicios de AWS."
+    },
+    {
+      "id": 54,
+      "domain": 3,
+      "domainName": "Tecnología y servicios",
+      "question": "¿Qué tipo de motor de base de datos es Amazon Aurora?",
+      "options": [
+        "NoSQL",
+        "Relacional (SQL)",
+        "Grafo",
+        "In-memory"
+      ],
+      "correct": 1,
+      "explanation": "Amazon Aurora es una base de datos relacional (SQL) moderna, compatible con MySQL y PostgreSQL, diseñada específicamente para la nube."
+    },
+    {
+      "id": 55,
+      "domain": 3,
+      "domainName": "Tecnología y servicios",
+      "question": "¿Qué servicio de AWS permite automatizar el despliegue de código en instancias EC2, servidores on-premises o funciones Lambda?",
+      "options": [
+        "AWS CodeCommit",
+        "AWS CodeDeploy",
+        "AWS CodeBuild",
+        "AWS CodePipeline"
+      ],
+      "correct": 1,
+      "explanation": "AWS CodeDeploy es un servicio de implementación completamente gestionado que automatiza los despliegues de software en diversos servicios de computación."
+    },
+    {
+      "id": 56,
+      "domain": 3,
+      "domainName": "Tecnología y servicios",
+      "question": "¿Cuál es la función principal de Amazon CloudFront?",
+      "options": [
+        "Monitorear la salud de los servidores",
+        "Red de entrega de contenido (CDN) global para acelerar la entrega de datos",
+        "Crear túneles VPN seguros",
+        "Gestionar subastas de instancias Spot"
+      ],
+      "correct": 1,
+      "explanation": "Amazon CloudFront es un servicio de CDN rápido que entrega datos, videos, aplicaciones y APIs de forma segura a usuarios globales con baja latencia."
+    },
+    {
+      "id": 57,
+      "domain": 4,
+      "domainName": "Facturación y soporte",
+      "question": "¿Qué herramienta de AWS asocia costos con recursos específicos mediante pares clave-valor definidos por el usuario?",
+      "options": [
+        "IAM Policies",
+        "Resource Tags",
+        "Security Groups",
+        "AWS Budgets"
+      ],
+      "correct": 1,
+      "explanation": "Las Etiquetas (Tags) permiten asignar metadatos a los recursos de AWS, facilitando el seguimiento de costos por proyecto, departamento o entorno."
+    },
+    {
+      "id": 58,
+      "domain": 3,
+      "domainName": "Tecnología y servicios",
+      "question": "En una arquitectura serverless con AWS Lambda, ¿quién es responsable de gestionar el sistema operativo y el parcheo de seguridad?",
+      "options": [
+        "El cliente",
+        "AWS",
+        "Ambos",
+        "Depende de la configuración"
+      ],
+      "correct": 1,
+      "explanation": "En servicios serverless como Lambda, AWS abstrae y gestiona toda la infraestructura subyacente, incluyendo el SO y el parcheo de seguridad."
+    },
+    {
+      "id": 59,
+      "domain": 3,
+      "domainName": "Tecnología y servicios",
+      "question": "¿Qué servicio de AWS permite a los usuarios aprovisionar infraestructura utilizando archivos de texto (YAML o JSON)?",
+      "options": [
+        "AWS CloudFormation",
+        "AWS OpsWorks",
+        "AWS Elastic Beanstalk",
+        "AWS Systems Manager"
+      ],
+      "correct": 0,
+      "explanation": "AWS CloudFormation permite modelar y configurar tus recursos de infraestructura de AWS mediante archivos de texto, tratándolos como código (IaC)."
+    },
+    {
+      "id": 60,
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Qué beneficio de la nube permite a las empresas reducir sus costos a medida que AWS crece y compra más hardware?",
+      "options": [
+        "Agilidad",
+        "Economías de escala",
+        "Elasticidad",
+        "Global footprint"
+      ],
+      "correct": 1,
+      "explanation": "Las economías de escala permiten a AWS reducir los precios de los servicios a medida que su volumen de compra de recursos aumenta, pasando esos ahorros a los clientes."
     }
   ]
 }

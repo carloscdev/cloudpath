@@ -25,17 +25,17 @@
             <p class="text-xs font-semibold text-neutral-900 dark:text-white uppercase tracking-widest mb-3">{{ t.footer.links }}</p>
             <ul class="space-y-2">
               <li v-for="course in courses" :key="course.id">
-                <a
-                  href="#courses"
+                <router-link
+                  :to="'/course/' + course.slug"
                   class="text-sm text-neutral-400 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors duration-200 flex items-center gap-2"
                 >
                   <span
                     class="w-1.5 h-1.5 rounded-full shrink-0"
                     :style="{ backgroundColor: course.color }"
                   ></span>
-                  {{ course.title['es'] }}
+                  {{ course.title }}
                   <span v-if="!course.available" class="text-xs text-neutral-300 dark:text-neutral-700">(soon)</span>
-                </a>
+                </router-link>
               </li>
             </ul>
           </div>

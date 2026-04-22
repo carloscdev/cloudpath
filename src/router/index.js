@@ -10,8 +10,8 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/course/aws-cloud-practitioner',
-      name: 'aws-cloud-practitioner',
+      path: '/course/:id',
+      name: 'course-detail',
       component: () => import('../views/CourseView.vue')
     }
   ],

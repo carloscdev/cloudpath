@@ -226,11 +226,14 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import examData from '../../data/aws-ccp-exam.json'
 
-const allQuestions = examData.questions
-const totalQuestions = examData.totalQuestions
-const EXAM_SIZE = examData.questionsPerExam
+const props = defineProps({
+  examData: { type: Object, required: true }
+})
+
+const allQuestions = props.examData.questions
+const totalQuestions = props.examData.totalQuestions
+const EXAM_SIZE = props.examData.questionsPerExam
 
 // State
 const state = ref('idle') // idle | active | results

@@ -1,0 +1,426 @@
+{
+  "totalQuestions": 30,
+  "questionsPerExam": 10,
+  "questions": [
+    {
+      "id": "az-q1",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Qué modelo de nube permite a una organización compartir recursos con múltiples proveedores?",
+      "options": [
+        "Nube privada",
+        "Nube pública",
+        "Nube híbrida",
+        "Nube interna"
+      ],
+      "correct": 1,
+      "explanation": "La nube pública ofrece recursos de computación a múltiples organizaciones a través de Internet."
+    },
+    {
+      "id": "az-q2",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Qué beneficio de la nube garantiza que las aplicaciones sigan funcionando incluso si un centro de datos falla?",
+      "options": [
+        "Escalabilidad",
+        "Agilidad",
+        "Alta disponibilidad",
+        "Capacidad de administración"
+      ],
+      "correct": 2,
+      "explanation": "La alta disponibilidad asegura que el servicio esté accesible y operativo a pesar de fallos en la infraestructura física."
+    },
+    {
+      "id": "az-q3",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "En el modelo de responsabilidad compartida, ¿quién es responsable de la seguridad de los datos físicos en una nube pública?",
+      "options": [
+        "El cliente",
+        "El proveedor de la nube",
+        "Ambos",
+        "Ninguno"
+      ],
+      "correct": 1,
+      "explanation": "El proveedor de la nube es siempre responsable de la seguridad física de los centros de datos."
+    },
+    {
+      "id": "az-q4",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Cómo se llaman las ubicaciones geográficas de Azure que contienen centros de datos?",
+      "options": [
+        "Zonas de disponibilidad",
+        "Regiones",
+        "Grupos de recursos",
+        "Suscripciones"
+      ],
+      "correct": 1,
+      "explanation": "Las regiones son áreas geográficas que contienen uno o más centros de datos conectados por una red de baja latencia."
+    },
+    {
+      "id": "az-q5",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Cuál es la unidad lógica más pequeña que se utiliza para organizar recursos en Azure?",
+      "options": [
+        "Suscripción",
+        "Grupo de administración",
+        "Grupo de recursos",
+        "Región"
+      ],
+      "correct": 2,
+      "explanation": "Los grupos de recursos son contenedores donde se despliegan y gestionan los recursos de Azure."
+    },
+    {
+      "id": "az-q6",
+      "domain": 3,
+      "domainName": "Identidad y seguridad",
+      "question": "¿Qué servicio de Azure se utiliza para gestionar identidades y accesos?",
+      "options": [
+        "Microsoft Entra ID",
+        "Azure Sentinel",
+        "Azure Policy",
+        "Azure Advisor"
+      ],
+      "correct": 0,
+      "explanation": "Microsoft Entra ID (anteriormente Azure AD) es el servicio de gestión de identidades de Microsoft."
+    },
+    {
+      "id": "az-q7",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Qué herramienta gratuita de Azure ofrece recomendaciones sobre seguridad y costes?",
+      "options": [
+        "Azure Monitor",
+        "Azure Advisor",
+        "Azure Cost Management",
+        "Azure Arc"
+      ],
+      "correct": 1,
+      "explanation": "Azure Advisor analiza tus recursos y ofrece mejores prácticas en coste, seguridad, fiabilidad y rendimiento."
+    },
+    {
+      "id": "az-q8",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Cuál es el propósito de Azure Policy?",
+      "options": [
+        "Calcular el coste de los recursos",
+        "Hacer copias de seguridad",
+        "Aplicar estándares y cumplimiento normativo",
+        "Crear máquinas virtuales automáticamente"
+      ],
+      "correct": 2,
+      "explanation": "Azure Policy ayuda a aplicar reglas en los recursos para asegurar que cumplen con los estándares corporativos."
+    },
+    {
+      "id": "az-q9",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Qué tipo de servicio es Azure Virtual Machines?",
+      "options": [
+        "SaaS",
+        "PaaS",
+        "IaaS",
+        "Serverless"
+      ],
+      "correct": 2,
+      "explanation": "Las máquinas virtuales son IaaS (Infraestructura como Servicio) porque el usuario gestiona el sistema operativo."
+    },
+    {
+      "id": "az-q10",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué opción de almacenamiento es mejor para guardar archivos de video masivos de forma económica?",
+      "options": [
+        "Azure Files",
+        "Azure Disk Storage",
+        "Azure Blob Storage",
+        "Azure SQL Database"
+      ],
+      "correct": 2,
+      "explanation": "Blob Storage es ideal para almacenar grandes cantidades de datos no estructurados como videos."
+    },
+    {
+      "id": "az-q11",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Qué concepto describe la capacidad de una nube para aumentar o reducir recursos automáticamente según la demanda?",
+      "options": [
+        "Alta disponibilidad",
+        "Elasticidad",
+        "Previsibilidad",
+        "Gobernanza"
+      ],
+      "correct": 1,
+      "explanation": "La elasticidad permite que los recursos escalen automáticamente para ajustarse a las fluctuaciones de la demanda."
+    },
+    {
+      "id": "az-q12",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Cuál de los siguientes es un ejemplo de Gastos Operativos (OpEx) en Azure?",
+      "options": [
+        "Compra de servidores físicos",
+        "Pago mensual por uso de máquinas virtuales",
+        "Construcción de un centro de datos",
+        "Compra de licencias de software de por vida"
+      ],
+      "correct": 1,
+      "explanation": "OpEx se refiere a los gastos continuos por servicios, como el pago por uso típico de la nube, en lugar de inversiones iniciales en hardware (CapEx)."
+    },
+    {
+      "id": "az-q13",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué servicio permite conectar redes virtuales de Azure entre sí?",
+      "options": [
+        "Azure ExpressRoute",
+        "VNet Peering",
+        "Azure DNS",
+        "Azure VPN Gateway"
+      ],
+      "correct": 1,
+      "explanation": "Virtual Network Peering permite conectar de forma transparente dos o más redes virtuales en Azure."
+    },
+    {
+      "id": "az-q14",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Cuál es la función de las Zonas de Disponibilidad?",
+      "options": [
+        "Reducir costes de red",
+        "Proporcionar redundancia dentro de una región mediante centros de datos aislados",
+        "Conectar Azure con nubes de otros proveedores",
+        "Hospedar aplicaciones web de baja latencia"
+      ],
+      "correct": 1,
+      "explanation": "Las zonas de disponibilidad protegen las aplicaciones frente a fallos en el centro de datos al estar separadas físicamente dentro de una región."
+    },
+    {
+      "id": "az-q15",
+      "domain": 3,
+      "domainName": "Identidad y seguridad",
+      "question": "¿Qué método de autenticación requiere que un usuario proporcione dos o más formas de identificación?",
+      "options": [
+        "Inicio de sesión único (SSO)",
+        "Autenticación multifactor (MFA)",
+        "RBAC",
+        "Condicional Access"
+      ],
+      "correct": 1,
+      "explanation": "MFA añade una capa de seguridad al requerir algo que el usuario sabe (contraseña) y algo que posee (teléfono)."
+    },
+    {
+      "id": "az-q16",
+      "domain": 3,
+      "domainName": "Identidad y seguridad",
+      "question": "¿Qué herramienta se usa para gestionar el acceso a los recursos de Azure mediante roles específicos?",
+      "options": [
+        "Azure Policy",
+        "Azure Blueprints",
+        "Azure RBAC",
+        "Microsoft Entra Domain Services"
+      ],
+      "correct": 2,
+      "explanation": "RBAC (Role-Based Access Control) permite asignar permisos precisos a usuarios o grupos sobre recursos de Azure."
+    },
+    {
+      "id": "az-q17",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Qué herramienta permite estimar los ahorros al mover cargas de trabajo locales a Azure?",
+      "options": [
+        "Calculadora de precios",
+        "TCO Calculator",
+        "Azure Advisor",
+        "Cost Management"
+      ],
+      "correct": 1,
+      "explanation": "La calculadora de TCO (Total Cost of Ownership) ayuda a comparar los costes de la infraestructura local frente a la de Azure."
+    },
+    {
+      "id": "az-q18",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Cuál es el propósito de los bloqueos de recursos (Resource Locks)?",
+      "options": [
+        "Cifrar los datos",
+        "Evitar el borrado o la modificación accidental de recursos críticos",
+        "Optimizar el rendimiento de la red",
+        "Reducir la latencia de acceso"
+      ],
+      "correct": 1,
+      "explanation": "Los bloqueos permiten a los administradores asegurar que los recursos no sean eliminados o modificados por error."
+    },
+    {
+      "id": "az-q19",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Qué tipo de servicio es Azure App Service?",
+      "options": [
+        "IaaS",
+        "PaaS",
+        "SaaS",
+        "Serverless"
+      ],
+      "correct": 1,
+      "explanation": "Azure App Service es una plataforma como servicio (PaaS) que permite crear y hospedar aplicaciones web y APIs."
+    },
+    {
+      "id": "az-q20",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué servicio de Azure se utiliza para hospedar bases de datos SQL relacionales sin gestionar máquinas virtuales?",
+      "options": [
+        "Azure Cosmos DB",
+        "Azure SQL Database",
+        "Azure Table Storage",
+        "Azure Synapse Analytics"
+      ],
+      "correct": 1,
+      "explanation": "Azure SQL Database es un servicio de base de datos relacional inteligente y escalable creado para la nube."
+    },
+    {
+      "id": "az-q21",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Cuál es el propósito de Azure ExpressRoute?",
+      "options": [
+        "Conectar Azure con internet público",
+        "Proporcionar una conexión privada dedicada entre la infraestructura local y Azure",
+        "Gestionar el tráfico de las aplicaciones móviles",
+        "Acelerar el rendimiento de las bases de datos NoSQL"
+      ],
+      "correct": 1,
+      "explanation": "ExpressRoute permite una conexión privada que no pasa por el internet público, ofreciendo mas fiabilidad y seguridad."
+    },
+    {
+      "id": "az-q22",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué servicio de Azure permite ejecutar código en respuesta a eventos sin infraestructura que gestionar?",
+      "options": [
+        "Azure VMs",
+        "Azure Functions",
+        "Azure Logic Apps",
+        "Azure Container Instances"
+      ],
+      "correct": 1,
+      "explanation": "Azure Functions es la solución de computación sin servidor (serverless) de Azure basada en eventos."
+    },
+    {
+      "id": "az-q23",
+      "domain": 3,
+      "domainName": "Identidad y seguridad",
+      "question": "¿Cuál es el propósito del modelo de Confianza Cero (Zero Trust)?",
+      "options": [
+        "Confiar solo en usuarios dentro de la red corporativa",
+        "Asumir que siempre hay una brecha y verificar cada solicitud explícitamente",
+        "Eliminar todas las contraseñas",
+        "Bloquear todos los accesos externos"
+      ],
+      "correct": 1,
+      "explanation": "Zero Trust opera bajo el principio de 'nunca confiar, siempre verificar'."
+    },
+    {
+      "id": "az-q24",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Qué herramienta de Azure proporciona alertas sobre la salud de los servicios de Microsoft en tu región?",
+      "options": [
+        "Azure Monitor",
+        "Azure Service Health",
+        "Azure Advisor",
+        "Microsoft Defender"
+      ],
+      "correct": 1,
+      "explanation": "Azure Service Health te notifica sobre interrupciones de servicio, mantenimiento planeado y otros avisos de salud."
+    },
+    {
+      "id": "az-q25",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Qué servicio permite extender la gestión de Azure a infraestructuras locales o en otras nubes?",
+      "options": [
+        "Azure Arc",
+        "Azure Policy",
+        "Azure Lighthouse",
+        "Azure Blueprints"
+      ],
+      "correct": 0,
+      "explanation": "Azure Arc simplifica la gobernanza y la gestión al ofrecer una plataforma de administración consistente para entornos híbridos."
+    },
+    {
+      "id": "az-q26",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Qué beneficio de la nube permite desplegar aplicaciones cerca de los usuarios finales en todo el mundo?",
+      "options": [
+        "Elasticidad",
+        "Huella global (Global reach)",
+        "Previsibilidad",
+        "Escalabilidad vertical"
+      ],
+      "correct": 1,
+      "explanation": "La huella global de Azure permite tener recursos en múltiples ubicaciones geográficas para reducir la latencia."
+    },
+    {
+      "id": "az-q27",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué servicio es un almacén de datos (data warehouse) para análisis a gran escala?",
+      "options": [
+        "Azure Synapse Analytics",
+        "Azure Databricks",
+        "Azure SQL Managed Instance",
+        "Azure Data Lake"
+      ],
+      "correct": 0,
+      "explanation": "Synapse Analytics es un servicio de análisis ilimitado que reúne el almacenamiento de datos empresariales y el análisis de macrodatos."
+    },
+    {
+      "id": "az-q28",
+      "domain": 3,
+      "domainName": "Identidad y seguridad",
+      "question": "¿Qué componente de Microsoft Entra permite aplicar políticas de acceso basadas en señales como la ubicación del usuario?",
+      "options": [
+        "Privileged Identity Management",
+        "Acceso Condicional (Conditional Access)",
+        "Self-Service Password Reset",
+        "Role Definitions"
+      ],
+      "correct": 1,
+      "explanation": "El acceso condicional es la herramienta de Microsoft Entra para tomar decisiones de acceso automatizadas basadas en condiciones."
+    },
+    {
+      "id": "az-q29",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Cuál es la función principal de Azure Monitor?",
+      "options": [
+        "Desplegar recursos automáticamente",
+        "Recopilar, analizar y actuar sobre la telemetría de tus entornos nube y locales",
+        "Gestionar las suscripciones",
+        "Estimar el coste de la factura mensual"
+      ],
+      "correct": 1,
+      "explanation": "Azure Monitor ayuda a maximizar la disponibilidad y el rendimiento de tus aplicaciones mediante una solución de monitoreo completa."
+    },
+    {
+      "id": "az-q30",
+      "domain": 3,
+      "domainName": "Identidad y seguridad",
+      "question": "¿Qué servicio de seguridad ofrece protección contra amenazas avanzada y postura de seguridad para la nube?",
+      "options": [
+        "Azure Bastion",
+        "Microsoft Defender for Cloud",
+        "Azure Key Vault",
+        "Azure Firewall"
+      ],
+      "correct": 1,
+      "explanation": "Defender for Cloud centraliza la gestión de seguridad y proporciona protección avanzada contra ataques en Azure."
+    }
+  ]
+}

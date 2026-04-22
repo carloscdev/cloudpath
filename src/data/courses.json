@@ -5,29 +5,13 @@
       "slug": "aws-cloud-practitioner",
       "provider": "AWS",
       "providerLogo": "aws",
-      "title": {
-        "es": "AWS Cloud Practitioner",
-        "en": "AWS Cloud Practitioner"
-      },
-      "subtitle": {
-        "es": "Fundamentos de la nube de Amazon Web Services",
-        "en": "Amazon Web Services cloud fundamentals"
-      },
-      "description": {
-        "es": "Aprende los conceptos esenciales de la nube, servicios principales de AWS, seguridad, arquitectura y modelos de precios para obtener tu primera certificación en cloud.",
-        "en": "Learn essential cloud concepts, core AWS services, security, architecture, and pricing models to earn your first cloud certification."
-      },
+      "title": "AWS Cloud Practitioner",
+      "subtitle": "Guía de repaso CLF-C02",
+      "description": "Repasa los conceptos esenciales de la nube, servicios principales de AWS, seguridad y modelos de precios para aprobar tu certificación.",
       "badge": "CLF-C02",
-      "level": {
-        "es": "Fundamental",
-        "en": "Foundational"
-      },
-      "duration": {
-        "es": "~40 horas",
-        "en": "~40 hours"
-      },
-      "topics": 6,
-      "questions": 120,
+      "level": "Fundamental",
+      "topics": 4,
+      "questions": 40,
       "free": true,
       "available": true,
       "color": "#FF9900",
@@ -41,32 +25,14 @@
       "slug": "az-900",
       "provider": "Azure",
       "providerLogo": "azure",
-      "title": {
-        "es": "AZ-900: Azure Fundamentals",
-        "en": "AZ-900: Azure Fundamentals"
-      },
-      "subtitle": {
-        "es": "Fundamentos de Microsoft Azure",
-        "en": "Microsoft Azure fundamentals"
-      },
-      "description": {
-        "es": "Domina los conceptos básicos de la nube de Microsoft, servicios Azure, seguridad, cumplimiento y modelos de soporte.",
-        "en": "Master Microsoft cloud basics, Azure services, security, compliance, and support models."
-      },
+      "title": "AZ-900: Azure Fundamentals",
+      "subtitle": "Guía de repaso AZ-900",
+      "description": "Repaso rápido de los conceptos básicos de la nube de Microsoft, servicios Azure y modelos de soporte.",
       "badge": "AZ-900",
-      "level": {
-        "es": "Fundamental",
-        "en": "Foundational"
-      },
-      "duration": {
-        "es": "~30 horas",
-        "en": "~30 hours"
-      },
-      "topics": 5,
-      "questions": 100,
-      "free": true,
-      "available": false,
-      "comingSoon": true,
+      "level": "Fundamental",
+      "topics": 4,
+      "questions": 40,
+      "available": true,
       "color": "#0078D4",
       "bgGradient": "from-blue-50 to-sky-50",
       "darkBgGradient": "dark:from-blue-950/20 dark:to-sky-950/20",
