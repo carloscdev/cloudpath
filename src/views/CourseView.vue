@@ -20,46 +20,65 @@
           <span class="text-neutral-600 dark:text-neutral-300">{{ courseInfo.title }}</span>
         </nav>
 
-        <div class="flex flex-col sm:flex-row sm:items-start gap-5">
-          <!-- Provider logo -->
-          <div
-            class="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 font-black text-lg tracking-tighter"
-            :style="{ backgroundColor: courseInfo.color + '15', border: `1px solid ${courseInfo.color}30`, color: courseInfo.color }">
-            {{ courseInfo.providerLogo === 'aws' ? 'AWS' : 'Az' }}
-          </div>
-          <div class="flex-1">
-            <!-- Badge row -->
-            <div class="flex flex-wrap items-center gap-2 mb-3">
-              <span
-                class="px-2 py-0.5 text-xs font-mono font-medium rounded-md"
-                :class="courseInfo.badgeColor">
-                {{ courseInfo.badge }}
-              </span>
-              <span
-                class="px-2.5 py-1 text-xs font-medium bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50 rounded-full">100% Gratis</span>
-              <span
-                class="px-2.5 py-1 text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 rounded-full">
-                {{ courseInfo.level }}
-              </span>
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div class="flex flex-col sm:flex-row sm:items-start gap-5">
+            <!-- Provider logo -->
+            <div
+              class="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 font-black text-lg tracking-tighter"
+              :style="{ backgroundColor: courseInfo.color + '15', border: `1px solid ${courseInfo.color}30`, color: courseInfo.color }">
+              {{ courseInfo.providerLogo === 'aws' ? 'AWS' : 'Az' }}
             </div>
-            <h1 class="text-2xl sm:text-3xl font-semibold text-neutral-900 dark:text-white tracking-tight mb-2">
-              {{ courseInfo.title }}
-            </h1>
-            <p class="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed max-w-2xl">
-              {{ courseInfo.description }}
-            </p>
+            <div class="flex-1">
+              <!-- Badge row -->
+              <div class="flex flex-wrap items-center gap-2 mb-3">
+                <span
+                  class="px-2 py-0.5 text-xs font-mono font-medium rounded-md"
+                  :class="courseInfo.badgeColor">
+                  {{ courseInfo.badge }}
+                </span>
+                <span
+                  class="px-2.5 py-1 text-xs font-medium bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50 rounded-full">100% Gratis</span>
+                <span
+                  class="px-2.5 py-1 text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 rounded-full">
+                  {{ courseInfo.level }}
+                </span>
+              </div>
+              <h1 class="text-2xl sm:text-3xl font-semibold text-neutral-900 dark:text-white tracking-tight mb-2">
+                {{ courseInfo.title }}
+              </h1>
+              <p class="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed max-w-2xl">
+                {{ courseInfo.description }}
+              </p>
 
-            <!-- Stats row -->
-            <div class="flex flex-wrap gap-5 mt-4">
-              <div v-for="stat in courseStats" :key="stat.label"
-                class="flex items-center gap-1.5 text-xs text-neutral-400 dark:text-neutral-500">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path :d="stat.icon" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-                </svg>
-                <span>{{ stat.value }}</span>
-                <span>{{ stat.label }}</span>
+              <!-- Stats row -->
+              <div class="flex flex-wrap gap-5 mt-4">
+                <div v-for="stat in courseStats" :key="stat.label"
+                  class="flex items-center gap-1.5 text-xs text-neutral-400 dark:text-neutral-500">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path :d="stat.icon" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                  </svg>
+                  <span>{{ stat.value }}</span>
+                  <span>{{ stat.label }}</span>
+                </div>
               </div>
             </div>
+          </div>
+          
+          <!-- Quick Access Exam Button -->
+          <div class="shrink-0">
+            <button 
+              @click="activeDomain = 'exam'" 
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-4 rounded-2xl text-white font-bold text-sm shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 group"
+              :style="{ backgroundColor: courseInfo.color, boxShadow: `0 10px 30px -10px ${courseInfo.color}60` }">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"></path>
+                <path d="M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"></path>
+              </svg>
+              <span>IR AL EXAMEN</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="transition-transform duration-300 group-hover:translate-x-1">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
           </div>
         </div>
 
@@ -125,6 +144,23 @@
               </div>
 
               <DomainContent :domain="domain" :domain-color="courseInfo.color" />
+              
+              <!-- Finish Course CTA -->
+              <div v-if="!nextDomain" class="mt-16 p-8 rounded-3xl bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-100 dark:border-neutral-800 text-center">
+                <div class="w-16 h-16 rounded-2xl bg-white dark:bg-neutral-800 shadow-sm flex items-center justify-center mx-auto mb-6">
+                  <span class="text-2xl">🎉</span>
+                </div>
+                <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">¡Has completado el repaso!</h3>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-8 max-w-sm mx-auto">
+                  Ya has repasado todos los temas clave. ¿Estás listo para poner a prueba tus conocimientos?
+                </p>
+                <button 
+                  @click="activeDomain = 'exam'" 
+                  class="px-8 py-3.5 rounded-xl text-white font-bold text-sm shadow-lg hover:scale-105 active:scale-95 transition-all"
+                  :style="{ backgroundColor: courseInfo.color }">
+                  Realizar examen simulacro
+                </button>
+              </div>
             </div>
           </div>
         </div>

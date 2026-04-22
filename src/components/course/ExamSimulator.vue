@@ -276,7 +276,20 @@ function shuffle(arr) {
 }
 
 function pickQuestions() {
-  activeQuestions.value = shuffle(allQuestions).slice(0, EXAM_SIZE)
+  const rawQuestions = shuffle(allQuestions).slice(0, EXAM_SIZE)
+  
+  // Create a copy and shuffle options for each question
+  activeQuestions.value = rawQuestions.map(q => {
+    const originalCorrectOption = q.options[q.correct]
+    const shuffledOptions = shuffle([...q.options])
+    const newCorrectIndex = shuffledOptions.indexOf(originalCorrectOption)
+    
+    return {
+      ...q,
+      options: shuffledOptions,
+      correct: newCorrectIndex
+    }
+  })
 }
 
 function startExam() {
