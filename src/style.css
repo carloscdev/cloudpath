@@ -8,6 +8,10 @@
     font-family: 'Inter', sans-serif;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   /* Smooth theme transitions scoped only to color-related properties */
   html,
   html body,

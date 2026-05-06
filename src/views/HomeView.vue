@@ -1,10 +1,12 @@
 <template>
-  <TheNavbar />
-  <main>
-    <HeroSection />
-    <CoursesSection />
-  </main>
-  <TheFooter />
+  <div>
+    <TheNavbar />
+    <main>
+      <HeroSection />
+      <CoursesSection />
+    </main>
+    <TheFooter />
+  </div>
 </template>
 
 <script setup>

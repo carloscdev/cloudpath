@@ -11,24 +11,22 @@
       </div>
       <h3 class="text-xl font-semibold text-neutral-900 dark:text-white mb-2">Simulador de Examen</h3>
       <p class="text-sm text-neutral-500 dark:text-neutral-400 max-w-md mx-auto mb-6 leading-relaxed">
-        Recibirás <strong class="text-neutral-700 dark:text-neutral-300">10 preguntas aleatorias</strong> de un banco de <strong class="text-neutral-700 dark:text-neutral-300">{{ totalQuestions }} preguntas</strong> que cubren los 4 dominios del examen CLF-C02. Recibirás retroalimentación inmediata en cada respuesta.
+        Recibirás <strong class="text-neutral-700 dark:text-neutral-300">{{ examData.questionsPerExam }} preguntas aleatorias</strong> de un banco de <strong class="text-neutral-700 dark:text-neutral-300">{{ totalQuestions }} preguntas</strong> que cubren los {{ courseContent.domains.length }} dominios del examen {{ courseInfo.badge }}. Recibirás retroalimentación inmediata en cada respuesta.
       </p>
       <!-- Domain distribution -->
       <div class="flex flex-wrap justify-center gap-2 mb-8">
-        <span class="px-3 py-1 rounded-full text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">
-          Dominio 1: 24%
-        </span>
-        <span class="px-3 py-1 rounded-full text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">
-          Dominio 2: 30%
-        </span>
-        <span class="px-3 py-1 rounded-full text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">
-          Dominio 3: 34%
-        </span>
-        <span class="px-3 py-1 rounded-full text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">
-          Dominio 4: 12%
+        <span v-for="domain in courseContent.domains" :key="domain.id" class="px-3 py-1 rounded-full text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">
+          Dominio {{ domain.number }}: {{ domain.weight }}%
         </span>
       </div>
-      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <div class="flex flex-col sm:flex-row gap-3 justify-center relative">
+        <!-- Toast Notification -->
+        <Transition name="fade-up">
+          <div v-if="showToast" class="absolute -top-12 left-1/2 -translate-x-1/2 px-4 py-2 bg-emerald-500 text-white text-xs font-medium rounded-lg shadow-lg flex items-center gap-2 whitespace-nowrap pointer-events-none">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Preguntas recargadas
+          </div>
+        </Transition>
         <button
           @click="startExam"
           class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 rounded-xl font-medium text-sm hover:bg-neutral-700 dark:hover:bg-neutral-100 active:scale-95"
@@ -228,7 +226,9 @@
 import { ref, computed } from 'vue'
 
 const props = defineProps({
-  examData: { type: Object, required: true }
+  examData: { type: Object, required: true },
+  courseInfo: { type: Object, required: true },
+  courseContent: { type: Object, required: true }
 })
 
 const allQuestions = props.examData.questions
@@ -241,6 +241,7 @@ const activeQuestions = ref([])
 const currentIndex = ref(0)
 const selectedAnswer = ref(null)
 const answers = ref([]) // { questionId, selected, correct }
+const showToast = ref(false)
 
 // Computed
 const currentQuestion = computed(() => activeQuestions.value[currentIndex.value])
@@ -255,7 +256,7 @@ const scorePercent = computed(() => {
 })
 
 const domainBreakdown = computed(() => {
-  const domains = [1, 2, 3, 4]
+  const domains = props.courseContent.domains.map(d => d.number)
   return domains.map(d => {
     const dAnswers = answers.value.filter(a => a.domain === d)
     const total = dAnswers.length
@@ -302,6 +303,8 @@ function startExam() {
 
 function shuffleQuestions() {
   pickQuestions()
+  showToast.value = true
+  setTimeout(() => showToast.value = false, 2500)
 }
 
 function selectAnswer(i) {
