@@ -1,4 +1,9 @@
+<script setup>
+import { Analytics } from '@vercel/analytics/vue';
+</script>
+
 <template>
+  <Analytics />
   <RouterView v-slot="{ Component }">
     <transition name="page" mode="out-in">
       <component :is="Component" />
