@@ -1,6 +1,6 @@
 {
   "examName": "AWS Cloud Practitioner — Simulador de Examen",
-  "totalQuestions": 60,
+  "totalQuestions": 80,
   "questionsPerExam": 10,
   "passingScore": 70,
   "questions": [
@@ -717,132 +717,412 @@
       ],
       "correct": 1,
       "explanation": "El plan de soporte Business ofrece una respuesta en menos de 1 hora para casos donde un sistema de producción está caído."
-    },
-    {
-      "id": 52,
-      "domain": 1,
-      "domainName": "Conceptos de la nube",
-      "question": "¿Qué significa que la infraestructura de AWS sea 'tolerante a fallos'?",
-      "options": [
-        "Que nunca fallará",
-        "Que puede seguir funcionando correctamente incluso si algunos componentes fallan",
-        "Que se repara automáticamente sin intervención humana siempre",
-        "Que es resistente a desastres naturales únicamente"
-      ],
-      "correct": 1,
-      "explanation": "La tolerancia a fallos es la capacidad de un sistema para seguir operando sin interrupción ante la falla de uno o más de sus componentes."
-    },
-    {
-      "id": 53,
-      "domain": 2,
-      "domainName": "Seguridad y cumplimiento",
-      "question": "¿Qué servicio se utiliza para gestionar y controlar llaves criptográficas utilizadas para cifrar datos en AWS?",
-      "options": [
-        "AWS CloudHSM",
-        "AWS KMS",
-        "AWS Shield",
-        "Amazon Inspector"
-      ],
-      "correct": 1,
-      "explanation": "AWS KMS (Key Management Service) facilita la creación y el control de llaves criptográficas para cifrar tus datos en los servicios de AWS."
-    },
-    {
-      "id": 54,
-      "domain": 3,
-      "domainName": "Tecnología y servicios",
-      "question": "¿Qué tipo de motor de base de datos es Amazon Aurora?",
-      "options": [
-        "NoSQL",
-        "Relacional (SQL)",
-        "Grafo",
-        "In-memory"
-      ],
-      "correct": 1,
-      "explanation": "Amazon Aurora es una base de datos relacional (SQL) moderna, compatible con MySQL y PostgreSQL, diseñada específicamente para la nube."
-    },
-    {
-      "id": 55,
-      "domain": 3,
-      "domainName": "Tecnología y servicios",
-      "question": "¿Qué servicio de AWS permite automatizar el despliegue de código en instancias EC2, servidores on-premises o funciones Lambda?",
-      "options": [
-        "AWS CodeCommit",
-        "AWS CodeDeploy",
-        "AWS CodeBuild",
-        "AWS CodePipeline"
-      ],
-      "correct": 1,
-      "explanation": "AWS CodeDeploy es un servicio de implementación completamente gestionado que automatiza los despliegues de software en diversos servicios de computación."
-    },
-    {
-      "id": 56,
-      "domain": 3,
-      "domainName": "Tecnología y servicios",
-      "question": "¿Cuál es la función principal de Amazon CloudFront?",
-      "options": [
-        "Monitorear la salud de los servidores",
-        "Red de entrega de contenido (CDN) global para acelerar la entrega de datos",
-        "Crear túneles VPN seguros",
-        "Gestionar subastas de instancias Spot"
-      ],
-      "correct": 1,
-      "explanation": "Amazon CloudFront es un servicio de CDN rápido que entrega datos, videos, aplicaciones y APIs de forma segura a usuarios globales con baja latencia."
-    },
-    {
-      "id": 57,
-      "domain": 4,
-      "domainName": "Facturación y soporte",
-      "question": "¿Qué herramienta de AWS asocia costos con recursos específicos mediante pares clave-valor definidos por el usuario?",
-      "options": [
-        "IAM Policies",
-        "Resource Tags",
-        "Security Groups",
-        "AWS Budgets"
-      ],
-      "correct": 1,
-      "explanation": "Las Etiquetas (Tags) permiten asignar metadatos a los recursos de AWS, facilitando el seguimiento de costos por proyecto, departamento o entorno."
-    },
-    {
-      "id": 58,
-      "domain": 3,
-      "domainName": "Tecnología y servicios",
-      "question": "En una arquitectura serverless con AWS Lambda, ¿quién es responsable de gestionar el sistema operativo y el parcheo de seguridad?",
-      "options": [
-        "El cliente",
-        "AWS",
-        "Ambos",
-        "Depende de la configuración"
-      ],
-      "correct": 1,
-      "explanation": "En servicios serverless como Lambda, AWS abstrae y gestiona toda la infraestructura subyacente, incluyendo el SO y el parcheo de seguridad."
-    },
-    {
-      "id": 59,
-      "domain": 3,
-      "domainName": "Tecnología y servicios",
-      "question": "¿Qué servicio de AWS permite a los usuarios aprovisionar infraestructura utilizando archivos de texto (YAML o JSON)?",
-      "options": [
-        "AWS CloudFormation",
-        "AWS OpsWorks",
-        "AWS Elastic Beanstalk",
-        "AWS Systems Manager"
-      ],
-      "correct": 0,
-      "explanation": "AWS CloudFormation permite modelar y configurar tus recursos de infraestructura de AWS mediante archivos de texto, tratándolos como código (IaC)."
-    },
-    {
-      "id": 60,
-      "domain": 1,
-      "domainName": "Conceptos de la nube",
-      "question": "¿Qué beneficio de la nube permite a las empresas reducir sus costos a medida que AWS crece y compra más hardware?",
-      "options": [
-        "Agilidad",
-        "Economías de escala",
-        "Elasticidad",
-        "Global footprint"
-      ],
-      "correct": 1,
-      "explanation": "Las economías de escala permiten a AWS reducir los precios de los servicios a medida que su volumen de compra de recursos aumenta, pasando esos ahorros a los clientes."
-    }
-  ]
-}
+      },
+      {
+        "id": 52,
+        "domain": 1,
+        "domainName": "Conceptos de la nube",
+        "question": "¿Qué significa que la infraestructura de AWS sea 'tolerante a fallos'?",
+        "options": [
+          "Que nunca fallará",
+          "Que puede seguir funcionando correctamente incluso si algunos componentes fallan",
+          "Que se repara automáticamente sin intervención humana siempre",
+          "Que es resistente a desastres naturales únicamente"
+        ],
+        "correct": 1,
+        "explanation": "La tolerancia a fallos es la capacidad de un sistema para seguir operando sin interrupción ante la falla de uno o más de sus componentes."
+      },
+      {
+        "id": 53,
+        "domain": 2,
+        "domainName": "Seguridad y cumplimiento",
+        "question": "¿Qué servicio se utiliza para gestionar y controlar llaves criptográficas utilizadas para cifrar datos en AWS?",
+        "options": [
+          "AWS CloudHSM",
+          "AWS KMS",
+          "AWS Shield",
+          "Amazon Inspector"
+        ],
+        "correct": 1,
+        "explanation": "AWS KMS (Key Management Service) facilita la creación y el control de llaves criptográficas para cifrar tus datos en los servicios de AWS."
+      },
+      {
+        "id": 54,
+        "domain": 3,
+        "domainName": "Tecnología y servicios",
+        "question": "¿Qué tipo de motor de base de datos es Amazon Aurora?",
+        "options": [
+          "NoSQL",
+          "Relacional (SQL)",
+          "Grafo",
+          "In-memory"
+        ],
+        "correct": 1,
+        "explanation": "Amazon Aurora es una base de datos relacional (SQL) moderna, compatible con MySQL y PostgreSQL, diseñada específicamente para la nube."
+      },
+      {
+        "id": 55,
+        "domain": 3,
+        "domainName": "Tecnología y servicios",
+        "question": "¿Qué servicio de AWS permite automatizar el despliegue de código en instancias EC2, servidores on-premises o funciones Lambda?",
+        "options": [
+          "AWS CodeCommit",
+          "AWS CodeDeploy",
+          "AWS CodeBuild",
+          "AWS CodePipeline"
+        ],
+        "correct": 1,
+        "explanation": "AWS CodeDeploy es un servicio de implementación completamente gestionado que automatiza los despliegues de software en diversos servicios de computación."
+      },
+      {
+        "id": 56,
+        "domain": 3,
+        "domainName": "Tecnología y servicios",
+        "question": "¿Cuál es la función principal de Amazon CloudFront?",
+        "options": [
+          "Monitorear la salud de los servidores",
+          "Red de entrega de contenido (CDN) global para acelerar la entrega de datos",
+          "Crear túneles VPN seguros",
+          "Gestionar subastas de instancias Spot"
+        ],
+        "correct": 1,
+        "explanation": "Amazon CloudFront es un servicio de CDN rápido que entrega datos, videos, aplicaciones y APIs de forma segura a usuarios globales con baja latencia."
+      },
+      {
+        "id": 57,
+        "domain": 4,
+        "domainName": "Facturación y soporte",
+        "question": "¿Qué herramienta de AWS asocia costos con recursos específicos mediante pares clave-valor definidos por el usuario?",
+        "options": [
+          "IAM Policies",
+          "Resource Tags",
+          "Security Groups",
+          "AWS Budgets"
+        ],
+        "correct": 1,
+        "explanation": "Las Etiquetas (Tags) permiten asignar metadatos a los recursos de AWS, facilitando el seguimiento de costos por proyecto, departamento o entorno."
+      },
+      {
+        "id": 58,
+        "domain": 3,
+        "domainName": "Tecnología y servicios",
+        "question": "En una arquitectura serverless con AWS Lambda, ¿quién es responsable de gestionar el sistema operativo y el parcheo de seguridad?",
+        "options": [
+          "El cliente",
+          "AWS",
+          "Ambos",
+          "Depende de la configuración"
+        ],
+        "correct": 1,
+        "explanation": "En servicios serverless como Lambda, AWS abstrae y gestiona toda la infraestructura subyacente, incluyendo el SO y el parcheo de seguridad."
+      },
+      {
+        "id": 59,
+        "domain": 3,
+        "domainName": "Tecnología y servicios",
+        "question": "¿Qué servicio de AWS permite a los usuarios aprovisionar infraestructura utilizando archivos de texto (YAML o JSON)?",
+        "options": [
+          "AWS CloudFormation",
+          "AWS OpsWorks",
+          "AWS Elastic Beanstalk",
+          "AWS Systems Manager"
+        ],
+        "correct": 0,
+        "explanation": "AWS CloudFormation permite modelar y configurar tus recursos de infraestructura de AWS mediante archivos de texto, tratándolos como código (IaC)."
+      },
+      {
+        "id": 60,
+        "domain": 1,
+        "domainName": "Conceptos de la nube",
+        "question": "¿Qué beneficio de la nube permite a las empresas reducir sus costos a medida que AWS crece y compra más hardware?",
+        "options": [
+          "Agilidad",
+          "Economías de escala",
+          "Elasticidad",
+          "Global footprint"
+        ],
+        "correct": 1,
+        "explanation": "Las economías de escala permiten a AWS reducir los precios de los servicios a medida que su volumen de compra de recursos aumenta, pasando esos ahorros a los clientes."
+      },
+      {
+        "id": 61,
+        "domain": 2,
+        "domainName": "Seguridad y cumplimiento",
+        "question": "¿Qué servicio de AWS ayuda a detectar actividad maliciosa y amenazas potenciales utilizando machine learning y análisis de logs?",
+        "options": [
+          "AWS Shield",
+          "Amazon GuardDuty",
+          "AWS WAF",
+          "Amazon Inspector"
+        ],
+        "correct": 1,
+        "explanation": "Amazon GuardDuty monitorea continuamente cuentas y cargas de trabajo para detectar comportamientos sospechosos y amenazas."
+      },
+      {
+        "id": 62,
+        "domain": 3,
+        "domainName": "Tecnología y servicios",
+        "question": "¿Qué servicio DNS altamente disponible y escalable ofrece AWS?",
+        "options": [
+          "Amazon Route 53",
+          "Amazon CloudFront",
+          "Elastic Load Balancing",
+          "AWS Direct Connect"
+        ],
+        "correct": 0,
+        "explanation": "Amazon Route 53 es el servicio DNS administrado de AWS para enrutar tráfico a aplicaciones y recursos."
+      },
+      {
+        "id": 63,
+        "domain": 4,
+        "domainName": "Facturación y soporte",
+        "question": "¿Qué herramienta proporciona recomendaciones para optimizar costos, rendimiento, seguridad y tolerancia a fallos?",
+        "options": [
+          "AWS Budgets",
+          "AWS Cost Explorer",
+          "AWS Trusted Advisor",
+          "AWS Organizations"
+        ],
+        "correct": 2,
+        "explanation": "AWS Trusted Advisor analiza el entorno y proporciona recomendaciones basadas en buenas prácticas."
+      },
+      {
+        "id": 64,
+        "domain": 3,
+        "domainName": "Tecnología y servicios",
+        "question": "¿Qué servicio permite ejecutar contenedores sin administrar servidores ni clústeres?",
+        "options": [
+          "Amazon ECS con AWS Fargate",
+          "Amazon EC2",
+          "Amazon EKS",
+          "AWS Lambda"
+        ],
+        "correct": 0,
+        "explanation": "AWS Fargate permite ejecutar contenedores sin aprovisionar ni administrar servidores."
+      },
+      {
+        "id": 65,
+        "domain": 2,
+        "domainName": "Seguridad y cumplimiento",
+        "question": "¿Qué servicio ayuda a identificar datos sensibles almacenados en Amazon S3?",
+        "options": [
+          "Amazon Macie",
+          "Amazon Inspector",
+          "AWS Shield",
+          "AWS Artifact"
+        ],
+        "correct": 0,
+        "explanation": "Amazon Macie utiliza machine learning para descubrir y proteger datos sensibles en S3."
+      },
+      {
+        "id": 66,
+        "domain": 1,
+        "domainName": "Conceptos de la nube",
+        "question": "¿Cuál es una ventaja principal de la computación en la nube frente a la infraestructura local?",
+        "options": [
+          "Requiere grandes inversiones iniciales",
+          "Escalabilidad bajo demanda",
+          "Necesita comprar hardware constantemente",
+          "Los recursos son fijos"
+        ],
+        "correct": 1,
+        "explanation": "La nube permite aumentar o reducir recursos según la demanda sin adquirir hardware adicional."
+      },
+      {
+        "id": 67,
+        "domain": 3,
+        "domainName": "Tecnología y servicios",
+        "question": "¿Qué servicio permite ejecutar clústeres administrados de Kubernetes en AWS?",
+        "options": [
+          "Amazon ECS",
+          "AWS Batch",
+          "Amazon EKS",
+          "Elastic Beanstalk"
+        ],
+        "correct": 2,
+        "explanation": "Amazon EKS es el servicio administrado de Kubernetes de AWS."
+      },
+      {
+        "id": 68,
+        "domain": 2,
+        "domainName": "Seguridad y cumplimiento",
+        "question": "¿Qué servicio protege aplicaciones web contra ataques como SQL Injection y Cross-Site Scripting (XSS)?",
+        "options": [
+          "AWS WAF",
+          "AWS Shield",
+          "Amazon GuardDuty",
+          "Security Groups"
+        ],
+        "correct": 0,
+        "explanation": "AWS WAF permite filtrar y monitorear solicitudes HTTP/S para proteger aplicaciones web."
+      },
+      {
+        "id": 69,
+        "domain": 4,
+        "domainName": "Facturación y soporte",
+        "question": "¿Qué modelo de ahorro ofrece descuentos a cambio de comprometerse con una cantidad consistente de uso?",
+        "options": [
+          "On-Demand",
+          "Spot Instances",
+          "Savings Plans",
+          "Dedicated Hosts"
+        ],
+        "correct": 2,
+        "explanation": "Savings Plans ofrecen descuentos significativos a cambio de un compromiso de consumo durante 1 o 3 años."
+      },
+      {
+        "id": 70,
+        "domain": 3,
+        "domainName": "Tecnología y servicios",
+        "question": "¿Qué servicio permite almacenar copias de seguridad de manera centralizada en AWS?",
+        "options": [
+          "AWS Backup",
+          "Amazon EFS",
+          "Amazon S3 Glacier",
+          "AWS Storage Gateway"
+        ],
+        "correct": 0,
+        "explanation": "AWS Backup centraliza y automatiza la protección de datos en múltiples servicios AWS."
+      },
+      {
+        "id": 71,
+        "domain": 2,
+        "domainName": "Seguridad y cumplimiento",
+        "question": "¿Qué servicio evalúa automáticamente vulnerabilidades en instancias EC2 y contenedores?",
+        "options": [
+          "Amazon Macie",
+          "AWS Inspector",
+          "AWS Shield",
+          "AWS Config"
+        ],
+        "correct": 1,
+        "explanation": "Amazon Inspector analiza recursos en busca de vulnerabilidades y exposiciones de seguridad."
+      },
+      {
+        "id": 72,
+        "domain": 4,
+        "domainName": "Facturación y soporte",
+        "question": "¿Qué servicio permite administrar múltiples cuentas AWS desde una organización centralizada?",
+        "options": [
+          "AWS Organizations",
+          "AWS Control Tower",
+          "AWS IAM",
+          "AWS Budgets"
+        ],
+        "correct": 0,
+        "explanation": "AWS Organizations facilita la administración y gobernanza de múltiples cuentas AWS."
+      },
+      {
+        "id": 73,
+        "domain": 3,
+        "domainName": "Tecnología y servicios",
+        "question": "¿Qué servicio permite conectar una red local con AWS mediante una conexión privada dedicada?",
+        "options": [
+          "AWS VPN",
+          "AWS Transit Gateway",
+          "AWS Direct Connect",
+          "Amazon Route 53"
+        ],
+        "correct": 2,
+        "explanation": "AWS Direct Connect proporciona conectividad privada entre instalaciones locales y AWS."
+      },
+      {
+        "id": 74,
+        "domain": 1,
+        "domainName": "Conceptos de la nube",
+        "question": "¿Qué característica permite aumentar automáticamente la capacidad de una aplicación durante picos de demanda?",
+        "options": [
+          "Elasticidad",
+          "CapEx",
+          "Consolidación",
+          "Virtualización"
+        ],
+        "correct": 0,
+        "explanation": "La elasticidad permite escalar recursos automáticamente según las necesidades de la carga de trabajo."
+      },
+      {
+        "id": 75,
+        "domain": 2,
+        "domainName": "Seguridad y cumplimiento",
+        "question": "¿Dónde pueden consultarse informes de auditoría y cumplimiento de AWS?",
+        "options": [
+          "AWS Artifact",
+          "AWS Config",
+          "CloudTrail",
+          "GuardDuty"
+        ],
+        "correct": 0,
+        "explanation": "AWS Artifact proporciona acceso bajo demanda a informes de cumplimiento y auditorías."
+      },
+      {
+        "id": 76,
+        "domain": 3,
+        "domainName": "Tecnología y servicios",
+        "question": "¿Qué servicio almacena archivos utilizando un sistema de archivos compartido para múltiples instancias EC2?",
+        "options": [
+          "Amazon EBS",
+          "Amazon S3",
+          "Amazon EFS",
+          "AWS Backup"
+        ],
+        "correct": 2,
+        "explanation": "Amazon EFS proporciona almacenamiento compartido basado en archivos para múltiples instancias."
+      },
+      {
+        "id": 77,
+        "domain": 4,
+        "domainName": "Facturación y soporte",
+        "question": "¿Qué servicio ayuda a visualizar y analizar tendencias de gasto en AWS?",
+        "options": [
+          "AWS Cost Explorer",
+          "AWS Budgets",
+          "Trusted Advisor",
+          "AWS Artifact"
+        ],
+        "correct": 0,
+        "explanation": "AWS Cost Explorer permite analizar costos históricos y proyectados mediante gráficos e informes."
+      },
+      {
+        "id": 78,
+        "domain": 3,
+        "domainName": "Tecnología y servicios",
+        "question": "¿Qué servicio permite migrar bases de datos a AWS con mínima interrupción?",
+        "options": [
+          "AWS Database Migration Service (DMS)",
+          "AWS DataSync",
+          "Amazon Aurora",
+          "AWS Backup"
+        ],
+        "correct": 0,
+        "explanation": "AWS DMS ayuda a migrar bases de datos hacia AWS de forma segura y con poco tiempo de inactividad."
+      },
+      {
+        "id": 79,
+        "domain": 2,
+        "domainName": "Seguridad y cumplimiento",
+        "question": "¿Cuál es el principio de seguridad recomendado para otorgar permisos en AWS?",
+        "options": [
+          "Acceso administrativo por defecto",
+          "Permisos máximos",
+          "Principio de privilegio mínimo",
+          "Permisos temporales para todos"
+        ],
+        "correct": 2,
+        "explanation": "El principio de privilegio mínimo consiste en otorgar únicamente los permisos necesarios para realizar una tarea."
+      },
+      {
+        "id": 80,
+        "domain": 4,
+        "domainName": "Facturación y soporte",
+        "question": "¿Qué servicio ayuda a configurar y gobernar entornos multi-cuenta siguiendo buenas prácticas de AWS?",
+        "options": [
+          "AWS IAM",
+          "AWS Control Tower",
+          "AWS Budgets",
+          "AWS Config"
+        ],
+        "correct": 1,
+        "explanation": "AWS Control Tower automatiza la configuración de entornos multi-cuenta basados en las mejores prácticas de AWS."
+      }
+    ]
+  }

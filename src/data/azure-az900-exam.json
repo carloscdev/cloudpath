@@ -1,5 +1,5 @@
 {
-  "totalQuestions": 60,
+  "totalQuestions": 80,
   "questionsPerExam": 10,
   "questions": [
     {
@@ -691,6 +691,186 @@
       "options": ["Resource Groups", "Management Groups", "Azure Policy", "Azure Blueprints"],
       "correct": 1,
       "explanation": "Los grupos de administración proporcionan un ámbito de gobernanza por encima de las suscripciones."
+    },
+    {
+      "id": "az-q61",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Qué representa un SLA (Service Level Agreement) en Azure?",
+      "options": ["La velocidad de la red", "Un compromiso de disponibilidad del servicio", "El costo mensual estimado", "La cantidad máxima de usuarios"],
+      "correct": 1,
+      "explanation": "Un SLA define el porcentaje de disponibilidad garantizado por Microsoft para un servicio específico."
+    },
+    {
+      "id": "az-q62",
+      "domain": 3,
+      "domainName": "Identidad y seguridad",
+      "question": "¿Qué servicio almacena de forma segura secretos, certificados y claves criptográficas?",
+      "options": ["Azure Monitor", "Azure Key Vault", "Azure Backup", "Azure Advisor"],
+      "correct": 1,
+      "explanation": "Azure Key Vault permite almacenar y administrar secretos, claves y certificados de forma segura."
+    },
+    {
+      "id": "az-q63",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué servicio de Azure ofrece una base de datos NoSQL distribuida globalmente?",
+      "options": ["Azure SQL Database", "Azure Database for PostgreSQL", "Azure Cosmos DB", "Azure Synapse Analytics"],
+      "correct": 2,
+      "explanation": "Azure Cosmos DB es una base de datos NoSQL totalmente administrada con replicación global."
+    },
+    {
+      "id": "az-q64",
+      "domain": 3,
+      "domainName": "Identidad y seguridad",
+      "question": "¿Qué servicio ayuda a identificar vulnerabilidades y mejorar la postura de seguridad de los recursos?",
+      "options": ["Azure Bastion", "Microsoft Defender for Cloud", "Azure Load Balancer", "Azure Cost Management"],
+      "correct": 1,
+      "explanation": "Microsoft Defender for Cloud proporciona recomendaciones de seguridad y protección contra amenazas."
+    },
+    {
+      "id": "az-q65",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "En el modelo de responsabilidad compartida, ¿quién es responsable de la seguridad física de los centros de datos de Azure?",
+      "options": ["El cliente", "Microsoft", "El proveedor de Internet", "El administrador de la suscripción"],
+      "correct": 1,
+      "explanation": "Microsoft es responsable de la seguridad física de la infraestructura subyacente."
+    },
+    {
+      "id": "az-q66",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué servicio proporciona una conexión privada dedicada entre una organización y Microsoft Azure?",
+      "options": ["VPN Gateway", "Azure Front Door", "ExpressRoute", "Traffic Manager"],
+      "correct": 2,
+      "explanation": "ExpressRoute permite conexiones privadas sin pasar por Internet pública."
+    },
+    {
+      "id": "az-q67",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Qué herramienta ofrece recomendaciones para optimizar costos, rendimiento, seguridad y confiabilidad?",
+      "options": ["Azure Advisor", "Azure Monitor", "Azure Policy", "Azure Lighthouse"],
+      "correct": 0,
+      "explanation": "Azure Advisor analiza recursos y proporciona recomendaciones de mejores prácticas."
+    },
+    {
+      "id": "az-q68",
+      "domain": 3,
+      "domainName": "Identidad y seguridad",
+      "question": "¿Qué servicio protege aplicaciones contra ataques DDoS a nivel de red?",
+      "options": ["Azure Firewall", "Network Security Group", "Azure DDoS Protection", "Azure Bastion"],
+      "correct": 2,
+      "explanation": "Azure DDoS Protection ayuda a mitigar ataques de denegación de servicio distribuidos."
+    },
+    {
+      "id": "az-q69",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué característica permite distribuir máquinas virtuales entre varios dominios de error dentro de un centro de datos?",
+      "options": ["Availability Set", "Resource Group", "Scale Set", "Availability Zone"],
+      "correct": 0,
+      "explanation": "Los Availability Sets mejoran la disponibilidad distribuyendo VMs entre dominios de error y actualización."
+    },
+    {
+      "id": "az-q70",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Qué se utiliza para organizar recursos mediante metadatos personalizados?",
+      "options": ["Locks", "Tags", "Policies", "Blueprints"],
+      "correct": 1,
+      "explanation": "Los Tags permiten clasificar recursos por departamento, entorno, proyecto u otros criterios."
+    },
+    {
+      "id": "az-q71",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué servicio permite extender la administración de Azure a servidores locales y multinube?",
+      "options": ["Azure Arc", "Azure Stack Hub", "Azure Lighthouse", "Azure DevOps"],
+      "correct": 0,
+      "explanation": "Azure Arc permite administrar recursos fuera de Azure desde Azure."
+    },
+    {
+      "id": "az-q72",
+      "domain": 3,
+      "domainName": "Identidad y seguridad",
+      "question": "¿Cuál es el nombre actual del servicio de identidad y acceso de Microsoft Azure?",
+      "options": ["Azure Active Directory", "Microsoft Defender", "Microsoft Entra ID", "Azure Identity Center"],
+      "correct": 2,
+      "explanation": "Azure Active Directory fue renombrado como Microsoft Entra ID."
+    },
+    {
+      "id": "az-q73",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Qué modelo de nube ofrece la mayor flexibilidad y control sobre la infraestructura?",
+      "options": ["SaaS", "PaaS", "IaaS", "FaaS"],
+      "correct": 2,
+      "explanation": "IaaS proporciona acceso a recursos de infraestructura como máquinas virtuales, redes y almacenamiento."
+    },
+    {
+      "id": "az-q74",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué servicio de almacenamiento está optimizado para archivos compartidos mediante SMB?",
+      "options": ["Azure Blob Storage", "Azure Queue Storage", "Azure Files", "Azure Disk Storage"],
+      "correct": 2,
+      "explanation": "Azure Files proporciona recursos compartidos accesibles mediante el protocolo SMB."
+    },
+    {
+      "id": "az-q75",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Qué característica evita la eliminación accidental de recursos?",
+      "options": ["Tags", "Resource Locks", "Management Groups", "Budgets"],
+      "correct": 1,
+      "explanation": "Los Resource Locks pueden impedir la eliminación o modificación de recursos."
+    },
+    {
+      "id": "az-q76",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué servicio permite automatizar flujos de trabajo mediante una interfaz visual y conectores?",
+      "options": ["Azure Functions", "Logic Apps", "Azure Batch", "Virtual Machines"],
+      "correct": 1,
+      "explanation": "Azure Logic Apps permite crear flujos de trabajo e integraciones sin administrar infraestructura."
+    },
+    {
+      "id": "az-q77",
+      "domain": 3,
+      "domainName": "Identidad y seguridad",
+      "question": "¿Qué método agrega una capa adicional de seguridad durante el inicio de sesión?",
+      "options": ["RBAC", "Single Sign-On", "Multi-Factor Authentication (MFA)", "Conditional Access"],
+      "correct": 2,
+      "explanation": "MFA requiere dos o más métodos de verificación para autenticar al usuario."
+    },
+    {
+      "id": "az-q78",
+      "domain": 1,
+      "domainName": "Conceptos de la nube",
+      "question": "¿Qué característica de la nube permite aumentar o disminuir recursos automáticamente según la demanda?",
+      "options": ["Elasticidad", "Alta disponibilidad", "Gobernanza", "Cumplimiento"],
+      "correct": 0,
+      "explanation": "La elasticidad permite ajustar recursos dinámicamente según las necesidades."
+    },
+    {
+      "id": "az-q79",
+      "domain": 2,
+      "domainName": "Arquitectura y servicios",
+      "question": "¿Qué servicio permite ejecutar código en respuesta a eventos sin administrar servidores?",
+      "options": ["Azure Kubernetes Service", "Azure Functions", "Azure Virtual Machines", "Azure Container Apps"],
+      "correct": 1,
+      "explanation": "Azure Functions es un servicio serverless basado en eventos."
+    },
+    {
+      "id": "az-q80",
+      "domain": 4,
+      "domainName": "Administración y gobernanza",
+      "question": "¿Qué herramienta ayuda a aplicar estándares organizacionales y evaluar el cumplimiento de recursos?",
+      "options": ["Azure Policy", "Azure Advisor", "Azure Monitor", "Cost Management"],
+      "correct": 0,
+      "explanation": "Azure Policy permite crear, asignar y administrar políticas para garantizar el cumplimiento."
     }
   ]
 }
