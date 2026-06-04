@@ -47,21 +47,31 @@
         <p class="text-xs text-neutral-400 dark:text-neutral-600">
           © {{ currentYear }} CloudPath · {{ t.footer.rights }}
         </p>
-        <p class="text-xs text-neutral-400 dark:text-neutral-600 flex items-center gap-1.5">
-          {{ t.footer.madeWith }}
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 10.5C6 10.5 1.5 7.5 1.5 4.5C1.5 3.12 2.62 2 4 2C4.89 2 5.67 2.47 6 3.14C6.33 2.47 7.11 2 8 2C9.38 2 10.5 3.12 10.5 4.5C10.5 7.5 6 10.5 6 10.5Z" fill="#ef4444" stroke="#ef4444" stroke-width="0.8" stroke-linejoin="round"/>
-          </svg>
-          {{ t.footer.by }}
-          <a
-            href="https://carlosc.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="font-medium text-neutral-600 dark:text-neutral-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-200 underline underline-offset-2 decoration-neutral-200 dark:decoration-neutral-700 hover:decoration-sky-400"
-          >
-            Carlos Cordova
-          </a>
-        </p>
+        <div class="flex items-center gap-4">
+          <!-- Version badge -->
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-400 dark:text-neutral-500 text-[10px] font-mono font-medium">
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+              <circle cx="4" cy="4" r="3" fill="currentColor" opacity="0.4"/>
+              <circle cx="4" cy="4" r="1.5" fill="currentColor"/>
+            </svg>
+            v{{ appVersion }}
+          </span>
+          <p class="text-xs text-neutral-400 dark:text-neutral-600 flex items-center gap-1.5">
+            {{ t.footer.madeWith }}
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 10.5C6 10.5 1.5 7.5 1.5 4.5C1.5 3.12 2.62 2 4 2C4.89 2 5.67 2.47 6 3.14C6.33 2.47 7.11 2 8 2C9.38 2 10.5 3.12 10.5 4.5C10.5 7.5 6 10.5 6 10.5Z" fill="#ef4444" stroke="#ef4444" stroke-width="0.8" stroke-linejoin="round"/>
+            </svg>
+            {{ t.footer.by }}
+            <a
+              href="https://carlosc.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-medium text-neutral-600 dark:text-neutral-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-200 underline underline-offset-2 decoration-neutral-200 dark:decoration-neutral-700 hover:decoration-sky-400"
+            >
+              Carlos Cordova
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   </footer>
@@ -74,5 +84,6 @@ import coursesData from '../data/courses.json'
 const { t } = useI18n()
 
 const courses = coursesData.courses
+const appVersion = coursesData.appVersion
 const currentYear = new Date().getFullYear()
 </script>

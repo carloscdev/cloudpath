@@ -37,6 +37,8 @@
               <path v-if="topic.icon === 'dollar'"     d="M8 2v12M5.5 9.5C5.5 10.88 6.62 12 8 12s2.5-1.12 2.5-2.5S9.38 8 8 8s-2.5-.62-2.5-2 1.12-2 2.5-2 2.5.62 2.5 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
               <path v-if="topic.icon === 'chart'"      d="M2 12h12M5 12V8M8 12V5M11 12V9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
               <path v-if="topic.icon === 'headset'"    d="M3 9V8a5 5 0 0 1 10 0v1M3 9a2 2 0 0 0 0 4v-4Zm10 0a2 2 0 0 1 0 4v-4ZM13 13v1a2 2 0 0 1-2 2H9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              <path v-if="topic.icon === 'warning'"    d="M8 2 1 14h14L8 2ZM8 7v3M8 12v.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path v-if="topic.icon === 'star'"       d="M8 2l1.8 3.6L14 6.5l-3 2.9.7 4.1L8 11.5 4.3 13.5l.7-4.1-3-2.9 4.2-.9L8 2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
             </svg>
           </div>
           <h3 class="font-semibold text-neutral-800 dark:text-white text-sm sm:text-base">{{ topic.title }}</h3>

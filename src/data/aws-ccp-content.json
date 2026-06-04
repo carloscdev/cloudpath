@@ -623,6 +623,306 @@
           ]
         }
       ]
+    },
+    {
+      "id": "domain-tips",
+      "number": 5,
+      "title": "Tips para el Examen",
+      "titleEn": "Exam Tips & Key Reminders",
+      "weight": "—",
+      "description": "Puntos clave, trampas comunes y comparaciones críticas que debes dominar antes de dar el examen AWS Cloud Practitioner CLF-C02.",
+      "topics": [
+        {
+          "id": "tips-t1",
+          "title": "Conceptos fundamentales que más confunden",
+          "icon": "sparkles",
+          "sections": [
+            {
+              "heading": "Las 6 ventajas de la nube AWS — Memorízalas",
+              "points": [
+                "**1. Cambio de CapEx a OpEx:** Eliminas gastos de capital (comprar servidores) y los conviertes en gastos operativos (pagar por uso).",
+                "**2. Economías de escala:** AWS compra infraestructura masiva y transfiere ese ahorro a sus clientes. Tú pagas menos que si compraras por tu cuenta.",
+                "**3. Eliminar la adivinación de capacidad:** Ya no necesitas predecir cuánta infraestructura vas a necesitar. Escala cuando lo necesites.",
+                "**4. Agilidad y velocidad:** Aprovisiona recursos en minutos en lugar de semanas. Experimenta rápido y barato.",
+                "**5. Eliminar el gasto en gestión de centros de datos:** AWS gestiona el hardware, tú te enfocas en tu negocio.",
+                "**6. Alcance global en minutos:** Despliega tu app en múltiples regiones del mundo con unos pocos clics.",
+                "⚠️ **Trampa:** El examen pregunta las 6 ventajas con frecuencia. No las confundas con los pilares del Well-Architected Framework (son 6 también pero diferentes)."
+              ]
+            },
+            {
+              "heading": "Alta Disponibilidad vs Tolerancia a Fallos vs Recuperación ante Desastres",
+              "points": [
+                "**Alta Disponibilidad (HA):** El sistema sigue operando aunque componentes fallen. Usa múltiples AZs. Puede haber breve interrupción.",
+                "**Tolerancia a Fallos (FT):** El sistema continúa operando SIN ninguna interrupción aunque componentes fallen. Redundancia total. Más costoso.",
+                "**Recuperación ante Desastres (DR):** Plan para restaurar operaciones después de un desastre mayor. Puede implicar otra región.",
+                "**Elasticidad:** La nube escala automáticamente hacia arriba Y hacia abajo según la demanda. Elimina el sobreaprovisionamiento.",
+                "**Escalabilidad:** Capacidad de crecer para manejar más carga. Vertical (más CPU/RAM) u horizontal (más instancias).",
+                "⚠️ **Trampa:** Elasticidad ≠ Escalabilidad. Elasticidad implica también reducir automáticamente. Escalabilidad solo es crecer.",
+                "⚠️ **Trampa:** Alta Disponibilidad ≠ Tolerancia a Fallos. HA puede tener breve corte. FT no tiene interrupción alguna."
+              ]
+            },
+            {
+              "heading": "Modelo de Responsabilidad Compartida — El más preguntado",
+              "points": [
+                "**AWS es responsable DE la nube:** Hardware, instalaciones físicas, red global, hipervisores, regiones, AZs, Edge Locations.",
+                "**Cliente es responsable EN la nube:** Datos del cliente, configuración de servicios, sistemas operativos (en IaaS), firewall de aplicaciones, cifrado de datos en tránsito y en reposo, gestión de usuarios e IAM.",
+                "**Varía por modelo de servicio:**",
+                "  → **EC2 (IaaS):** Cliente gestiona el SO, parches, firewall, aplicación y datos.",
+                "  → **RDS (PaaS):** Cliente gestiona datos y configuración de BD. AWS gestiona el SO y parches.",
+                "  → **S3 (servicios gestionados):** Cliente gestiona los datos, permisos del bucket y cifrado. AWS gestiona la infraestructura subyacente.",
+                "⚠️ **Trampa clásica del examen:** '¿De qué es responsable AWS?' → Siempre de la infraestructura FÍSICA. '¿De qué es responsable el cliente?' → Siempre de sus DATOS."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Las 6 ventajas de la nube: CapEx→OpEx, economías de escala, sin adivinar capacidad, agilidad, sin gestionar DCs, alcance global.",
+            "Elasticidad = escalar arriba Y abajo automáticamente. Escalabilidad = solo crecer.",
+            "AWS gestiona la infraestructura física. El cliente gestiona sus datos, IAM y configuración de servicios.",
+            "En EC2 (IaaS) el cliente gestiona el SO. En RDS (PaaS) AWS gestiona el SO."
+          ]
+        },
+        {
+          "id": "tips-t2",
+          "title": "Servicios AWS que más se confunden",
+          "icon": "shield",
+          "sections": [
+            {
+              "heading": "Cómputo: Lambda vs EC2 vs Fargate vs Beanstalk",
+              "points": [
+                "**EC2:** Máquina virtual. Tú controlas el SO, la aplicación y el runtime. Máxima flexibilidad. Factura por hora/segundo.",
+                "**Lambda:** Serverless event-driven. Solo subes el código. Sin gestionar servidores. Máx. 15 min de ejecución. Factura por milisegundo de uso.",
+                "**Fargate:** Ejecuta contenedores Docker sin gestionar EC2. Serverless para contenedores. Más caro que EC2 pero sin operaciones.",
+                "**Elastic Beanstalk:** PaaS. Subes tu código y AWS configura EC2, ALB, Auto Scaling y RDS por ti. Aún tienes acceso a los recursos subyacentes.",
+                "**ECS:** Orquesta contenedores Docker en AWS. Puede ejecutarse sobre EC2 o Fargate.",
+                "**EKS:** Kubernetes gestionado en AWS. AWS gestiona el plano de control (control plane).",
+                "⚠️ **Regla mental:** Lambda = sin servidor, corto, evento. EC2 = servidor virtual completo. Fargate = contenedores sin EC2. Beanstalk = PaaS automatizado."
+              ]
+            },
+            {
+              "heading": "Almacenamiento: S3 vs EBS vs EFS vs Glacier",
+              "points": [
+                "**S3:** Almacenamiento de objetos. Para archivos, imágenes, backups, datasets. Acceso por HTTP. No se monta como disco.",
+                "**EBS:** Disco de bloque para una sola instancia EC2 (como un disco duro). Persiste aunque la EC2 se detenga.",
+                "**EFS:** Sistema de archivos compartido (NFS). Múltiples instancias EC2 pueden montarlo simultáneamente. Crece automáticamente.",
+                "**S3 Glacier:** Archivado a largo plazo. Muy económico pero recuperación puede tardar minutos u horas.",
+                "**Instance Store:** Almacenamiento temporal de muy alta velocidad *adjunto físicamente* a la instancia EC2. Se PIERDE si la instancia se detiene.",
+                "⚠️ **Regla:** S3 = objetos por HTTP. EBS = bloque para 1 EC2. EFS = archivos compartidos para muchas EC2. Glacier = archivado económico, acceso lento.",
+                "⚠️ **Trampa:** Instance Store es efímero. EBS es persistente aunque termines la instancia (salvo configuración contraria)."
+              ]
+            },
+            {
+              "heading": "Redes: Security Groups vs NACLs vs WAF vs Shield",
+              "points": [
+                "**Security Group (SG):** Firewall a nivel de instancia. Con estado (stateful). Solo reglas ALLOW. Si permites tráfico entrante, la respuesta saliente es automática.",
+                "**Network ACL (NACL):** Firewall a nivel de subnet. Sin estado (stateless). Tiene reglas ALLOW y DENY. Debes configurar entrada Y salida por separado.",
+                "**AWS WAF (Web Application Firewall):** Protege aplicaciones web contra ataques comunes (SQL injection, XSS). Opera en Layer 7 (HTTP). Funciona con ALB, CloudFront, API Gateway.",
+                "**AWS Shield:** Protección contra ataques DDoS. Shield Standard (gratuito, automático). Shield Advanced (de pago, protección avanzada con AWS DRT).",
+                "**AWS Firewall Manager:** Gestiona reglas de seguridad (WAF, Shield, SGs) centralmente en múltiples cuentas de AWS Organizations.",
+                "⚠️ **Trampa clásica:** SG = stateful (una sola regla alcanza). NACL = stateless (necesitas regla de entrada Y de salida).",
+                "⚠️ **Trampa:** WAF ≠ Shield. WAF protege contra ataques de aplicación web (capa 7). Shield protege contra DDoS volumétrico (capa 3/4)."
+              ]
+            },
+            {
+              "heading": "Seguridad: IAM vs KMS vs Secrets Manager vs Inspector vs GuardDuty",
+              "points": [
+                "**IAM:** Gestiona quién puede hacer qué en tu cuenta de AWS. Usuarios, grupos, roles y políticas JSON.",
+                "**AWS KMS (Key Management Service):** Crea y gestiona claves de cifrado (CMKs). Integrado con S3, EBS, RDS, Lambda, etc.",
+                "**AWS Secrets Manager:** Almacena y rota automáticamente secretos (contraseñas de BD, API keys). Integración nativa con RDS.",
+                "**AWS Systems Manager Parameter Store:** Alternativa más simple y barata para almacenar configuraciones y secretos sin rotación automática.",
+                "**Amazon GuardDuty:** Detección de amenazas inteligente usando ML sobre logs de CloudTrail, VPC Flow Logs y DNS. Te avisa de comportamientos sospechosos.",
+                "**Amazon Inspector:** Escanea vulnerabilidades de seguridad en instancias EC2 y contenedores (CVEs, exposición de red).",
+                "**Amazon Macie:** Descubre y protege datos sensibles (PII, credenciales) en buckets S3 usando ML.",
+                "⚠️ **Regla:** GuardDuty = detecta amenazas activas. Inspector = escanea vulnerabilidades del sistema. Macie = protege datos sensibles en S3."
+              ]
+            },
+            {
+              "heading": "Bases de datos: RDS vs DynamoDB vs Aurora vs Redshift",
+              "points": [
+                "**RDS:** Relacional (SQL). Soporta MySQL, PostgreSQL, MariaDB, Oracle, SQL Server. AWS gestiona backups y parches. Tú sigues gestionando el esquema.",
+                "**Aurora:** Relacional de alto rendimiento propio de AWS. Compatible MySQL/PostgreSQL. 6 copias en 3 AZs automáticamente. Hasta 5x más rápido que MySQL.",
+                "**DynamoDB:** NoSQL serverless. Clave-valor y documentos. Escala a millones de req/seg. Latencia milisegundos. Global Tables para multi-región.",
+                "**Redshift:** Data warehouse para análisis (OLAP). Petabytes de datos, consultas analíticas. NO para transacciones diarias (OLTP).",
+                "**ElastiCache:** Caché en memoria (Redis o Memcached). Reduce latencia de bases de datos.",
+                "⚠️ **Trampa:** Redshift NO es para OLTP. Es para análisis masivo de datos (OLAP, BI).",
+                "⚠️ **Trampa:** Aurora ≠ RDS aunque sea relacional. Aurora es el motor propio de AWS con mejor HA. RDS usa motores de terceros."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Lambda = serverless corto. EC2 = VM con control total. Fargate = contenedores sin servidor. Beanstalk = PaaS automatizado.",
+            "S3 = objetos. EBS = bloque para 1 EC2. EFS = archivos compartidos. Instance Store = efímero y rápido.",
+            "SG = stateful (solo ALLOW). NACL = stateless (ALLOW + DENY, reglas entrada y salida por separado).",
+            "GuardDuty = detecta amenazas. Inspector = vulnerabilidades en EC2. Macie = datos sensibles en S3.",
+            "Redshift = análisis (OLAP). RDS/Aurora/DynamoDB = transacciones (OLTP)."
+          ]
+        },
+        {
+          "id": "tips-t3",
+          "title": "Precios, soporte y trampas de costos",
+          "icon": "dollar",
+          "sections": [
+            {
+              "heading": "Opciones de precios EC2 — La tabla que debes memorizar",
+              "points": [
+                "**On-Demand:** Paga por hora/segundo. Sin compromiso. Máxima flexibilidad. Usa para cargas impredecibles o nuevas.",
+                "**Reserved Instances (RI):** Compromiso 1 o 3 años. Hasta 72 % de descuento. Standard RI = no puede cambiar. Convertible RI = puede cambiar tipo de instancia.",
+                "**Spot Instances:** Usa capacidad sobrante de AWS. Hasta 90 % de descuento. AWS puede interrumpirte con 2 minutos de aviso. Para batch, ML, procesamiento tolerante a interrupciones.",
+                "**Savings Plans:** Compromiso de gasto ($/hora) por 1 o 3 años. Más flexible que RI. Aplica a EC2, Lambda y Fargate. Compute Savings Plans (cualquier región/familia) vs EC2 Instance Savings Plans.",
+                "**Dedicated Host:** Servidor físico exclusivo. El más caro. Útil para licencias BYOL (Oracle, Windows Server).",
+                "**Dedicated Instances:** Instancias en hardware dedicado pero sin control del host específico. Más barato que Dedicated Host.",
+                "⚠️ **Trampa:** Spot puede interrumpirse. Si la carga NO puede interrumpirse (prod crítico), Spot no es la respuesta correcta.",
+                "💡 **Orden de precio (más caro → más barato):** On-Demand > Reserved > Spot. Dedicated Host es aparte por requisitos específicos."
+              ]
+            },
+            {
+              "heading": "Transferencia de datos — El costo oculto",
+              "points": [
+                "**Datos entrantes (ingress) a AWS:** GRATIS. Subir datos a S3, RDS, EC2, etc. no tiene costo.",
+                "**Datos salientes (egress) de AWS a internet:** TIENE COSTO. Es el principal costo de red.",
+                "**Entre regiones de AWS:** Tiene costo. Transferir datos entre us-east-1 y eu-west-1 cobra.",
+                "**Dentro de la misma región (entre AZs):** Tiene costo menor (cross-AZ traffic).",
+                "**Dentro de la misma AZ:** Generalmente gratuito entre servicios.",
+                "**CloudFront reduce costos de egress:** Los datos servidos desde Edge Locations tienen tarifa reducida vs datos directos desde EC2.",
+                "⚠️ **Trampa frecuente:** El examen pregunta qué tipo de transferencia tiene costo. Recuerda: entrada GRATIS, salida COBRA."
+              ]
+            },
+            {
+              "heading": "Planes de soporte — Diferencias clave",
+              "points": [
+                "**Basic (Gratis):** Documentación, whitepapers, foros, AWS Health Dashboard, 7 checks de Trusted Advisor.",
+                "**Developer ($29/mes):** Email en horario laboral. 1 contacto primario. <24h general, <12h sistema afectado.",
+                "**Business ($100/mes):** Chat, email y teléfono 24/7. <1h para producción caída. TODOS los checks de Trusted Advisor. AWS Health API.",
+                "**Enterprise On-Ramp ($5,500/mes):** Pool de TAMs. <30 min para sistema crítico. Revisiones Well-Architected.",
+                "**Enterprise ($15,000/mes):** TAM dedicado. <15 min para sistema crítico. Proactive Services, Infrastructure Event Management (IEM).",
+                "⚠️ **Trampa:** ¿Quién tiene soporte telefónico 24/7? Solo **Business, Enterprise On-Ramp y Enterprise**.",
+                "⚠️ **Trampa:** ¿Quién tiene TODOS los checks de Trusted Advisor? Solo **Business, Enterprise On-Ramp y Enterprise**.",
+                "⚠️ **Trampa:** ¿Quién tiene un TAM dedicado? Solo **Enterprise** (no Enterprise On-Ramp, que tiene pool)."
+              ]
+            },
+            {
+              "heading": "Herramientas de costos — cuál usar cuándo",
+              "points": [
+                "**AWS Pricing Calculator (calculator.aws):** Estima el costo de tu arquitectura ANTES de crearla. Para planificación.",
+                "**AWS Cost Explorer:** Analiza y visualiza costos HISTÓRICOS. Crea gráficas por servicio, cuenta o tag. Forecast a 12 meses.",
+                "**AWS Budgets:** Crea alertas proactivas cuando el costo supera (o se prevé superar) un umbral. Notificaciones por email o SNS.",
+                "**AWS Cost and Usage Report (CUR):** El reporte más granular. Exporta datos detallados a S3 para análisis con Athena o QuickSight.",
+                "**AWS Cost Allocation Tags:** Etiqueta recursos para rastrear costos por equipo, proyecto o entorno.",
+                "**AWS Compute Optimizer:** Analiza uso histórico de EC2 y recomienda el tipo/tamaño óptimo para reducir costos.",
+                "⚠️ **Regla:** Estimación = Pricing Calculator. Histórico = Cost Explorer. Alertas proactivas = Budgets. Detalle máximo = CUR."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Spot = más barato (90% descuento) pero interrumpible. On-Demand = flexible. Reserved = compromiso, gran ahorro.",
+            "Datos entrantes a AWS son GRATIS. Datos salientes a internet tienen COSTO.",
+            "Soporte telefónico 24/7 y Trusted Advisor completo: solo Business, Enterprise On-Ramp y Enterprise.",
+            "TAM dedicado: solo Enterprise. Enterprise On-Ramp tiene pool de TAMs.",
+            "Pricing Calculator = estimar antes. Cost Explorer = analizar histórico. Budgets = alertas."
+          ]
+        },
+        {
+          "id": "tips-t4",
+          "title": "Preguntas trampa y errores frecuentes",
+          "icon": "warning",
+          "sections": [
+            {
+              "heading": "Las 10 trampas más comunes del CLF-C02",
+              "points": [
+                "**1. 'CloudWatch y CloudTrail son lo mismo'** → FALSO. CloudWatch monitorea el rendimiento y métricas de tus recursos. CloudTrail audita QUIÉN hizo QUÉ (registro de API calls).",
+                "**2. 'S3 es una base de datos'** → FALSO. S3 es almacenamiento de objetos, no una base de datos. Para BD usa RDS, DynamoDB, Aurora, etc.",
+                "**3. 'Auto Scaling y ELB son lo mismo'** → FALSO. Auto Scaling ajusta el número de EC2. ELB distribuye el tráfico entre las instancias disponibles. Se usan juntos pero son servicios distintos.",
+                "**4. 'Lambda puede ejecutar cargas largas'** → FALSO. Lambda tiene un máximo de 15 minutos de ejecución. Para procesos largos usa EC2, ECS o AWS Batch.",
+                "**5. 'Availability Zones = Regiones'** → FALSO. Una región contiene múltiples AZs (mín. 3). Las AZs son centros de datos físicos separados dentro de la región.",
+                "**6. 'AWS Organizations solo sirve para facturación'** → FALSO. También permite aplicar SCPs (Service Control Policies) para restringir permisos en cuentas hijas.",
+                "**7. 'Secrets Manager y Parameter Store son equivalentes'** → Secrets Manager tiene rotación automática y es más caro. Parameter Store es más barato pero sin rotación automática nativa.",
+                "**8. 'Direct Connect y VPN hacen lo mismo'** → FALSO. Direct Connect = conexión física dedicada, sin internet, más costosa. VPN = cifrada sobre internet, más económica.",
+                "**9. 'IAM Roles son solo para usuarios'** → FALSO. Los roles IAM son principalmente para dar permisos a servicios AWS (EC2 que accede a S3, Lambda que escribe en DynamoDB).",
+                "**10. 'El Free Tier nunca caduca'** → DEPENDE. 'Always Free' no caduca. '12 Months Free' caduca 12 meses después de crear la cuenta. 'Trials' caducan en días/meses."
+              ]
+            },
+            {
+              "heading": "Comparaciones rápidas críticas para el examen",
+              "points": [
+                "**CloudFront vs Global Accelerator:** CloudFront = CDN para contenido web, cachea en Edge Locations. Global Accelerator = mejora la ruta de red para apps TCP/UDP usando la red backbone de AWS.",
+                "**SNS vs SQS:** SNS = pub/sub (un mensaje llega a múltiples suscriptores simultáneamente). SQS = cola (mensajes esperan a ser consumidos por un solo consumidor).",
+                "**Kinesis vs SQS:** SQS = mensajería asíncrona simple. Kinesis = streaming de datos en tiempo real a gran escala (analítica, IoT).",
+                "**AWS Config vs CloudTrail:** CloudTrail = registro de acciones de API (quién hizo qué). Config = registro del estado de configuración de recursos (cómo está configurado cada recurso y cómo cambió).",
+                "**AWS Backup vs S3 Lifecycle:** AWS Backup = centraliza backups de múltiples servicios. S3 Lifecycle = mueve objetos entre clases de almacenamiento automáticamente.",
+                "**CodeDeploy vs CodePipeline:** CodeDeploy = despliega código en EC2/Lambda/ECS. CodePipeline = orquesta todo el ciclo CI/CD (build, test, deploy).",
+                "**AWS Transit Gateway vs VPC Peering:** Peering = conecta 2 VPCs directamente (no transitivo). Transit Gateway = hub central que conecta múltiples VPCs y redes on-premises."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "CloudWatch = métricas y rendimiento. CloudTrail = auditoría de API (quién hizo qué).",
+            "Lambda máx. 15 min. Para procesos largos usa EC2, ECS o AWS Batch.",
+            "SNS = pub/sub (múltiples receptores). SQS = cola (un consumidor a la vez).",
+            "Roles IAM son principalmente para dar permisos a SERVICIOS, no solo usuarios.",
+            "Direct Connect = físico, sin internet. VPN = cifrado sobre internet."
+          ]
+        },
+        {
+          "id": "tips-t5",
+          "title": "Estrategia final y últimas recomendaciones",
+          "icon": "star",
+          "sections": [
+            {
+              "heading": "Distribución del examen CLF-C02 — Saber dónde poner foco",
+              "points": [
+                "**Dominio 1 — Conceptos de la nube (24%):** Las 6 ventajas, CapEx/OpEx, modelos de servicio, Well-Architected Framework, infraestructura global.",
+                "**Dominio 2 — Seguridad y cumplimiento (30%):** El dominio con MÁS peso. IAM, responsabilidad compartida, servicios de seguridad (GuardDuty, Shield, WAF, KMS), Artifact, Organizations.",
+                "**Dominio 3 — Tecnología y servicios (34%):** El dominio más AMPLIO. EC2, S3, RDS, Lambda, VPC, CloudFront, Route 53, todos los servicios principales.",
+                "**Dominio 4 — Facturación y soporte (12%):** Modelos de precios EC2, Free Tier, Cost Explorer, Budgets, planes de soporte, Trusted Advisor.",
+                "⚠️ **Estrategia:** Dominio 3 tiene más preguntas pero Dominio 2 (Seguridad) tiene el mayor peso relativo. Estudia bien ambos.",
+                "💡 **Tip:** El Well-Architected Framework (6 pilares) aparece frecuentemente en preguntas de escenario. Memoriza: Excelencia Operativa, Seguridad, Fiabilidad, Eficiencia de Rendimiento, Optimización de Costos, Sostenibilidad."
+              ]
+            },
+            {
+              "heading": "Well-Architected Framework — Los 6 pilares que siempre preguntan",
+              "points": [
+                "**1. Excelencia Operativa (Operational Excellence):** Ejecutar y monitorear sistemas para entregar valor de negocio. IaC, CI/CD, pequeños cambios frecuentes.",
+                "**2. Seguridad (Security):** Proteger datos, sistemas y activos. IAM, cifrado, trazabilidad, respuesta a incidentes.",
+                "**3. Fiabilidad (Reliability):** Recuperarse de interrupciones, escalar para cumplir con la demanda. Multi-AZ, backups, Auto Scaling.",
+                "**4. Eficiencia de Rendimiento (Performance Efficiency):** Usar recursos de forma eficiente. Elegir el tipo de instancia correcto, serverless, contenedores.",
+                "**5. Optimización de Costos (Cost Optimization):** Eliminar gastos innecesarios. Spot Instances, Reserved, Right-sizing, Compute Optimizer.",
+                "**6. Sostenibilidad (Sustainability):** Minimizar el impacto ambiental. Reducir huella de carbono, usar regiones eficientes.",
+                "💡 **AWS Well-Architected Tool:** Servicio gratuito de la consola de AWS que evalúa tu arquitectura contra estos 6 pilares y genera un reporte de mejoras."
+              ]
+            },
+            {
+              "heading": "Consejos el día del examen",
+              "points": [
+                "✅ **Lee bien la pregunta completa.** Busca palabras clave: 'más económico', 'sin servidor', 'multi-región', 'tiempo real', 'sin gestionar servidores', 'mínimo operacional'.",
+                "✅ **Elimina opciones incorrectas primero.** Suelen quedar 2 candidatas. Elige la más alineada con las mejores prácticas de AWS.",
+                "✅ **Las preguntas de escenario** (empresa X con requisito Y) son las más frecuentes. Identifica el requisito clave antes de buscar la respuesta.",
+                "✅ **No hay penalización por respuesta incorrecta.** Nunca dejes una pregunta en blanco.",
+                "✅ **Marca las preguntas que no sabes** y vuélvelas a revisar al final.",
+                "✅ **El tiempo no suele ser problema.** El CLF-C02 tiene 65 preguntas en 90 minutos. Aproximadamente 1.3 minutos por pregunta.",
+                "⚠️ **Ojo con las doble negativas:** 'cuál de los siguientes NO es responsabilidad de AWS' — lee con cuidado.",
+                "⚠️ **'Mínimo esfuerzo operativo'** generalmente apunta a soluciones serverless o servicios gestionados (Lambda, RDS, Fargate, Beanstalk) vs soluciones donde gestionas EC2 manualmente."
+              ]
+            },
+            {
+              "heading": "Recursos oficiales para el día antes",
+              "points": [
+                "📖 **AWS Skill Builder:** [skillbuilder.aws](https://skillbuilder.aws) — Plataforma oficial de aprendizaje de AWS con cursos gratuitos. El curso 'AWS Cloud Practitioner Essentials' es imprescindible.",
+                "📝 **Official Practice Question Set:** Disponible gratis en AWS Skill Builder. ~20 preguntas oficiales representativas del examen real.",
+                "🎯 **AWS Free Tier Account:** Crea una cuenta en aws.amazon.com y explora los servicios en la consola. La experiencia práctica consolida conceptos.",
+                "📋 **Exam Guide oficial CLF-C02:** Descarga el PDF del exam guide desde aws.amazon.com/certification. Es el temario oficial con exactamente qué te van a preguntar.",
+                "💡 **Puntaje mínimo para aprobar:** 700/1000. No necesitas contestar todo perfectamente. Con ~70% de respuestas correctas generalmente apruebas.",
+                "🔗 **AWS FAQs por servicio:** Los FAQs oficiales de servicios como EC2, S3, Lambda, RDS son excelentes para estudiar casos de uso y diferenciaciones."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Dominio 2 (Seguridad, 30%) tiene el mayor peso. Dominio 3 (Tecnología, 34%) tiene más preguntas.",
+            "Los 6 pilares del Well-Architected: Excelencia Operativa, Seguridad, Fiabilidad, Rendimiento, Costos, Sostenibilidad.",
+            "65 preguntas en 90 minutos. Puntaje mínimo: 700/1000.",
+            "No hay penalización por error. Siempre responde todas las preguntas.",
+            "'Mínimo esfuerzo operativo' = serverless o servicio gestionado. Nunca la opción que implica gestionar EC2 manualmente."
+          ]
+        }
+      ]
     }
   ]
 }

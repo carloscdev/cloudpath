@@ -8,7 +8,7 @@
       "number": 1,
       "title": "Conceptos de la nube",
       "weight": "25-30",
-      "description": "Conceptos básicos, modelos de servicio y ventajas de la nube.",
+      "description": "Conceptos básicos, modelos de servicio, ventajas y responsabilidades de la nube.",
       "topics": [
         {
           "id": "d1-t1",
@@ -16,45 +16,51 @@
           "icon": "cloud",
           "sections": [
             {
-              "heading": "Definición",
+              "heading": "Definición y Modelos de Gasto",
               "points": [
-                "**Computación en la nube**: Entrega de servicios informáticos (servidores, almacenamiento, bases de datos) a través de Internet.",
-                "**Modelo de responsabilidad compartida**: Divide las tareas de seguridad entre el proveedor de la nube y el cliente.",
-                "En **SaaS**, el cliente solo es responsable de los datos; en **IaaS**, el cliente gestiona el sistema operativo hacia arriba."
+                "**Computación en la nube**: Entrega de servicios informáticos (servidores, almacenamiento, redes, bases de datos) a través de Internet bajo demanda.",
+                "**Modelo basado en el consumo**: Pagas solo por los recursos que usas, lo que optimiza costes, elimina la necesidad de sobredimensionar la capacidad y ofrece mejor previsibilidad financiera.",
+                "**CapEx (Gasto de capital)**: Inversión inicial de dinero en infraestructura física (ej. comprar servidores físicos). Requiere mantenimiento a largo plazo y depreciación del hardware.",
+                "**OpEx (Gasto operativo)**: Gasto continuo en servicios o recursos sobre la marcha (pago por uso). No tiene costes iniciales y se deduce fiscalmente en el mismo periodo de gasto.",
+                "**Modelo de responsabilidad compartida**: Divide las tareas de seguridad y administración. El **cliente** siempre es responsable de los datos, las cuentas y los dispositivos finales. La responsabilidad de la infraestructura de identidad y acceso (IAM) se comparte entre el cliente y Microsoft en todos los modelos de la nube (IaaS, PaaS, SaaS)."
               ]
             },
             {
-              "heading": "Modelos de nube",
+              "heading": "Modelos de nube y Casos de Uso",
               "points": [
-                "**Pública**: Recursos propiedad de terceros proveedores que se comparten entre múltiples organizaciones.",
-                "**Privada**: Recursos utilizados exclusivamente por una única organización.",
-                "**Híbrida**: Combina nubes públicas y privadas, permitiendo que los datos y aplicaciones se compartan entre ellas."
+                "**Nube pública**: Recursos de cómputo y almacenamiento propiedad de un proveedor externo (como Microsoft Azure). Acceso multi-inquilino (*multi-tenant*) a través de Internet. **Caso de uso**: Despliegue rápido de aplicaciones web de uso general o desarrollo/pruebas sin inversión inicial.",
+                "**Nube privada**: Recursos utilizados exclusivamente por una sola organización. Puede estar en centros de datos propios (*on-premises*) o alojada por terceros. Ofrece control total de hardware y máxima seguridad. **Caso de uso**: Cumplimiento de leyes gubernamentales de soberanía de datos muy estrictas o sistemas heredados incompatibles con la nube pública.",
+                "**Nube híbrida**: Combina nubes públicas y privadas mediante tecnología que permite compartir datos y aplicaciones entre ellas. **Caso de uso**: Alojar el frontend de una aplicación en la nube pública para aprovechar su escalabilidad y mantener la base de datos sensible de clientes de forma segura en servidores privados locales."
               ]
             }
           ],
           "keyPoints": [
-            "El modelo basado en el consumo (OpEx) significa pagar solo por lo que se usa.",
-            "La computación sin servidor permite ejecutar código sin gestionar servidores."
+            "El modelo de pago por uso (OpEx) traslada los riesgos financieros iniciales del cliente al proveedor de la nube.",
+            "La responsabilidad compartida dicta que el proveedor de la nube gestiona la seguridad *de* la nube (capa física), mientras que el cliente gestiona la seguridad *en* la nube (datos y acceso).",
+            "La computación sin servidor (Serverless) es un tipo de servicio (un subconjunto avanzado de PaaS) donde el código se ejecuta basado en eventos, escala automáticamente y el cliente no gestiona ninguna infraestructura."
           ]
         },
         {
           "id": "d1-t2",
-          "title": "Ventajas de la nube",
+          "title": "Ventajas y Beneficios de la nube",
           "icon": "sparkles",
           "sections": [
             {
               "heading": "Beneficios clave",
               "points": [
-                "**Alta disponibilidad**: Garantiza que los servicios estén accesibles el mayor tiempo posible (SLA).",
-                "**Escalabilidad**: Capacidad de aumentar o disminuir recursos (Vertical vs Horizontal).",
-                "**Confiabilidad**: Capacidad de recuperarse de fallos y seguir funcionando.",
-                "**Previsibilidad**: Rendimiento y costes constantes y predecibles."
+                "**Alta disponibilidad (HA)**: Garantiza que las aplicaciones sigan funcionando y accesibles con el mínimo tiempo de inactividad, respaldado por Acuerdos de Nivel de Servicio (SLA) de Azure.",
+                "**Escalabilidad**: Capacidad para ajustar los recursos para satisfacer la demanda. Puede ser **Horizontal (Scale Out/In)** agregando o quitando instancias (ej. VMs) o **Vertical (Scale Up/Down)** aumentando o reduciendo las capacidades (ej. CPU o RAM) de una instancia existente.",
+                "**Confiabilidad y Resiliencia**: Capacidad del sistema para recuperarse de fallos inesperados y continuar funcionando de manera correcta (infraestructura distribuida globalmente).",
+                "**Previsibilidad**: Se divide en dos: **Previsibilidad de costos (pronosticar el gasto mediante Azure Pricing Calculator o Cost Management)** y **Previsibilidad de rendimiento (garantizar los recursos necesarios para evitar caídas mediante el autoescalado y la alta disponibilidad).**",
+                "**Seguridad y Gobernanza**: Cumplimiento regulatorio nativo e inversiones masivas de seguridad física y digital por parte del proveedor.",
+                "**Capacidad de administración (Manageability)**: Facilidad para administrar recursos. Incluye la gestión *de* la nube (crear y configurar mediante Portal, CLI, PowerShell, APIs) y la gestión *en* la nube (auto-escalado basado en reglas, monitorización y alertas)."
               ]
             }
           ],
           "keyPoints": [
-            "Escalabilidad horizontal: Añadir más instancias.",
-            "Escalabilidad vertical: Añadir más potencia (CPU/RAM) a una instancia existente."
+            "Escalabilidad horizontal (Scale out/in): Añadir o remover máquinas virtuales idénticas de forma automática ante picos de tráfico.",
+            "Escalabilidad vertical (Scale up/down): Cambiar el tamaño de una VM existente a una con mejores especificaciones de hardware (requiere reinicio).",
+            "Agilidad: Habilidad para desplegar, probar y retirar recursos tecnológicos en cuestión de minutos, impulsando la innovación."
           ]
         },
         {
@@ -63,17 +69,18 @@
           "icon": "layers",
           "sections": [
             {
-              "heading": "Modelos de servicio",
+              "heading": "Modelos de servicio y casos de uso",
               "points": [
-                "**IaaS (Infraestructura)**: Alquiler de servidores físicos/virtuales (ej. Azure VMs). Tú gestionas el SO.",
-                "**PaaS (Plataforma)**: Entorno para desarrollar y desplegar apps sin gestionar infraestructura (ej. Azure App Service).",
-                "**SaaS (Software)**: Software listo para usar alojado por el proveedor (ej. Office 365, Salesforce)."
+                "**IaaS (Infraestructura como servicio)**: Alquiler de infraestructura de TI física o virtual (servidores, redes, almacenamiento). Ofrece el máximo control sobre el sistema operativo y el software. **Caso de uso**: Migración de servidores locales existentes a la nube sin rediseñar la arquitectura (*Lift-and-Shift*).",
+                "**PaaS (Plataforma como servicio)**: Proporciona un entorno listo para construir, probar y desplegar aplicaciones de software sin la complejidad de gestionar servidores, parches o sistemas operativos. **Caso de uso**: Creación rápida de aplicaciones web o bases de datos autogestionadas (ej. Azure App Service, Azure SQL Database).",
+                "**SaaS (Software como servicio)**: El proveedor aloja y gestiona toda la aplicación final, la cual se consume directamente (normalmente a través de un navegador web). El usuario final no administra nada del backend. **Caso de uso**: Herramientas de productividad y correo corporativo (ej. Microsoft 365, Teams)."
               ]
             }
           ],
           "keyPoints": [
-            "IaaS ofrece el máximo control.",
-            "SaaS ofrece la mínima gestión."
+            "IaaS ofrece la mayor flexibilidad y control de infraestructura, pero requiere el mayor esfuerzo de mantenimiento por parte del cliente (actualizaciones del SO).",
+            "PaaS es ideal para desarrolladores, ya que abstrae toda la administración del sistema operativo subyacente.",
+            "SaaS representa el menor coste de administración y mantenimiento técnico para el cliente final."
           ]
         }
       ]
@@ -83,91 +90,104 @@
       "number": 2,
       "title": "Arquitectura y servicios de Azure",
       "weight": "35-40",
-      "description": "Estructura global de Azure y sus servicios principales de cómputo, red y almacenamiento.",
+      "description": "Estructura global de Azure, cómputo, redes, almacenamiento y herramientas de migración.",
       "topics": [
         {
           "id": "d2-t1",
-          "title": "Componentes arquitectónicos",
+          "title": "Componentes arquitectónicos de Azure",
           "icon": "globe",
           "sections": [
             {
-              "heading": "Estructura Global",
+              "heading": "Estructura Física y Global",
               "points": [
-                "**Regiones**: Ubicaciones geográficas que contienen centros de datos (ej. East US).",
-                "**Zonas de disponibilidad**: Centros de datos físicamente separados dentro de una región.",
-                "**Regiones soberanas**: Regiones aisladas para cumplimiento específico (ej. Azure Government)."
+                "**Regiones**: Ubicación geográfica que contiene uno o más centros de datos conectados por una red dedicada de baja latencia (ej. East US).",
+                "**Pares de regiones (Region Pairs)**: Cada región de Azure está emparejada con otra en la misma geografía a una distancia mínima de 300 millas. Permite la replicación segura de datos y la recuperación de servicios paso a paso durante fallos generales.",
+                "**Zonas de disponibilidad (Availability Zones)**: Centros de datos físicamente separados dentro de una región. Cada zona cuenta con energía, refrigeración y redes independientes para tolerar caídas de un edificio completo.",
+                "**Regiones soberanas**: Nubes aisladas físicamente del Azure global para cumplir regulaciones estrictas de seguridad. Ejemplos: **Azure Government** (gobierno de EE. UU. y sus socios) y **Azure China** (operada de forma local por 21Vianet)."
               ]
             },
             {
-              "heading": "Jerarquía de gestión",
+              "heading": "Jerarquía de gestión lógica",
               "points": [
-                "**Recursos**: Instancias de servicios (VMs, DBs).",
-                "**Grupos de recursos**: Contenedores lógicos para agrupar recursos relacionados.",
-                "**Suscripciones**: Unidad de facturación y límites.",
-                "**Grupos de administración**: Jerarquía superior para gestionar múltiples suscripciones."
+                "**Recursos**: Instancias individuales de servicios creados por el usuario (máquinas virtuales, bases de datos, redes virtuales).",
+                "**Grupos de recursos**: Contenedor lógico donde se organizan y administran los recursos de Azure. Un recurso pertenece a un solo grupo y no se pueden anidar.",
+                "**Suscripciones**: Unidad de facturación y límite administrativo. Agrupa los grupos de recursos y aplica límites de cuota de recursos y directivas de seguridad.",
+                "**Grupos de administración (Management Groups)**: Estructuras organizativas de nivel superior que permiten gestionar el acceso, las directivas y el cumplimiento en múltiples suscripciones simultáneamente."
               ]
             }
           ],
           "keyPoints": [
-            "Un recurso solo puede pertenecer a un Grupo de Recursos.",
-            "Las suscripciones permiten separar facturación y políticas."
+            "La jerarquía lógica sigue el orden estricto de herencia: Grupos de Administración -> Suscripciones -> Grupos de Recursos -> Recursos.",
+            "Las Zonas de Disponibilidad ofrecen redundancia dentro de una región; los Pares de Regiones ofrecen redundancia a nivel geográfico completo.",
+            "No todas las regiones de Azure disponen de Zonas de Disponibilidad."
           ]
         },
         {
           "id": "d2-t2",
-          "title": "Cómputo y Redes",
+          "title": "Servicios de Cómputo y Redes",
           "icon": "cpu",
           "sections": [
             {
-              "heading": "Servicios de Cómputo",
+              "heading": "Opciones de Cómputo",
               "points": [
-                "**Azure VMs**: Máquinas virtuales IaaS con control total.",
-                "**Azure App Service**: PaaS para aplicaciones web y APIs.",
-                "**Azure Functions**: Cómputo sin servidor (Serverless) basado en eventos.",
-                "**Azure Virtual Desktop**: Escritorio remoto en la nube."
+                "**Azure VMs**: Máquinas virtuales que proveen infraestructura IaaS bajo control directo.",
+                "**Azure Virtual Machine Scale Sets (VMSS)**: Permite implementar y administrar un grupo de VMs idénticas con auto-escalado horizontal basado en la demanda.",
+                "**Availability Sets (Conjuntos de disponibilidad)**: Agrupación lógica que distribuye VMs en diferentes racks físicos para protegerlas contra fallos de hardware o mantenimiento programado.",
+                "**Azure App Service**: Plataforma PaaS para hospedar aplicaciones web y APIs sin administrar servidores.",
+                "**Contenedores**: **Azure Container Instances (ACI)** es el método más rápido y sencillo para ejecutar un contenedor sin servidor; **Azure Kubernetes Service (AKS)** es la plataforma empresarial para orquestar múltiples contenedores mediante Kubernetes.",
+                "**Azure Functions**: Computación sin servidor (Serverless) basada en eventos que escala automáticamente y factura por milisegundos de uso.",
+                "**Azure Virtual Desktop (AVD)**: Servicio de virtualización de escritorios y aplicaciones en la nube para acceso remoto corporativo.",
+                "**Recursos requeridos por una VM**: Una VM requiere CPU/RAM, discos de almacenamiento (sistema operativo y datos), una Red Virtual (VNet y subred), una Interfaz de Red (NIC) y direcciones IP."
               ]
             },
             {
-              "heading": "Redes virtuales",
+              "heading": "Redes virtuales y Conectividad",
               "points": [
-                "**Virtual Network (VNet)**: Red privada aislada en Azure.",
-                "**VPN Gateway**: Conexión segura entre redes locales y VNets vía Internet.",
-                "**ExpressRoute**: Conexión privada dedicada (no usa Internet).",
-                "**Azure DNS**: Servicio de hospedaje de dominios."
+                "**Virtual Network (VNet)**: Red privada lógica y aislada en Azure. Las **Subredes** dividen la VNet para organizar el tráfico.",
+                "**VNet Peering**: Conecta de forma segura dos redes virtuales de Azure directamente a través de la red troncal (backbone) privada de Microsoft.",
+                "**VPN Gateway**: Envía tráfico cifrado entre una red local y una VNet de Azure a través de la Internet pública.",
+                "**ExpressRoute**: Conexión privada dedicada y de alta velocidad que conecta la red física local directamente con Azure **sin utilizar la Internet pública**.",
+                "**Endpoints Públicos vs Privados**: Los **Endpoints Públicos** son direcciones IP públicas expuestas a Internet con seguridad perimetral. Los **Endpoints Privados (Private Endpoints)** usan una IP privada de tu VNet para conectar de forma totalmente segura tus recursos locales y en la nube mediante **Azure Private Link**."
               ]
             }
           ],
           "keyPoints": [
-            "El emparejamiento (peering) permite conectar dos VNets.",
-            "Los puntos de conexión privados permiten acceso seguro a servicios Azure."
+            "ExpressRoute ofrece menor latencia, mayor velocidad y seguridad superior a las conexiones VPN tradicionales al evitar la Internet pública.",
+            "Los Private Endpoints protegen los servicios PaaS de Azure frente a la exposición a Internet de datos sensibles.",
+            "El cómputo Serverless escala a cero cuando no hay eventos activos, eliminando costes en reposo."
           ]
         },
         {
           "id": "d2-t3",
-          "title": "Servicios de Almacenamiento",
+          "title": "Servicios de Almacenamiento y Migración",
           "icon": "database",
           "sections": [
             {
-              "heading": "Tipos de Almacenamiento",
+              "heading": "Tipos y Niveles de Almacenamiento",
               "points": [
-                "**Azure Blob Storage**: Almacenamiento de objetos masivo (imágenes, videos, logs).",
-                "**Azure Files**: Recurso compartido de archivos (SMB/NFS).",
-                "**Azure Disk Storage**: Discos persistentes para VMs."
+                "**Cuentas de almacenamiento (Storage Accounts)**: Tipo **Standard** (almacenamiento en disco duro convencional) y tipo **Premium** (discos SSD de alto rendimiento y latencia ultrabaja).",
+                "**Azure Blob Storage**: Almacenamiento de objetos optimizado para datos no estructurados masivos (imágenes, documentos, copias de seguridad).",
+                "**Azure Files**: Recursos compartidos de archivos totalmente administrados en la nube accesibles mediante protocolos SMB y NFS.",
+                "**Azure Disk Storage**: Discos de almacenamiento de bloques persistentes e individuales diseñados para VMs.",
+                "**Niveles de acceso de almacenamiento (Blob Tiers)**: **Hot** (datos de uso frecuente; coste de almacenamiento alto, acceso barato), **Cool** (datos poco frecuentes; mín. 30 días de retención), **Cold** (datos de acceso muy ocasional; mín. 90 días de retención; coste de almacenamiento más bajo que Cool), y **Archive** (datos históricos offline; requiere rehidratación que tarda horas; coste de almacenamiento mínimo; mín. 180 días de retención).",
+                "**Redundancia de almacenamiento**: **LRS** (local, 3 copias en un único centro de datos), **ZRS** (zona, 3 copias en zonas de disponibilidad diferentes dentro de una región) y **GRS** (geográfica, réplica asincrónica en una región secundaria secundaria)."
               ]
             },
             {
-              "heading": "Migración y Herramientas",
+              "heading": "Herramientas de Migración y Movimiento de datos",
               "points": [
-                "**AzCopy**: Utilidad de línea de comandos para copiar datos.",
-                "**Azure Storage Explorer**: GUI para gestionar almacenamiento.",
-                "**Azure Migrate**: Centro para migrar servidores y bases de datos a Azure.",
-                "**Azure Data Box**: Dispositivo físico para mover grandes cantidades de datos."
+                "**AzCopy**: Herramienta de línea de comandos ultrarrápida para copiar archivos hacia o desde Storage Accounts.",
+                "**Azure Storage Explorer**: Interfaz gráfica de usuario (GUI) multiplataforma para administrar recursos de almacenamiento.",
+                "**Azure File Sync**: Servicio que almacena en caché archivos de uso frecuente en servidores locales sincronizándolos con Azure Files.",
+                "**Azure Migrate**: Portal centralizado para descubrir, evaluar y migrar cargas de trabajo locales (VMs, servidores físicos, bases de datos) a Azure.",
+                "**Familia Azure Data Box**: Soluciones de almacenamiento físico seguro (que incluyen Data Box, Data Box Heavy y Data Box Disk) proporcionadas por Microsoft para transferir grandes volúmenes de datos (de Terabytes a Petabytes) a Azure de forma offline."
               ]
             }
           ],
           "keyPoints": [
-            "Niveles de almacenamiento: Hot (frecuente), Cool (infrecuente), Archive (raro/barato).",
-            "Opciones de redundancia: LRS (local), GRS (geográfica), ZRS (zonas)."
+            "El nivel Cold (Frío) es la solución más reciente de Azure para optimizar costes de almacenamiento intermedio entre Cool y Archive.",
+            "La rehidratación es obligatoria antes de leer cualquier objeto archivado (Archive Tier), cambiando su estado a Hot, Cool o Cold.",
+            "GRS es la redundancia recomendada para resistir desastres que afecten a una región geográfica completa."
           ]
         }
       ]
@@ -177,45 +197,57 @@
       "number": 3,
       "title": "Identidad, acceso y seguridad",
       "weight": "20-25",
-      "description": "Gestión de usuarios, autenticación y modelos de seguridad en Azure.",
+      "description": "Gestión de identidades en la nube, control de acceso y modelos globales de seguridad.",
       "topics": [
         {
           "id": "d3-t1",
-          "title": "Servicios de Identidad",
+          "title": "Servicios de Identidad y Control de Acceso",
           "icon": "shield",
           "sections": [
             {
-              "heading": "Microsoft Entra ID",
+              "heading": "Identidad y Autenticación",
               "points": [
-                "**Microsoft Entra ID (antes Azure AD)**: Servicio de gestión de identidades y accesos basado en la nube.",
-                "**SSO (Single Sign-On)**: Inicia sesión una vez para acceder a múltiples apps.",
-                "**MFA (Multifactor Authentication)**: Requiere dos o más elementos para verificar identidad.",
-                "**RBAC (Role-Based Access Control)**: Gestión técnica de permisos mediante roles (Lector, Colaborador)."
+                "**Microsoft Entra ID (antes Azure AD)**: Servicio de gestión de identidades y accesos basado en la nube. Administra la autenticación de usuarios y accesos a recursos internos y externos.",
+                "**Microsoft Entra Domain Services (Entra DS)**: Proporciona servicios de dominio administrados (unión a dominio, directivas de grupo, LDAP, Kerberos) compatibles con Windows Server Active Directory sin desplegar controladores de dominio.",
+                "**SSO (Single Sign-On)**: Inicio de sesión único. Permite al usuario autenticarse una sola vez y acceder a múltiples aplicaciones sin volver a introducir credenciales.",
+                "**MFA (Multifactor Authentication)**: Requiere dos o más métodos de verificación de identidad de categorías distintas: algo que sabes (contraseña), algo que tienes (móvil/token) y algo que eres (biometría).",
+                "**Passwordless (Autenticación sin contraseña)**: Método más seguro que elimina las contraseñas tradicionales usando Windows Hello for Business, la aplicación Microsoft Authenticator o claves de seguridad físicas FIDO2.",
+                "**Identidades Externas**: Permite colaborar de forma segura con usuarios fuera de la organización mediante **B2B (Business-to-Business)** (colaboración con cuentas de socios externos) y **B2C (Business-to-Consumer)** (gestión de identidades para clientes de aplicaciones públicas)."
+              ]
+            },
+            {
+              "heading": "Autorización y Directivas de Acceso",
+              "points": [
+                "**RBAC (Role-Based Access Control)**: Gestión precisa de permisos asignando roles predefinidos (Owner, Contributor, Reader, User Access Admin) a usuarios, grupos o servicios.",
+                "**Ámbitos de RBAC (Scopes)**: Los permisos se aplican a niveles específicos (Grupo de administración -> Suscripción -> Grupo de recursos -> Recurso) y los recursos hijos los heredan de forma descendente.",
+                "**Acceso Condicional (Conditional Access)**: Motor de directivas de Microsoft Entra ID que analiza señales en tiempo real (usuario, ubicación, dispositivo, riesgo de la app) para tomar decisiones automatizadas (permitir acceso, requerir MFA o bloquear)."
               ]
             }
           ],
           "keyPoints": [
-            "RBAC funciona bajo el principio de privilegio mínimo.",
-            "El acceso condicional permite denegar o permitir accesos basándose en señales (ubicación, dispositivo)."
+            "RBAC funciona bajo el principio de privilegio mínimo: concede a los usuarios solo los permisos necesarios para realizar sus tareas de trabajo específicas.",
+            "El Acceso Condicional implementa el principio de 'verificar explícitamente' de Zero Trust, analizando el contexto de cada intento de conexión.",
+            "Microsoft Entra ID es un sistema de identidad plano (basado en la nube), mientras que Entra DS proporciona estructura jerárquica compatible con Active Directory local."
           ]
         },
         {
           "id": "d3-t2",
-          "title": "Modelos de Seguridad",
+          "title": "Modelos de Seguridad y Protección",
           "icon": "lock",
           "sections": [
             {
-              "heading": "Defensa en profundidad",
+              "heading": "Marcos de Seguridad de Microsoft",
               "points": [
-                "**Zero Trust (Confianza cero)**: Modelo que nunca confía y siempre verifica cada solicitud.",
-                "**Defensa en profundidad**: Estrategia de múltiples niveles para proteger datos (Físico -> Red -> Host -> Datos).",
-                "**Microsoft Defender for Cloud**: Gestión de seguridad y protección contra amenazas."
+                "**Zero Trust (Confianza cero)**: Modelo moderno de seguridad basado en tres principios: **Verificar explícitamente** (autenticar siempre), **Usar acceso con privilegios mínimos** (limitar el acceso) y **Asumir brechas** (minimizar el radio de impacto de un ataque mediante segmentación).",
+                "**Defensa en profundidad**: Estrategia de seguridad multinivel para proteger datos en caso de que falle una capa. Capas (de fuera hacia dentro): Física -> Identidad y acceso -> Perímetro -> Red -> Cómputo -> Aplicación -> Datos.",
+                "**Microsoft Defender for Cloud**: Herramienta centralizada de gestión de seguridad. Ofrece **CSPM (Cloud Security Posture Management)** (evalúa la configuración de seguridad dando una puntuación 'Secure Score') y **CWPP (Cloud Workload Protection Platform)** (protección contra amenazas en VMs, bases de datos y contenedores)."
               ]
             }
           ],
           "keyPoints": [
-            "Confianza cero asume que hay brechas de seguridad.",
-            "La seguridad física es el nivel más externo de la defensa en profundidad."
+            "La seguridad física de los centros de datos es el nivel más externo y es responsabilidad exclusiva de Microsoft en la nube pública.",
+            "El principio de 'Asumir Brechas' ayuda a proactivamente aislar recursos e implementar cifrado de extremo a extremo.",
+            "Microsoft Defender for Cloud genera recomendaciones automáticas basadas en estándares internacionales de cumplimiento normativo."
           ]
         }
       ]
@@ -225,72 +257,320 @@
       "number": 4,
       "title": "Administración y gobernanza",
       "weight": "30-35",
-      "description": "Gestión de costes, políticas y herramientas de monitorización.",
+      "description": "Gestión de costes, gobernanza, herramientas de implementación y supervisión de recursos.",
       "topics": [
         {
           "id": "d4-t1",
-          "title": "Gestión de Costos",
+          "title": "Gestión de Costos en Azure",
           "icon": "dollar",
           "sections": [
             {
-              "heading": "Control de Gastos",
+              "heading": "Factores de Coste y Estimación",
               "points": [
-                "**Calculadora de precios**: Estima costes antes de crear recursos.",
-                "**Azure Cost Management**: Monitoriza y controla el gasto actual.",
-                "**Etiquetas (Tags)**: Metadatos para organizar y rastrear costes de departamentos.",
-                "**Bloqueos de recursos**: Evitan el borrado accidental (CanNotDelete) o modificación (ReadOnly)."
+                "**Factores que afectan el coste**: El tipo de recurso, el nivel de servicio (tier), el consumo (uso por horas), el tipo de suscripción, la ubicación/región (los precios varían según el datacenter) y la transferencia de datos (la entrada de datos/ingress es gratuita, pero la salida de datos/egress a Internet u otras regiones genera costes).",
+                "**Calculadora de precios (Pricing Calculator)**: Herramienta web para estimar y configurar costes mensuales esperados *antes* de desplegar recursos en Azure.",
+                "**Calculadora de TCO (Total Cost of Ownership)**: Compara los costes estimados de mantener una infraestructura local (*on-premises*) frente a migrarla a Azure para evaluar el ahorro financiero a largo plazo."
+              ]
+            },
+            {
+              "heading": "Control y Optimización de Gastos",
+              "points": [
+                "**Azure Cost Management + Billing**: Herramienta integrada para analizar el gasto histórico, generar informes de costes, configurar alertas presupuestarias automatizadas y optimizar el uso de la nube.",
+                "**Etiquetas (Tags)**: Metadatos en pares clave-valor que se asocian a los recursos para agrupar costes y facilitar la facturación interna por departamentos, entornos o proyectos. No se heredan automáticamente.",
+                "**Bloqueos de recursos (Resource Locks)**: Evitan cambios accidentales. Tipos: **ReadOnly** (permite leer pero no modificar ni borrar el recurso) y **CanNotDelete** (permite leer y modificar el recurso, pero impide borrarlo)."
               ]
             }
           ],
           "keyPoints": [
-            "Los bloqueos se heredan de padres a hijos.",
-            "TCO Calculator ayuda a comparar costes locales vs nube."
+            "Los bloqueos de recursos se heredan hacia abajo (del Grupo de Recursos a todos los recursos individuales que contiene).",
+            "El tráfico de datos entre recursos de una misma Zona de Disponibilidad o Región suele ser gratuito, pero el tráfico de salida (egress) fuera de Azure tiene costes asociados.",
+            "Los bloqueos tienen prioridad sobre los permisos de RBAC (incluso un Owner no puede borrar un recurso bloqueado sin retirar el bloqueo primero)."
           ]
         },
         {
           "id": "d4-t2",
-          "title": "Gobernanza y Cumplimiento",
+          "title": "Gobernanza y Cumplimiento Normativo",
           "icon": "check-circle",
           "sections": [
             {
-              "heading": "Herramientas de Control",
+              "heading": "Herramientas de Control e Integridad",
               "points": [
-                "**Azure Policy**: Aplica reglas específicas sobre tus recursos (ej. forzar etiquetas).",
-                "**Microsoft Purview**: Gobierno de datos y cumplimiento en toda la organización.",
-                "**Azure Arc**: Extiende la gestión de Azure a infraestructuras híbridas y multi-cloud."
+                "**Azure Policy**: Servicio para crear, asignar y administrar directivas de cumplimiento en Azure. Evalúa los recursos y bloquea (*deny*) despliegues no conformes o audita (*audit*) recursos existentes (ej. limitar tamaños de VM permitidos o forzar ubicaciones específicas).",
+                "**Microsoft Purview**: Solución de gobierno de datos unificada que ayuda a descubrir, clasificar y proteger datos confidenciales (como datos financieros o médicos) en entornos locales, multi-cloud y SaaS.",
+                "**Azure Arc**: Extiende la gobernanza de Azure Policy y los servicios de administración de Azure a infraestructuras externas, permitiendo gestionar servidores físicos locales, Kubernetes o VMs de AWS directamente desde el Portal de Azure."
               ]
             }
           ],
           "keyPoints": [
-            "Azure Policy puede bloquear o auditar recursos que no cumplen.",
-            "Purview ayuda a descubrir y clasificar datos sensibles."
+            "Azure Policy es preventivo y correctivo, asegurando el cumplimiento técnico, mientras que Purview se enfoca en el descubrimiento de datos y gobernanza corporativa.",
+            "Azure Arc es clave en estrategias híbridas (*hybrid cloud*) al unificar el plano de control."
           ]
         },
         {
           "id": "d4-t3",
-          "title": "Herramientas de Gestión",
+          "title": "Herramientas de Gestión y Supervisión",
           "icon": "table",
           "sections": [
             {
-              "heading": "Interfaz y CLI",
+              "heading": "Interfaz e Infraestructura como Código (IaC)",
               "points": [
-                "**Azure Portal**: Consola web gráfica.",
-                "**Azure Cloud Shell**: Terminal en navegador con Bash o PowerShell.",
-                "**Plantillas ARM / Bicep**: Infraestructura como código (IaC) para despliegues repetibles."
+                "**Herramientas de Consola**: **Azure Portal** (consola web gráfica), **Azure Mobile App** (administración móvil), **Azure Cloud Shell** (terminal interactiva en navegador con Bash o PowerShell), **Azure CLI** (línea de comandos multiplataforma) y **Azure PowerShell**.",
+                "**Azure Resource Manager (ARM)**: El servicio central de implementación y administración para Azure. Procesa todas las solicitudes de la API para crear, actualizar y eliminar recursos de forma segura.",
+                "**Infraestructura como código (IaC)**: Despliegue de infraestructura mediante archivos de configuración declarativos. **Plantillas ARM** (basadas en JSON), **Bicep** (lenguaje declarativo simplificado de Microsoft) y **Terraform** (herramienta multi-cloud de terceros)."
               ]
             },
             {
-              "heading": "Supervisión",
+              "heading": "Supervisión y Salud del Entorno",
               "points": [
-                "**Azure Advisor**: Recomendaciones personalizadas sobre coste, seguridad y rendimiento.",
-                "**Azure Service Health**: Estado de los servicios globales de Azure.",
-                "**Azure Monitor**: Colección de telemetría, Log Analytics y Alertas."
+                "**Azure Advisor**: Asistente virtual personalizado que ofrece recomendaciones gratuitas basadas en las mejores prácticas en 5 pilares: **Coste (Cost)**, **Seguridad (Security)**, **Fiabilidad (Reliability)**, **Excelencia Operativa (Operational Excellence)** y **Rendimiento (Performance)**.",
+                "**Azure Service Health**: Tablero de estado de salud personalizado que alerta al usuario sobre incidentes de servicio global en Azure, mantenimientos planificados o avisos de salud que afecten a sus suscripciones y regiones activas.",
+                "**Azure Monitor**: Solución completa para recopilar, analizar y actuar sobre la telemetría del sistema. Contiene **Log Analytics** (para realizar consultas y consultas KQL complejas sobre registros de auditoría), **Alertas de Monitor** (alertas automatizadas ante fallos) y **Application Insights** (monitoreo del rendimiento de aplicaciones web en vivo)."
               ]
             }
           ],
           "keyPoints": [
-            "Advisor es gratuito y ofrece 'mejores prácticas'.",
-            "Monitor permite crear alertas automáticas ante fallos."
+            "Azure Advisor es gratuito y no genera costes adicionales por sus recomendaciones.",
+            "Diferencia de salud: Service Health monitorea la infraestructura global de Microsoft; Azure Monitor supervisa la telemetría interna de tus propios recursos y aplicaciones.",
+            "El motor de Azure Resource Manager (ARM) garantiza la coherencia e idempotencia de los despliegues de IaC."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "domain-tips",
+      "number": 5,
+      "title": "Tips para el Examen",
+      "weight": "—",
+      "description": "Puntos clave, trampas comunes y comparaciones críticas que debes dominar antes de dar el examen AZ-900.",
+      "topics": [
+        {
+          "id": "tips-t1",
+          "title": "Conceptos que más confunden",
+          "icon": "sparkles",
+          "sections": [
+            {
+              "heading": "CapEx vs OpEx — La pregunta clásica",
+              "points": [
+                "**CapEx (Capital Expenditure):** Comprar servidores físicos, pagar por adelantado. Gran inversión inicial, activo que se deprecia. Modelo on-premises tradicional.",
+                "**OpEx (Operational Expenditure):** Pagar por uso mensual en la nube. Sin inversión inicial, gasto predecible. Azure opera en este modelo.",
+                "⚠️ **Trampa:** El examen pregunta cuál modelo *elimina* la necesidad de predecir la demanda → **OpEx/nube** porque escala según necesidad.",
+                "💡 **Regla mental:** CapEx = comprar el edificio. OpEx = alquilar el espacio mes a mes."
+              ]
+            },
+            {
+              "heading": "Alta Disponibilidad vs Escalabilidad vs Elasticidad vs Agilidad",
+              "points": [
+                "**Alta Disponibilidad:** El sistema *sigue funcionando* aunque partes fallen. Se mide con SLA (ej. 99.9 %). Relacionado con redundancia.",
+                "**Escalabilidad:** Capacidad de *aumentar recursos* para manejar más carga. Puede ser vertical (más CPU/RAM) u horizontal (más instancias).",
+                "**Elasticidad:** La nube escala *automáticamente* hacia arriba Y hacia abajo según la demanda real. La app se adapta sola.",
+                "**Agilidad:** Capacidad de *aprovisionar recursos rápidamente* (en minutos vs meses). Permite experimentar y fallar rápido con bajo coste.",
+                "⚠️ **Trampa:** Elasticidad ≠ Escalabilidad. La elasticidad incluye la capacidad de *reducirse* automáticamente. La escalabilidad es solo crecer.",
+                "⚠️ **Trampa:** Alta disponibilidad NO es lo mismo que recuperación ante desastres. HA previene interrupciones. DR recupera después de un desastre."
+              ]
+            },
+            {
+              "heading": "IaaS vs PaaS vs SaaS — Quién es responsable de qué",
+              "points": [
+                "**IaaS:** Tú gestionas el SO, middleware, runtime y aplicación. Azure gestiona hardware, red e hipervisor. Ejemplo: VM de Azure.",
+                "**PaaS:** Tú solo gestionas la aplicación y los datos. Azure gestiona todo lo demás incluyendo el SO y el runtime. Ejemplo: Azure App Service, Azure SQL Database.",
+                "**SaaS:** Tú solo eres responsable de los datos y los usuarios que acceden. Todo lo demás es responsabilidad de Microsoft. Ejemplo: Microsoft 365, Dynamics 365.",
+                "💡 **Regla mental:** IaaS = alquilas el hardware. PaaS = alquilas la plataforma. SaaS = alquilas la app completa.",
+                "⚠️ **Trampa:** En el modelo de responsabilidad compartida, el cliente es *siempre* responsable de sus propios datos y de la gestión de accesos e identidades, independientemente del modelo (IaaS/PaaS/SaaS)."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "CapEx = inversión inicial (on-prem). OpEx = pago por uso (nube). La nube elimina la necesidad de sobredimensionar.",
+            "Elasticidad incluye escalar para abajo automáticamente. Escalabilidad solo es crecer.",
+            "En IaaS gestionas el SO. En PaaS solo la app. En SaaS solo los datos y usuarios.",
+            "El cliente siempre es responsable de sus datos, sin importar el modelo de servicio."
+          ]
+        },
+        {
+          "id": "tips-t2",
+          "title": "Servicios Azure que más se confunden",
+          "icon": "shield",
+          "sections": [
+            {
+              "heading": "Azure vs Microsoft Entra ID (antes Azure AD)",
+              "points": [
+                "**Microsoft Entra ID** (antes Azure Active Directory): Servicio de identidad y acceso basado en la nube. Gestiona usuarios, grupos, roles y autenticación para apps en la nube.",
+                "**Active Directory (AD DS) on-premises:** El AD tradicional de Windows Server. Gestiona equipos y usuarios en redes corporativas locales.",
+                "⚠️ **Trampa:** Microsoft Entra ID NO es Active Directory en la nube. Son productos distintos. Entra ID usa OAuth/OIDC/SAML. AD DS usa Kerberos/LDAP.",
+                "**Azure AD Connect / Entra Connect:** Sincroniza usuarios entre AD on-premises y Entra ID (entorno híbrido)."
+              ]
+            },
+            {
+              "heading": "Azure Monitor vs Azure Service Health vs Azure Advisor",
+              "points": [
+                "**Azure Monitor:** Recopila métricas y logs de *tus recursos*. Crea alertas. Contiene Log Analytics y Application Insights. Para monitorear el rendimiento de tu aplicación.",
+                "**Azure Service Health:** Muestra el estado de la infraestructura de *Microsoft*: si hay incidentes globales de Azure, mantenimientos planificados o avisos que afectan tu suscripción.",
+                "**Azure Advisor:** Analiza tu configuración actual y da *recomendaciones de mejora* gratuitas en 5 áreas: coste, seguridad, fiabilidad, rendimiento y excelencia operativa.",
+                "⚠️ **Regla:** Monitor = ¿cómo están mis recursos? Service Health = ¿está Azure funcionando? Advisor = ¿cómo puedo mejorar mi configuración?"
+              ]
+            },
+            {
+              "heading": "Opciones de disponibilidad: Zonas vs Regiones vs Pares",
+              "points": [
+                "**Zona de disponibilidad (AZ):** Centro de datos físico *dentro* de una región. Protege contra fallos de un datacenter. SLA ≥ 99.99 % para VMs en 2+ AZs.",
+                "**Par de regiones:** Dos regiones geográficamente separadas. Usadas para recuperación ante desastres de nivel regional. Las actualizaciones se hacen por turnos.",
+                "**Región soberana:** Región aislada físicamente y lógicamente para cumplimiento normativo (Azure Government, Azure China 21Vianet).",
+                "⚠️ **Trampa:** Las zonas de disponibilidad protegen contra fallos de un *datacenter*. Los pares de región protegen contra fallos de una *región entera*.",
+                "💡 Una región que soporta zonas de disponibilidad está compuesta por un mínimo de 3 zonas de disponibilidad individuales (centros de datos separados). No todas las regiones tienen AZs."
+              ]
+            },
+            {
+              "heading": "Defensas de Seguridad: qué servicio hace qué",
+              "points": [
+                "**Azure Firewall:** Firewall de red gestionado y de alta disponibilidad. Controla el tráfico de red en la VNet.",
+                "**Azure DDoS Protection:** Protege contra ataques de denegación de servicio distribuido. Plan Basic (incluido para todos) y Plan Standard (avanzado, de pago).",
+                "**Azure Key Vault:** Almacena y gestiona secretos, claves de cifrado y certificados de forma segura. Tu app llama a Key Vault en tiempo de ejecución.",
+                "**Microsoft Defender for Cloud:** Monitoreo de postura de seguridad y protección ante amenazas para Azure, on-premises y multi-nube. Incluye recomendaciones y puntuación de seguridad.",
+                "**Microsoft Purview:** Gobernanza de datos, compliance y descubrimiento de datos sensibles en toda la organización.",
+                "⚠️ **Trampa:** Azure Firewall ≠ Network Security Group. NSG filtra tráfico de red a nivel de subred/interfaz. Firewall es un servicio gestionado de más alto nivel."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Entra ID (antes Azure AD) es para identidad en la nube (OAuth/SAML), NO es el AD tradicional on-premises.",
+            "Monitor → tus recursos. Service Health → infraestructura de Microsoft. Advisor → recomendaciones de mejora.",
+            "AZ protege contra fallo de un datacenter. Par de región protege contra fallo de una región completa.",
+            "Key Vault = almacena secretos y claves. Defender for Cloud = postura de seguridad y amenazas.",
+            "DDoS Basic es gratuito para todos. DDoS Standard es de pago con protección avanzada."
+          ]
+        },
+        {
+          "id": "tips-t3",
+          "title": "Modelos de costos y SLAs clave",
+          "icon": "dollar",
+          "sections": [
+            {
+              "heading": "SLAs de disponibilidad — Los porcentajes que debes conocer",
+              "points": [
+                "**99 % SLA:** ~7.3 horas de tiempo de inactividad permitido al mes.",
+                "**99.9 % SLA (tres nueves):** ~43.8 minutos de inactividad al mes. Nivel estándar de muchos servicios.",
+                "**99.95 % SLA:** ~21.9 minutos al mes. Azure VMs con Premium SSD en zona de disponibilidad.",
+                "**99.99 % SLA (cuatro nueves):** ~4.4 minutos al mes. Requiere VM en 2+ zonas de disponibilidad.",
+                "**99.999 % SLA (cinco nueves):** ~26 segundos al mes. Alcanzable con arquitectura multi-región activo-activo.",
+                "💡 **Regla:** Añadir más zonas o regiones siempre aumenta la disponibilidad y el SLA compuesto.",
+                "⚠️ **Trampa:** Si combinas dos servicios con SLA 99.9 %, el SLA compuesto es 99.9 % × 99.9 % = **99.8 %**, no 99.9 %."
+              ]
+            },
+            {
+              "heading": "Factores que afectan el costo en Azure",
+              "points": [
+                "**Tipo de recurso:** Cada servicio tiene su propia estructura de precios (VMs por hora, Storage por GB, etc.).",
+                "**Consumo:** Pago por uso. Más uso = más coste. Puedes reservar capacidad para obtener descuentos (hasta 72 %).",
+                "**Región:** El precio varía según la región. West US es históricamente más barata que West Europe.",
+                "**Tráfico de red (Ancho de banda):** La transferencia de datos *hacia* Azure (ingress) es *gratuita*. La transferencia *desde* Azure (egress) hacia internet tiene costo. La transferencia entre servicios en la misma región es gratuita.",
+                "**Suscripción:** Tipo de oferta (PAYG, Enterprise Agreement, CSP) afecta los precios.",
+                "**Azure Marketplace:** Software de terceros puede tener cargos adicionales de licencia.",
+                "⚠️ **Trampa clave para el examen:** El tráfico de red *saliente* (de Azure a internet) tiene costo. El entrante es gratis."
+              ]
+            },
+            {
+              "heading": "Herramientas de costos — cuál usar cuándo",
+              "points": [
+                "**Calculadora de precios (pricing.azure.com):** Para *estimar* el costo de una arquitectura *antes* de crearla. Configura servicios y regiones.",
+                "**Calculadora TCO (Total Cost of Ownership):** Para comparar el costo de mantener infraestructura on-premises vs migrar a Azure. Muestra el ahorro potencial a 3-5 años.",
+                "**Microsoft Cost Management + Billing:** Para *monitorear y analizar* el gasto real ya ocurrido. Incluye presupuestos y alertas.",
+                "**Azure Advisor (pilar de costos):** Identifica recursos infrautilizados y da recomendaciones de reducción de costos automáticas.",
+                "⚠️ **Regla de oro:** Estimación ANTES → Calculadora de precios. Comparar con on-prem → TCO. Gasto real → Cost Management."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "99.9 % = ~43 min caída/mes. 99.99 % = ~4 min. Necesitas 2+ AZs para llegar a 99.99 %.",
+            "SLAs compuestos se multiplican: dos servicios 99.9 % = 99.8 % compuesto.",
+            "Tráfico entrante a Azure es GRATIS. El saliente hacia internet tiene costo.",
+            "Calculadora de precios = estimar. TCO = comparar con on-prem. Cost Management = ver gasto real."
+          ]
+        },
+        {
+          "id": "tips-t4",
+          "title": "Preguntas trampa y errores frecuentes",
+          "icon": "warning",
+          "sections": [
+            {
+              "heading": "Las 10 trampas más comunes del AZ-900",
+              "points": [
+                "**1. 'La nube es siempre más barata'** → FALSO. La nube puede ser más cara si no se optimiza. Cargas de trabajo estables y predecibles pueden ser más baratas on-premises.",
+                "**2. 'Azure Cosmos DB es una base de datos relacional'** → FALSO. Cosmos DB es una base de datos NoSQL multi-modelo (documentos, grafos, clave-valor).",
+                "**3. 'ARM templates y Bicep son lo mismo'** → Bicep *compila* a ARM JSON. Son equivalentes en resultado pero Bicep es más legible y conciso.",
+                "**4. 'Azure Policy impide crear recursos'** → Azure Policy puede *auditar, denegar o desplegar automáticamente* configuraciones. No elimina recursos existentes por sí sola.",
+                "**5. 'Microsoft Entra ID es necesario solo para empresas'** → Toda cuenta de Azure ya usa Entra ID. Es el sistema de identidad base.",
+                "**6. 'Azure Blob Storage es para bases de datos'** → Blob Storage es para objetos no estructurados (archivos, imágenes, backups). Para BD usa Azure SQL, Cosmos DB, etc.",
+                "**7. 'Las regiones soberanas son simplemente regiones más seguras'** → Son entornos *completamente aislados* de Azure comercial, con operadores locales.",
+                "**8. 'El SLA aplica automáticamente aunque solo tengas 1 VM'** → Una sola VM con Standard SSD tiene SLA del 99.9 %. Con Premium SSD sube a 99.5 % y con zona de disponibilidad a 99.99 %.",
+                "**9. 'Azure Firewall y NSG hacen lo mismo'** → NSG es filtrado básico de tráfico por IP/puerto. Azure Firewall es un servicio gestionado completo con FQDN filtering, SNAT, logs, etc.",
+                "**10. 'Microsoft Purview solo es para Azure'** → Microsoft Purview puede descubrir y clasificar datos en *múltiples nubes y on-premises*, no solo en Azure."
+              ]
+            },
+            {
+              "heading": "Tabla de comparaciones rápidas para memorizar",
+              "points": [
+                "**Azure SQL Database vs SQL Managed Instance:** SQL DB = PaaS completamente gestionado. SQL MI = compatibilidad total con SQL Server on-premises para migraciones lift-and-shift.",
+                "**Azure Table Storage vs Azure Cosmos DB Table API:** Table Storage = económico y simple. Cosmos DB Table API = global, SLA garantizado, mejor rendimiento.",
+                "**Azure Backup vs Azure Site Recovery:** Backup = restaurar archivos/datos individuales. Site Recovery = recuperación ante desastres completa de VMs/workloads (DR).",
+                "**Azure CDN vs Azure Front Door:** CDN = distribución de contenido estático. Front Door = balanceo de carga global L7, WAF integrado, enrutamiento inteligente.",
+                "**Azure DNS vs Traffic Manager:** DNS = resolución de nombres. Traffic Manager = enrutamiento de tráfico DNS global basado en políticas (latencia, failover, geográfico).",
+                "**Lock ReadOnly vs Lock CanNotDelete:** ReadOnly = nadie puede modificar ni eliminar. CanNotDelete = se puede modificar pero no eliminar."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "La nube no siempre es más barata; depende del patrón de uso y optimización.",
+            "Cosmos DB = NoSQL. Azure SQL = relacional. No confundirlos.",
+            "Azure Backup = restaurar datos. Site Recovery = recuperación completa de VMs ante desastre.",
+            "NSG = filtrado de red básico. Azure Firewall = servicio completo de firewall gestionado.",
+            "Lock CanNotDelete permite modificar. Lock ReadOnly impide modificar Y eliminar."
+          ]
+        },
+        {
+          "id": "tips-t5",
+          "title": "Estrategia final y últimas recomendaciones",
+          "icon": "star",
+          "sections": [
+            {
+              "heading": "Distribución del examen AZ-900 — Saber dónde poner foco",
+              "points": [
+                "**Dominio 1 — Conceptos de nube (25-30%):** Preguntas conceptuales. Estudia CapEx/OpEx, IaaS/PaaS/SaaS, responsabilidad compartida y ventajas de la nube muy bien.",
+                "**Dominio 2 — Arquitectura y servicios Azure (35-40%):** El dominio con MÁS preguntas. Conoce los servicios principales: VMs, App Service, AKS, SQL, Cosmos DB, Storage, VNet, ExpressRoute.",
+                "**Dominio 3 — Seguridad y cumplimiento (25-30%):** Entra ID, RBAC, Defender for Cloud, Key Vault, Compliance. Muy importante para el examen actual.",
+                "**Dominio 4 — Precios, gobernanza y soporte (20-25%):** Calculadoras de precios, Cost Management, SLAs, Azure Policy, Management Groups.",
+                "⚠️ **Estrategia:** Enfócate más en Dominio 2 (el más pesado) y Dominio 1 (el más conceptual y fácil de puntar)."
+              ]
+            },
+            {
+              "heading": "Consejos el día del examen",
+              "points": [
+                "✅ **Lee bien la pregunta completa** antes de elegir. Busca palabras como 'siempre', 'nunca', 'más económico', 'sin código', 'sin servidor'.",
+                "✅ **Elimina las opciones obviamente incorrectas** primero. En general quedan 2 opciones reales y solo una es la mejor.",
+                "✅ **Las preguntas de escenario** (empresa X necesita Y) son las más comunes. Identifica el requisito clave: ¿escalabilidad? ¿costo? ¿seguridad? ¿compliance?",
+                "✅ **No hay penalización por respuesta incorrecta.** Si no sabes, responde. Nunca dejes en blanco.",
+                "✅ **Revisa las preguntas marcadas** al final. El examen permite marcar preguntas para revisarlas.",
+                "✅ **El tiempo no suele ser problema.** El AZ-900 da 60 minutos para 40-60 preguntas. Suele sobrar tiempo.",
+                "✅ **Confía en tu primer instinto.** Los estudios demuestran que la primera respuesta elegida suele ser la correcta.",
+                "⚠️ **Cuidado con 'mejor' vs 'correcto':** Si hay dos respuestas técnicamente válidas, elige la que sea *más eficiente, económica o alineada con mejores prácticas de Microsoft*."
+              ]
+            },
+            {
+              "heading": "Recursos oficiales para el día antes",
+              "points": [
+                "📖 **Microsoft Learn — AZ-900:** [learn.microsoft.com/azure/fundamentals](https://learn.microsoft.com/es-es/credentials/certifications/azure-fundamentals/) — Ruta oficial gratuita con módulos interactivos.",
+                "📝 **Practice Assessment oficial de Microsoft:** Disponible en Microsoft Learn, incluye 50 preguntas de práctica gratuitas oficiales. Muy representativo del examen real.",
+                "🎯 **Azure Free Account:** Si aún no lo has hecho, crea una cuenta gratuita en portal.azure.com y explora los servicios. La experiencia práctica refuerza mucho los conceptos.",
+                "📋 **Skills Measured (guide oficial):** Descarga el PDF 'Skills measured' del examen AZ-900 desde la página oficial de Microsoft. Es literalmente el temario del examen.",
+                "💡 **Puntaje mínimo para aprobar:** 700/1000. No necesitas contestar todo perfectamente. Con ~70% de respuestas correctas sueles aprobar."
+              ]
+            }
+          ],
+          "keyPoints": [
+            "Dominio 2 (Arquitectura y Servicios) tiene el mayor peso: 35-40% del examen.",
+            "No hay penalización por errores. Siempre responde todas las preguntas.",
+            "Busca palabras clave en cada pregunta: 'sin servidor', 'más económico', 'menor latencia', 'multi-región'.",
+            "Puntaje mínimo para aprobar: 700 de 1000.",
+            "El Practice Assessment oficial de Microsoft Learn es la mejor herramienta de práctica gratuita disponible."
           ]
         }
       ]
